@@ -1,4 +1,5 @@
-﻿Imports MySql.Data.MySqlClient
+﻿
+Imports MySql.Data.MySqlClient
 
 Public Class vistaAlojamientos
 	Public con As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
@@ -11,6 +12,6 @@ Public Class vistaAlojamientos
 	End Sub
 
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-		'Dim builder As New SqlCommandBuilder(adapter)
+		Dim builder As New MySqlCommandBuilder(adapter)
 	End Sub
 End Class
