@@ -16,5 +16,6 @@ Public Class Conexion
 			MsgBox("No se pudo conectar a la BD por: " & ex.Message)
 			Application.ExitThread()
 		End Try
+		con.Close()
 	End Sub
 End Class
