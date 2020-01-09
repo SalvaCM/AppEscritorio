@@ -4,7 +4,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class vistaAlojamientos
 	Public con As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
-	Public adapter As New MySqlDataAdapter("SELECT * FROM TALOJAMIENTOS", con)
+	Public adapter As New MySqlDataAdapter("SELECT cCodAlojamiento'CODIGO',cNombre'NOMBRE',cDescripcion'DESCRIPCION',cDireccion'DIRECCION',cEmail'EMAIL',cLongitud'LONGITUD',cLatitud'LATITUD',cLocalidad'LOCALIDAD',cLocalizacion'LOCALIZACION',cTipo'TIPO',cTelefono'TELEFONO',cWeb'WEB',cCapacidad'CAPACIDAD' FROM TALOJAMIENTOS", con)
 	Public indice As Integer
 	Public codigo, capacidad As Integer
 	Public descripcion, direccion, email, tipo, localizacion, telefono, nombre, localidad, paginaWeb, latitud, longitud As String
@@ -22,7 +22,61 @@ Public Class vistaAlojamientos
 	End Sub
 
 	Private Sub ModificarAlojamiento()
-		Throw New NotImplementedException()
+		codigo = Convert.ToInt32(txtCodigo.Text)
+		capacidad = Convert.ToInt32(txtCapacidad.Text)
+		descripcion = txtDescripcion.Text
+		direccion = txtDireccion.Text
+		latitud = txtLatitud.Text
+		longitud = txtLongitud.Text
+		localidad = txtLocalidad.Text
+		nombre = txtNombre.Text
+		telefono = txtTelefono.Text
+		email = txtMail.Text
+		localizacion = txtLocalizacion.Text
+		tipo = txtTipo.Text
+		paginaWeb = txtWeb.Text
+		If (codigo <> -1) Then
+			'(" & codigo & "," & capacidad & ",'" & descripcion & "','" & direccion & "','" & latitud & "','" & longitud & "','" & localidad & "','" & nombre & "','" & telefono & "','" & email & "','" & localizacion & "','" & tipo & "','" & paginaWeb & "')'
+			Try
+				con.Open()
+
+				Dim query As String = "Update talojamientos set cCapacidad=@capacidad,cDescripcion=@descripcion,cDireccion=@direccion,cEmail=@email,cLatitud=@latitud,cLocalidad=@localidad,cLocalizacion=@localizacion,cLongitud=@longitud,cNombre=@nombre,cTelefono=@telefono,cTipo=@tipo,cWeb=@web  where cCodAlojamiento=@codigo ;"
+				Dim cmd As New MySqlCommand(query, con)
+				cmd.CommandType = CommandType.Text
+				cmd.Parameters.AddWithValue("@codigo", codigo)
+				cmd.Parameters.AddWithValue("@capacidad", capacidad)
+				cmd.Parameters.AddWithValue("@descripcion", descripcion)
+				cmd.Parameters.AddWithValue("@direccion", direccion)
+				cmd.Parameters.AddWithValue("@email", email)
+				cmd.Parameters.AddWithValue("@latitud", latitud)
+				cmd.Parameters.AddWithValue("@localidad", localidad)
+				cmd.Parameters.AddWithValue("@localizacion", localizacion)
+				cmd.Parameters.AddWithValue("@longitud", longitud)
+				cmd.Parameters.AddWithValue("@nombre", nombre)
+				cmd.Parameters.AddWithValue("@telefono", telefono)
+				cmd.Parameters.AddWithValue("@tipo", tipo)
+				cmd.Parameters.AddWithValue("@web", paginaWeb)
+
+				cmd.ExecuteNonQuery()
+
+			Catch ex As Exception
+				MessageBox.Show("Error en actualizacion en la tabla..." & ex.Message, "Error")
+
+			Finally
+
+				con.Close()
+				DataGridView1.DataSource = Nothing
+				DataGridView1.Refresh()
+				cargaGrid()
+			End Try
+		End If
+
+
+	End Sub
+
+	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+		MenuGestion.Show()
+		Me.Close()
 	End Sub
 
 	Private Sub CrearAlojamiento()
@@ -96,18 +150,18 @@ Public Class vistaAlojamientos
 		indice = DataGridView1.CurrentCell.RowIndex
 
 		codigo = Convert.ToInt32(DataGridView1.Rows(indice).Cells(0).Value)
-		capacidad = Convert.ToInt32(DataGridView1.Rows(indice).Cells(1).Value)
-		telefono = DataGridView1.Rows(indice).Cells(10).Value
+		nombre = DataGridView1.Rows(indice).Cells(1).Value
 		descripcion = DataGridView1.Rows(indice).Cells(2).Value
 		direccion = DataGridView1.Rows(indice).Cells(3).Value
 		email = DataGridView1.Rows(indice).Cells(4).Value
 		latitud = DataGridView1.Rows(indice).Cells(5).Value
-		longitud = DataGridView1.Rows(indice).Cells(8).Value
-		nombre = DataGridView1.Rows(indice).Cells(9).Value
-		localidad = DataGridView1.Rows(indice).Cells(6).Value
-		paginaWeb = DataGridView1.Rows(indice).Cells(12).Value
-		tipo = DataGridView1.Rows(indice).Cells(11).Value
-		localizacion = DataGridView1.Rows(indice).Cells(7).Value
+		longitud = DataGridView1.Rows(indice).Cells(6).Value
+		localidad = DataGridView1.Rows(indice).Cells(7).Value
+		localizacion = DataGridView1.Rows(indice).Cells(8).Value
+		tipo = DataGridView1.Rows(indice).Cells(9).Value
+		telefono = DataGridView1.Rows(indice).Cells(10).Value
+		paginaWeb = DataGridView1.Rows(indice).Cells(11).Value
+		capacidad = Convert.ToInt32(DataGridView1.Rows(indice).Cells(12).Value)
 
 
 		txtCodigo.Text = codigo.ToString

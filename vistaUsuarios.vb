@@ -239,4 +239,8 @@ Public Class vistaUsuarios
     Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
         cargaGrid()
     End Sub
+
+	Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+	End Sub
 End Class
