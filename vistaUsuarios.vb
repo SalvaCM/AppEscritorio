@@ -160,4 +160,5 @@ Public Class vistaUsuarios
         btnModi.Visible = True
         comboTipoUsuario.Enabled = True
     End Sub
+
 End Class

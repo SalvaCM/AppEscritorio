@@ -6,22 +6,92 @@ Public Class vistaAlojamientos
 	Public con As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
 	Public adapter As New MySqlDataAdapter("SELECT * FROM TALOJAMIENTOS", con)
 	Public indice As Integer
-	Private Sub Alojamientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+	Public codigo, capacidad As Integer
+	Public descripcion, direccion, email, tipo, localizacion, telefono, nombre, localidad, paginaWeb, latitud, longitud As String
+	Public modo As String = "Crear" 'modos disponibles : Crear , Modificar / Se usa para saber si hay que crear un aloj o modificarlo'
 
-		Dim tabla As New DataTable()
-		adapter.Fill(tabla)
-		DataGridView1.DataSource = tabla
+	Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
+		deshabilitarTxt()
+		btnCancelar.Visible = False
+		btnAceptar.Visible = False
+		If modo = "Crear" Then
+			CrearAlojamiento()
+		Else
+			ModificarAlojamiento()
+		End If
 	End Sub
 
-	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-		Dim builder As New MySqlCommandBuilder(adapter)
+	Private Sub ModificarAlojamiento()
+		Throw New NotImplementedException()
 	End Sub
+
+	Private Sub CrearAlojamiento()
+		codigo = maxCod()
+		capacidad = Convert.ToInt32(txtCapacidad.Text)
+		descripcion = txtDescripcion.Text
+		direccion = txtDireccion.Text
+		latitud = txtLatitud.Text
+		longitud = txtLongitud.Text
+		localidad = txtLocalidad.Text
+		nombre = txtNombre.Text
+		telefono = txtTelefono.Text
+		email = txtMail.Text
+		localizacion = txtLocalizacion.Text
+		tipo = txtTipo.Text
+		paginaWeb = txtWeb.Text
+		If (codigo <> -1) Then
+
+			Try
+				'codigo = Convert.ToInt32(DataGridView1.Rows(indice).Cells(0).Value)'
+				con.Open()
+
+				Dim query As String = "Insert into talojamientos (cCodAlojamiento,cCapacidad,cDescripcion,cDireccion,cEmail,cLatitud,cLocalidad,cLocalizacion,cLongitud,cNombre,cTelefono,cTipo,cWeb) values (" & codigo & "," & capacidad & ",'" & descripcion & "','" & direccion & "','" & latitud & "','" & longitud & "','" & localidad & "','" & nombre & "','" & telefono & "','" & email & "','" & localizacion & "','" & tipo & "','" & paginaWeb & "'); "
+				Dim cmd As New MySqlCommand(query, con)
+				cmd.ExecuteNonQuery()
+
+			Catch ex As Exception
+				MessageBox.Show("Error en insercion en la tabla..." & ex.Message, "Insert Records")
+
+			Finally
+
+				con.Close()
+				DataGridView1.DataSource = Nothing
+				DataGridView1.Refresh()
+				cargaGrid()
+			End Try
+		End If
+	End Sub
+
+	Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+		modo = "Modificar"
+		habilitarTxt()
+		btnCancelar.Visible = True
+		btnAceptar.Visible = True
+	End Sub
+
+	Private Sub BtnCrear_Click(sender As Object, e As EventArgs) Handles btnCrear.Click
+		modo = "Crear"
+		habilitarTxt()
+		txtCodigo.Text = ""
+		txtCapacidad.Text = ""
+		txtDescripcion.Text = ""
+		txtDireccion.Text = ""
+		txtLatitud.Text = ""
+		txtLongitud.Text = ""
+		txtLocalidad.Text = ""
+		txtNombre.Text = ""
+		txtLocalidad.Text = ""
+		txtTelefono.Text = ""
+		txtMail.Text = ""
+		txtLocalizacion.Text = ""
+		txtTipo.Text = ""
+		txtWeb.Text = ""
+		btnAceptar.Visible = True
+		btnCancelar.Visible = True
+	End Sub
+
 
 	Private Sub DataGridView1_Click(sender As Object, e As EventArgs) Handles DataGridView1.Click
-
-		Dim codigo, capacidad As Integer
-		Dim descripcion, direccion, email, tipo, localizacion, telefono, nombre, localidad, paginaWeb As String
-		Dim latitud, longitud As String
 
 		indice = DataGridView1.CurrentCell.RowIndex
 
@@ -48,7 +118,6 @@ Public Class vistaAlojamientos
 		txtLongitud.Text = longitud
 		txtLocalidad.Text = localidad
 		txtNombre.Text = nombre
-		txtLocalidad.Text = localidad
 		txtTelefono.Text = telefono
 		txtMail.Text = email
 		txtLocalizacion.Text = localizacion
@@ -57,10 +126,8 @@ Public Class vistaAlojamientos
 
 	End Sub
 
-	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
 		indice = DataGridView1.CurrentCell.RowIndex
-
-
 		Try
 			Dim codigo As Integer = Convert.ToInt32(DataGridView1.Rows(indice).Cells(0).Value)
 			con.Open()
@@ -75,6 +142,7 @@ Public Class vistaAlojamientos
 			Else
 				Dim cmd As New MySqlCommand(query, con)
 				cmd.ExecuteNonQuery()
+
 			End If
 		Catch ex As Exception
 			MessageBox.Show("Error borrando de la tabla..." & ex.Message, "Delete Records")
@@ -82,10 +150,88 @@ Public Class vistaAlojamientos
 		Finally
 
 			con.Close()
+			DataGridView1.DataSource = Nothing
+			DataGridView1.Refresh()
+			cargaGrid()
 		End Try
-	End Sub
-
-	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
 	End Sub
+	Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+		deshabilitarTxt()
+		btnCancelar.Visible = False
+		btnAceptar.Visible = False
+	End Sub
+	Private Sub Alojamientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		cargaGrid()
+	End Sub
+	Sub cargaGrid()
+		con.Open()
+		Dim tabla As New DataTable()
+		adapter.Fill(tabla)
+		DataGridView1.DataSource = tabla
+		con.Close()
+	End Sub
+	Sub deshabilitarTxt()
+		txtNombre.Enabled = False
+		txtCapacidad.Enabled = False
+		txtDescripcion.Enabled = False
+		txtDireccion.Enabled = False
+		txtLatitud.Enabled = False
+		txtLongitud.Enabled = False
+		txtLocalidad.Enabled = False
+		txtTelefono.Enabled = False
+		txtMail.Enabled = False
+		txtLocalizacion.Enabled = False
+		txtTipo.Enabled = False
+		txtWeb.Enabled = False
+
+		DataGridView1.Enabled = True
+
+		btnCrear.Enabled = True
+		btnModificar.Enabled = True
+		btnEliminar.Enabled = True
+
+	End Sub
+	Sub habilitarTxt()
+		txtCapacidad.Enabled = True
+		txtDescripcion.Enabled = True
+		txtDireccion.Enabled = True
+		txtLatitud.Enabled = True
+		txtLongitud.Enabled = True
+		txtLocalidad.Enabled = True
+		txtTelefono.Enabled = True
+		txtMail.Enabled = True
+		txtLocalizacion.Enabled = True
+		txtTipo.Enabled = True
+		txtWeb.Enabled = True
+		txtNombre.Enabled = True
+
+		DataGridView1.Enabled = False
+
+		btnCrear.Enabled = False
+		btnModificar.Enabled = False
+		btnEliminar.Enabled = False
+	End Sub
+	Function maxCod()
+		Dim maxCodigo As Integer
+		Try
+			con.Open()
+			Dim query As String = "SELECT max(cCodAlojamiento) FROM TALOJAMIENTOS"
+			Dim cmd As New MySqlCommand(query, con)
+			maxCodigo = cmd.ExecuteScalar()
+			If (maxCodigo <> Nothing) Then
+
+				maxCodigo += 1
+			Else
+				maxCodigo = -1
+
+			End If
+		Catch ex As Exception
+			MessageBox.Show("No se pudo obtener el codigo" & ex.Message, "Error")
+			maxCodigo = -1
+		Finally
+			con.Close()
+		End Try
+		Return maxCodigo
+	End Function
 End Class

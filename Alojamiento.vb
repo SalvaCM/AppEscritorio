@@ -9,8 +9,8 @@
 	Public localidad As String
 	Public email As String
 	Public web As String
-	Public capacidad As String
-	Public Sub New(codigo As Integer, nombre As String, descripcion As String, tipo As String, localizacion As String, telefono As Integer, dir As String, localidad As String, email As String, web As String, capacidad As String)
+	Public capacidad As Integer
+	Public Sub New(codigo As Integer, nombre As String, descripcion As String, tipo As String, localizacion As String, telefono As Integer, dir As String, localidad As String, email As String, web As String, capacidad As Integer)
 		Me.codigo = codigo
 		Me.nombre = nombre
 		Me.descripcion = descripcion

@@ -23,16 +23,14 @@ Partial Class vistaAlojamientos
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Me.Button4 = New System.Windows.Forms.Button()
-		Me.Button3 = New System.Windows.Forms.Button()
-		Me.Button2 = New System.Windows.Forms.Button()
-		Me.Button1 = New System.Windows.Forms.Button()
+		Me.btnEliminar = New System.Windows.Forms.Button()
+		Me.btnModificar = New System.Windows.Forms.Button()
+		Me.btnCrear = New System.Windows.Forms.Button()
 		Me.Label15 = New System.Windows.Forms.Label()
 		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
 		Me.txtLocalizacion = New System.Windows.Forms.TextBox()
-		Me.txtTipo = New System.Windows.Forms.TextBox()
-		Me.TextBox11 = New System.Windows.Forms.TextBox()
 		Me.Label10 = New System.Windows.Forms.Label()
-		Me.TextBox12 = New System.Windows.Forms.TextBox()
+		Me.txtTipo = New System.Windows.Forms.TextBox()
 		Me.Label11 = New System.Windows.Forms.Label()
 		Me.txtDireccion = New System.Windows.Forms.TextBox()
 		Me.Label9 = New System.Windows.Forms.Label()
@@ -51,13 +49,13 @@ Partial Class vistaAlojamientos
 		Me.txtLatitud = New System.Windows.Forms.TextBox()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.txtWeb = New System.Windows.Forms.TextBox()
-		Me.txtCapacidad = New System.Windows.Forms.TextBox()
-		Me.TextBox15 = New System.Windows.Forms.TextBox()
 		Me.Label5 = New System.Windows.Forms.Label()
-		Me.TextBox16 = New System.Windows.Forms.TextBox()
+		Me.txtCapacidad = New System.Windows.Forms.TextBox()
 		Me.Label12 = New System.Windows.Forms.Label()
 		Me.txtTelefono = New System.Windows.Forms.TextBox()
 		Me.Label13 = New System.Windows.Forms.Label()
+		Me.btnAceptar = New System.Windows.Forms.Button()
+		Me.btnCancelar = New System.Windows.Forms.Button()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
@@ -70,32 +68,32 @@ Partial Class vistaAlojamientos
 		Me.Button4.Text = "Volver"
 		Me.Button4.UseVisualStyleBackColor = True
 		'
-		'Button3
+		'btnEliminar
 		'
-		Me.Button3.Location = New System.Drawing.Point(1022, 117)
-		Me.Button3.Name = "Button3"
-		Me.Button3.Size = New System.Drawing.Size(75, 23)
-		Me.Button3.TabIndex = 28
-		Me.Button3.Text = "ELIMINAR"
-		Me.Button3.UseVisualStyleBackColor = True
+		Me.btnEliminar.Location = New System.Drawing.Point(985, 20)
+		Me.btnEliminar.Name = "btnEliminar"
+		Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
+		Me.btnEliminar.TabIndex = 28
+		Me.btnEliminar.Text = "ELIMINAR"
+		Me.btnEliminar.UseVisualStyleBackColor = True
 		'
-		'Button2
+		'btnModificar
 		'
-		Me.Button2.Location = New System.Drawing.Point(1022, 86)
-		Me.Button2.Name = "Button2"
-		Me.Button2.Size = New System.Drawing.Size(75, 23)
-		Me.Button2.TabIndex = 27
-		Me.Button2.Text = "MODIFICAR"
-		Me.Button2.UseVisualStyleBackColor = True
+		Me.btnModificar.Location = New System.Drawing.Point(904, 20)
+		Me.btnModificar.Name = "btnModificar"
+		Me.btnModificar.Size = New System.Drawing.Size(75, 23)
+		Me.btnModificar.TabIndex = 27
+		Me.btnModificar.Text = "MODIFICAR"
+		Me.btnModificar.UseVisualStyleBackColor = True
 		'
-		'Button1
+		'btnCrear
 		'
-		Me.Button1.Location = New System.Drawing.Point(1022, 57)
-		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(75, 23)
-		Me.Button1.TabIndex = 26
-		Me.Button1.Text = "CREAR"
-		Me.Button1.UseVisualStyleBackColor = True
+		Me.btnCrear.Location = New System.Drawing.Point(823, 20)
+		Me.btnCrear.Name = "btnCrear"
+		Me.btnCrear.Size = New System.Drawing.Size(75, 23)
+		Me.btnCrear.TabIndex = 26
+		Me.btnCrear.Text = "CREAR"
+		Me.btnCrear.UseVisualStyleBackColor = True
 		'
 		'Label15
 		'
@@ -123,24 +121,11 @@ Partial Class vistaAlojamientos
 		'
 		'txtLocalizacion
 		'
-		Me.txtLocalizacion.Location = New System.Drawing.Point(721, 435)
+		Me.txtLocalizacion.Enabled = False
+		Me.txtLocalizacion.Location = New System.Drawing.Point(721, 436)
 		Me.txtLocalizacion.Name = "txtLocalizacion"
 		Me.txtLocalizacion.Size = New System.Drawing.Size(189, 20)
-		Me.txtLocalizacion.TabIndex = 116
-		'
-		'txtTipo
-		'
-		Me.txtTipo.Location = New System.Drawing.Point(721, 478)
-		Me.txtTipo.Name = "txtTipo"
-		Me.txtTipo.Size = New System.Drawing.Size(189, 20)
-		Me.txtTipo.TabIndex = 115
-		'
-		'TextBox11
-		'
-		Me.TextBox11.Location = New System.Drawing.Point(721, 436)
-		Me.TextBox11.Name = "TextBox11"
-		Me.TextBox11.Size = New System.Drawing.Size(189, 20)
-		Me.TextBox11.TabIndex = 114
+		Me.txtLocalizacion.TabIndex = 114
 		'
 		'Label10
 		'
@@ -151,12 +136,13 @@ Partial Class vistaAlojamientos
 		Me.Label10.TabIndex = 113
 		Me.Label10.Text = "LOCALIZACION :"
 		'
-		'TextBox12
+		'txtTipo
 		'
-		Me.TextBox12.Location = New System.Drawing.Point(721, 479)
-		Me.TextBox12.Name = "TextBox12"
-		Me.TextBox12.Size = New System.Drawing.Size(189, 20)
-		Me.TextBox12.TabIndex = 112
+		Me.txtTipo.Enabled = False
+		Me.txtTipo.Location = New System.Drawing.Point(721, 479)
+		Me.txtTipo.Name = "txtTipo"
+		Me.txtTipo.Size = New System.Drawing.Size(189, 20)
+		Me.txtTipo.TabIndex = 112
 		'
 		'Label11
 		'
@@ -169,6 +155,7 @@ Partial Class vistaAlojamientos
 		'
 		'txtDireccion
 		'
+		Me.txtDireccion.Enabled = False
 		Me.txtDireccion.Location = New System.Drawing.Point(721, 217)
 		Me.txtDireccion.Name = "txtDireccion"
 		Me.txtDireccion.Size = New System.Drawing.Size(189, 20)
@@ -185,6 +172,7 @@ Partial Class vistaAlojamientos
 		'
 		'txtCodigo
 		'
+		Me.txtCodigo.Enabled = False
 		Me.txtCodigo.Location = New System.Drawing.Point(721, 86)
 		Me.txtCodigo.Name = "txtCodigo"
 		Me.txtCodigo.Size = New System.Drawing.Size(189, 20)
@@ -201,6 +189,7 @@ Partial Class vistaAlojamientos
 		'
 		'txtDescripcion
 		'
+		Me.txtDescripcion.Enabled = False
 		Me.txtDescripcion.Location = New System.Drawing.Point(721, 172)
 		Me.txtDescripcion.Name = "txtDescripcion"
 		Me.txtDescripcion.Size = New System.Drawing.Size(189, 20)
@@ -217,6 +206,7 @@ Partial Class vistaAlojamientos
 		'
 		'txtNombre
 		'
+		Me.txtNombre.Enabled = False
 		Me.txtNombre.Location = New System.Drawing.Point(721, 129)
 		Me.txtNombre.Name = "txtNombre"
 		Me.txtNombre.Size = New System.Drawing.Size(189, 20)
@@ -233,6 +223,7 @@ Partial Class vistaAlojamientos
 		'
 		'txtMail
 		'
+		Me.txtMail.Enabled = False
 		Me.txtMail.Location = New System.Drawing.Point(721, 262)
 		Me.txtMail.Name = "txtMail"
 		Me.txtMail.Size = New System.Drawing.Size(189, 20)
@@ -249,6 +240,7 @@ Partial Class vistaAlojamientos
 		'
 		'txtLocalidad
 		'
+		Me.txtLocalidad.Enabled = False
 		Me.txtLocalidad.Location = New System.Drawing.Point(721, 391)
 		Me.txtLocalidad.Name = "txtLocalidad"
 		Me.txtLocalidad.Size = New System.Drawing.Size(189, 20)
@@ -265,6 +257,7 @@ Partial Class vistaAlojamientos
 		'
 		'txtLongitud
 		'
+		Me.txtLongitud.Enabled = False
 		Me.txtLongitud.Location = New System.Drawing.Point(721, 348)
 		Me.txtLongitud.Name = "txtLongitud"
 		Me.txtLongitud.Size = New System.Drawing.Size(189, 20)
@@ -281,6 +274,7 @@ Partial Class vistaAlojamientos
 		'
 		'txtLatitud
 		'
+		Me.txtLatitud.Enabled = False
 		Me.txtLatitud.Location = New System.Drawing.Point(721, 305)
 		Me.txtLatitud.Name = "txtLatitud"
 		Me.txtLatitud.Size = New System.Drawing.Size(189, 20)
@@ -297,45 +291,33 @@ Partial Class vistaAlojamientos
 		'
 		'txtWeb
 		'
-		Me.txtWeb.Location = New System.Drawing.Point(923, 216)
+		Me.txtWeb.Enabled = False
+		Me.txtWeb.Location = New System.Drawing.Point(924, 131)
 		Me.txtWeb.Name = "txtWeb"
 		Me.txtWeb.Size = New System.Drawing.Size(189, 20)
-		Me.txtWeb.TabIndex = 124
-		'
-		'txtCapacidad
-		'
-		Me.txtCapacidad.Location = New System.Drawing.Point(923, 259)
-		Me.txtCapacidad.Name = "txtCapacidad"
-		Me.txtCapacidad.Size = New System.Drawing.Size(189, 20)
-		Me.txtCapacidad.TabIndex = 123
-		'
-		'TextBox15
-		'
-		Me.TextBox15.Location = New System.Drawing.Point(923, 217)
-		Me.TextBox15.Name = "TextBox15"
-		Me.TextBox15.Size = New System.Drawing.Size(189, 20)
-		Me.TextBox15.TabIndex = 122
+		Me.txtWeb.TabIndex = 122
 		'
 		'Label5
 		'
 		Me.Label5.AutoSize = True
-		Me.Label5.Location = New System.Drawing.Point(921, 200)
+		Me.Label5.Location = New System.Drawing.Point(922, 114)
 		Me.Label5.Name = "Label5"
 		Me.Label5.Size = New System.Drawing.Size(38, 13)
 		Me.Label5.TabIndex = 121
 		Me.Label5.Text = "WEB :"
 		'
-		'TextBox16
+		'txtCapacidad
 		'
-		Me.TextBox16.Location = New System.Drawing.Point(923, 260)
-		Me.TextBox16.Name = "TextBox16"
-		Me.TextBox16.Size = New System.Drawing.Size(189, 20)
-		Me.TextBox16.TabIndex = 120
+		Me.txtCapacidad.Enabled = False
+		Me.txtCapacidad.Location = New System.Drawing.Point(924, 174)
+		Me.txtCapacidad.Name = "txtCapacidad"
+		Me.txtCapacidad.Size = New System.Drawing.Size(189, 20)
+		Me.txtCapacidad.TabIndex = 120
 		'
 		'Label12
 		'
 		Me.Label12.AutoSize = True
-		Me.Label12.Location = New System.Drawing.Point(921, 243)
+		Me.Label12.Location = New System.Drawing.Point(922, 157)
 		Me.Label12.Name = "Label12"
 		Me.Label12.Size = New System.Drawing.Size(74, 13)
 		Me.Label12.TabIndex = 119
@@ -343,7 +325,8 @@ Partial Class vistaAlojamientos
 		'
 		'txtTelefono
 		'
-		Me.txtTelefono.Location = New System.Drawing.Point(923, 172)
+		Me.txtTelefono.Enabled = False
+		Me.txtTelefono.Location = New System.Drawing.Point(924, 86)
 		Me.txtTelefono.Name = "txtTelefono"
 		Me.txtTelefono.Size = New System.Drawing.Size(189, 20)
 		Me.txtTelefono.TabIndex = 118
@@ -351,30 +334,48 @@ Partial Class vistaAlojamientos
 		'Label13
 		'
 		Me.Label13.AutoSize = True
-		Me.Label13.Location = New System.Drawing.Point(921, 155)
+		Me.Label13.Location = New System.Drawing.Point(922, 69)
 		Me.Label13.Name = "Label13"
 		Me.Label13.Size = New System.Drawing.Size(70, 13)
 		Me.Label13.TabIndex = 117
 		Me.Label13.Text = "TELEFONO :"
+		'
+		'btnAceptar
+		'
+		Me.btnAceptar.Location = New System.Drawing.Point(1038, 235)
+		Me.btnAceptar.Name = "btnAceptar"
+		Me.btnAceptar.Size = New System.Drawing.Size(75, 23)
+		Me.btnAceptar.TabIndex = 125
+		Me.btnAceptar.Text = "ACEPTAR"
+		Me.btnAceptar.UseVisualStyleBackColor = True
+		Me.btnAceptar.Visible = False
+		'
+		'btnCancelar
+		'
+		Me.btnCancelar.Location = New System.Drawing.Point(1038, 260)
+		Me.btnCancelar.Name = "btnCancelar"
+		Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
+		Me.btnCancelar.TabIndex = 126
+		Me.btnCancelar.Text = "CANCELAR"
+		Me.btnCancelar.UseVisualStyleBackColor = True
+		Me.btnCancelar.Visible = False
 		'
 		'vistaAlojamientos
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1264, 561)
+		Me.Controls.Add(Me.btnCancelar)
+		Me.Controls.Add(Me.btnAceptar)
 		Me.Controls.Add(Me.txtWeb)
-		Me.Controls.Add(Me.txtCapacidad)
-		Me.Controls.Add(Me.TextBox15)
 		Me.Controls.Add(Me.Label5)
-		Me.Controls.Add(Me.TextBox16)
+		Me.Controls.Add(Me.txtCapacidad)
 		Me.Controls.Add(Me.Label12)
 		Me.Controls.Add(Me.txtTelefono)
 		Me.Controls.Add(Me.Label13)
 		Me.Controls.Add(Me.txtLocalizacion)
-		Me.Controls.Add(Me.txtTipo)
-		Me.Controls.Add(Me.TextBox11)
 		Me.Controls.Add(Me.Label10)
-		Me.Controls.Add(Me.TextBox12)
+		Me.Controls.Add(Me.txtTipo)
 		Me.Controls.Add(Me.Label11)
 		Me.Controls.Add(Me.txtDireccion)
 		Me.Controls.Add(Me.Label9)
@@ -395,9 +396,9 @@ Partial Class vistaAlojamientos
 		Me.Controls.Add(Me.DataGridView1)
 		Me.Controls.Add(Me.Label15)
 		Me.Controls.Add(Me.Button4)
-		Me.Controls.Add(Me.Button3)
-		Me.Controls.Add(Me.Button2)
-		Me.Controls.Add(Me.Button1)
+		Me.Controls.Add(Me.btnEliminar)
+		Me.Controls.Add(Me.btnModificar)
+		Me.Controls.Add(Me.btnCrear)
 		Me.Name = "vistaAlojamientos"
 		Me.Text = "Alojamientos"
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -407,16 +408,14 @@ Partial Class vistaAlojamientos
 	End Sub
 
 	Friend WithEvents Button4 As Button
-	Friend WithEvents Button3 As Button
-	Friend WithEvents Button2 As Button
-	Friend WithEvents Button1 As Button
+	Friend WithEvents btnEliminar As Button
+	Friend WithEvents btnModificar As Button
+	Friend WithEvents btnCrear As Button
 	Friend WithEvents Label15 As Label
 	Friend WithEvents DataGridView1 As DataGridView
 	Friend WithEvents txtLocalizacion As TextBox
-	Friend WithEvents txtTipo As TextBox
-	Friend WithEvents TextBox11 As TextBox
 	Friend WithEvents Label10 As Label
-	Friend WithEvents TextBox12 As TextBox
+	Friend WithEvents txtTipo As TextBox
 	Friend WithEvents Label11 As Label
 	Friend WithEvents txtDireccion As TextBox
 	Friend WithEvents Label9 As Label
@@ -435,11 +434,11 @@ Partial Class vistaAlojamientos
 	Friend WithEvents txtLatitud As TextBox
 	Friend WithEvents Label1 As Label
 	Friend WithEvents txtWeb As TextBox
-	Friend WithEvents txtCapacidad As TextBox
-	Friend WithEvents TextBox15 As TextBox
 	Friend WithEvents Label5 As Label
-	Friend WithEvents TextBox16 As TextBox
+	Friend WithEvents txtCapacidad As TextBox
 	Friend WithEvents Label12 As Label
 	Friend WithEvents txtTelefono As TextBox
 	Friend WithEvents Label13 As Label
+	Friend WithEvents btnAceptar As Button
+	Friend WithEvents btnCancelar As Button
 End Class
