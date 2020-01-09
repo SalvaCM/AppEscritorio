@@ -27,21 +27,21 @@ Partial Class vistaReservas
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.txtDni = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtTelefonoAlo = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtApellidos = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtNombreUsuario = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.txtFechaSalida = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.txtFechaEntrada = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.txtFechaReserva = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.txtNombreAloj = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,12 +93,12 @@ Partial Class vistaReservas
         Me.Button1.Text = "CREAR"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'TextBox4
+        'txtDni
         '
-        Me.TextBox4.Location = New System.Drawing.Point(877, 252)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(189, 20)
-        Me.TextBox4.TabIndex = 73
+        Me.txtDni.Location = New System.Drawing.Point(877, 252)
+        Me.txtDni.Name = "txtDni"
+        Me.txtDni.Size = New System.Drawing.Size(189, 20)
+        Me.txtDni.TabIndex = 73
         '
         'Label4
         '
@@ -109,12 +109,12 @@ Partial Class vistaReservas
         Me.Label4.TabIndex = 72
         Me.Label4.Text = "DNI :"
         '
-        'TextBox3
+        'txtTelefonoAlo
         '
-        Me.TextBox3.Location = New System.Drawing.Point(877, 381)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(189, 20)
-        Me.TextBox3.TabIndex = 71
+        Me.txtTelefonoAlo.Location = New System.Drawing.Point(877, 381)
+        Me.txtTelefonoAlo.Name = "txtTelefonoAlo"
+        Me.txtTelefonoAlo.Size = New System.Drawing.Size(189, 20)
+        Me.txtTelefonoAlo.TabIndex = 71
         '
         'Label3
         '
@@ -125,12 +125,12 @@ Partial Class vistaReservas
         Me.Label3.TabIndex = 70
         Me.Label3.Text = "TELEFONO :"
         '
-        'TextBox2
+        'txtApellidos
         '
-        Me.TextBox2.Location = New System.Drawing.Point(877, 338)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(189, 20)
-        Me.TextBox2.TabIndex = 69
+        Me.txtApellidos.Location = New System.Drawing.Point(877, 338)
+        Me.txtApellidos.Name = "txtApellidos"
+        Me.txtApellidos.Size = New System.Drawing.Size(189, 20)
+        Me.txtApellidos.TabIndex = 69
         '
         'Label2
         '
@@ -141,12 +141,12 @@ Partial Class vistaReservas
         Me.Label2.TabIndex = 68
         Me.Label2.Text = "APELLIDOS :"
         '
-        'TextBox1
+        'txtNombreUsuario
         '
-        Me.TextBox1.Location = New System.Drawing.Point(877, 295)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(189, 20)
-        Me.TextBox1.TabIndex = 67
+        Me.txtNombreUsuario.Location = New System.Drawing.Point(877, 295)
+        Me.txtNombreUsuario.Name = "txtNombreUsuario"
+        Me.txtNombreUsuario.Size = New System.Drawing.Size(189, 20)
+        Me.txtNombreUsuario.TabIndex = 67
         '
         'Label1
         '
@@ -157,12 +157,12 @@ Partial Class vistaReservas
         Me.Label1.TabIndex = 66
         Me.Label1.Text = "NOMBRE :"
         '
-        'TextBox6
+        'txtFechaSalida
         '
-        Me.TextBox6.Location = New System.Drawing.Point(877, 162)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(189, 20)
-        Me.TextBox6.TabIndex = 84
+        Me.txtFechaSalida.Location = New System.Drawing.Point(877, 162)
+        Me.txtFechaSalida.Name = "txtFechaSalida"
+        Me.txtFechaSalida.Size = New System.Drawing.Size(189, 20)
+        Me.txtFechaSalida.TabIndex = 84
         '
         'Label7
         '
@@ -173,12 +173,12 @@ Partial Class vistaReservas
         Me.Label7.TabIndex = 83
         Me.Label7.Text = "FECHA DE SALIDA :"
         '
-        'TextBox7
+        'txtFechaEntrada
         '
-        Me.TextBox7.Location = New System.Drawing.Point(877, 119)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(189, 20)
-        Me.TextBox7.TabIndex = 82
+        Me.txtFechaEntrada.Location = New System.Drawing.Point(877, 119)
+        Me.txtFechaEntrada.Name = "txtFechaEntrada"
+        Me.txtFechaEntrada.Size = New System.Drawing.Size(189, 20)
+        Me.txtFechaEntrada.TabIndex = 82
         '
         'Label8
         '
@@ -189,12 +189,12 @@ Partial Class vistaReservas
         Me.Label8.TabIndex = 81
         Me.Label8.Text = "FECHA DE ENTRADA :"
         '
-        'TextBox8
+        'txtFechaReserva
         '
-        Me.TextBox8.Location = New System.Drawing.Point(877, 207)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(189, 20)
-        Me.TextBox8.TabIndex = 88
+        Me.txtFechaReserva.Location = New System.Drawing.Point(877, 207)
+        Me.txtFechaReserva.Name = "txtFechaReserva"
+        Me.txtFechaReserva.Size = New System.Drawing.Size(189, 20)
+        Me.txtFechaReserva.TabIndex = 88
         '
         'Label9
         '
@@ -205,12 +205,12 @@ Partial Class vistaReservas
         Me.Label9.TabIndex = 87
         Me.Label9.Text = "FECHA DE RESERVA :"
         '
-        'TextBox10
+        'txtNombreAloj
         '
-        Me.TextBox10.Location = New System.Drawing.Point(877, 76)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(189, 20)
-        Me.TextBox10.TabIndex = 93
+        Me.txtNombreAloj.Location = New System.Drawing.Point(877, 76)
+        Me.txtNombreAloj.Name = "txtNombreAloj"
+        Me.txtNombreAloj.Size = New System.Drawing.Size(189, 20)
+        Me.txtNombreAloj.TabIndex = 93
         '
         'Label11
         '
@@ -239,26 +239,26 @@ Partial Class vistaReservas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1184, 563)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.TextBox10)
+        Me.Controls.Add(Me.txtNombreAloj)
         Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.TextBox8)
+        Me.Controls.Add(Me.txtFechaReserva)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.TextBox6)
+        Me.Controls.Add(Me.txtFechaSalida)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.TextBox7)
+        Me.Controls.Add(Me.txtFechaEntrada)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.txtDni)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.txtTelefonoAlo)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.txtApellidos)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtNombreUsuario)
         Me.Controls.Add(Me.Label1)
         Me.Name = "vistaReservas"
         Me.Text = "Reservas"
@@ -273,21 +273,21 @@ Partial Class vistaReservas
 	Friend WithEvents Button3 As Button
 	Friend WithEvents Button2 As Button
 	Friend WithEvents Button1 As Button
-	Friend WithEvents TextBox4 As TextBox
+	Friend WithEvents txtDni As TextBox
 	Friend WithEvents Label4 As Label
-	Friend WithEvents TextBox3 As TextBox
+	Friend WithEvents txtTelefonoAlo As TextBox
 	Friend WithEvents Label3 As Label
-	Friend WithEvents TextBox2 As TextBox
+	Friend WithEvents txtApellidos As TextBox
 	Friend WithEvents Label2 As Label
-	Friend WithEvents TextBox1 As TextBox
+	Friend WithEvents txtNombreUsuario As TextBox
 	Friend WithEvents Label1 As Label
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents txtFechaSalida As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents txtFechaEntrada As TextBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents txtFechaReserva As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents txtNombreAloj As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents DataGridView1 As DataGridView
 End Class
