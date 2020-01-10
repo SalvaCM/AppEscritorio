@@ -10,6 +10,17 @@ Public Class vistaReservas
     End Sub
     'Cargar la lista de las reservas
     Private Sub VistaReservas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtDni.Enabled = False
+        txtNombreAloj.Enabled = False
+        txtNombreUsuario.Enabled = False
+        txtApellidos.Enabled = False
+        txtFechaEntrada.Enabled = False
+        txtFechaReserva.Enabled = False
+        txtFechaSalida.Enabled = False
+        txtTelefonoAlo.Enabled = False
+
+        Button1.Visible = False
+        Button5.Visible = False
         cargaGrid()
 
     End Sub
@@ -60,5 +71,50 @@ Public Class vistaReservas
             End If
             cargaGrid()
         End If
+    End Sub
+    'BOTON CANCELAR
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        txtFechaEntrada.Enabled = False
+        txtFechaSalida.Enabled = False
+        Button1.Visible = False
+        Button5.Visible = False
+
+    End Sub
+
+    'BOTON MODIFICAR
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        txtFechaEntrada.Enabled = True
+        txtFechaSalida.Enabled = True
+        Button1.Visible = True
+        Button5.Visible = True
+    End Sub
+    'BOTON GUARDAR
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim result As DialogResult = MessageBox.Show("Estas seguro que quieres guardar los datos este usuario?", "Atencion", MessageBoxButtons.YesNo)
+        Dim READER As MySqlDataReader
+        Dim Command As MySqlCommand
+        Dim indiceSelect As Integer = DataGridView1.SelectedCells.Item(0).RowIndex
+        Dim codigo = DataGridView1.Rows(indiceSelect).Cells(0).Value
+
+        If result = DialogResult.Yes Then
+            Dim fecha1 As Date = txtFechaEntrada.Text
+            Dim fecha2 As Date = txtFechaSalida.Text
+            Dim upd As String = "UPDATE treservas SET cFechaEntrada = '" & fecha1.Year & "-" & fecha1.Month & "-" & fecha1.Day & "', cFechaSalida = '" & fecha2.Year & "-" & fecha2.Month & "-" & fecha2.Day & "' WHERE cReserva = " & codigo
+            con.Open()
+            Command = New MySqlCommand(upd, con)
+
+            READER = Command.ExecuteReader
+
+            MessageBox.Show("Usuario guardado con exito!")
+            con.Close()
+
+
+        End If
+        txtFechaEntrada.Enabled = False
+        txtFechaSalida.Enabled = False
+        Button1.Visible = False
+        Button5.Visible = False
+        cargaGrid()
+
     End Sub
 End Class
