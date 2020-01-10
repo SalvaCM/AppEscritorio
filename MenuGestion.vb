@@ -10,7 +10,6 @@
 	End Sub
 
 	Private Sub MenuGestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		Dim conexion As New Conexion
-		conexion.Conectar()
+
 	End Sub
 End Class

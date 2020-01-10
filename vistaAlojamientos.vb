@@ -145,7 +145,7 @@ Public Class vistaAlojamientos
 	End Sub
 
 
-	Private Sub DataGridView1_Click(sender As Object, e As EventArgs) Handles DataGridView1.Click
+	Private Sub DataGridView1_Click(sender As Object, e As EventArgs) Handles DataGridView1.SelectionChanged
 
 		indice = DataGridView1.CurrentCell.RowIndex
 
