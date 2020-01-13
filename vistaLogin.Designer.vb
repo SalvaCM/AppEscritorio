@@ -87,7 +87,7 @@ Partial Class vistaLogin
 		Me.Label3.AutoSize = True
 		Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label3.ForeColor = System.Drawing.Color.White
-		Me.Label3.Location = New System.Drawing.Point(547, 24)
+		Me.Label3.Location = New System.Drawing.Point(569, 9)
 		Me.Label3.Name = "Label3"
 		Me.Label3.Size = New System.Drawing.Size(27, 31)
 		Me.Label3.TabIndex = 5

@@ -80,6 +80,11 @@ Public Class vistaAlojamientos
 		Me.Close()
 	End Sub
 
+	Private Sub Label14_Click(sender As Object, e As EventArgs) Handles lblSalir.Click
+		Application.ExitThread()
+	End Sub
+
+
 	Private Sub CrearAlojamiento()
 		codigo = maxCod()
 		capacidad = Convert.ToInt32(txtCapacidad.Text)

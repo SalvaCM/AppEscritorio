@@ -57,6 +57,7 @@ Partial Class vistaAlojamientos
 		Me.btnAceptar = New System.Windows.Forms.Button()
 		Me.btnCancelar = New System.Windows.Forms.Button()
 		Me.Label16 = New System.Windows.Forms.Label()
+		Me.lblSalir = New System.Windows.Forms.Label()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
@@ -65,7 +66,7 @@ Partial Class vistaAlojamientos
 		Me.btnVolver.BackColor = System.Drawing.Color.Black
 		Me.btnVolver.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnVolver.ForeColor = System.Drawing.Color.White
-		Me.btnVolver.Location = New System.Drawing.Point(973, 704)
+		Me.btnVolver.Location = New System.Drawing.Point(1078, 746)
 		Me.btnVolver.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.btnVolver.Name = "btnVolver"
 		Me.btnVolver.Size = New System.Drawing.Size(105, 36)
@@ -78,7 +79,7 @@ Partial Class vistaAlojamientos
 		Me.btnEliminar.BackColor = System.Drawing.Color.Black
 		Me.btnEliminar.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnEliminar.ForeColor = System.Drawing.Color.White
-		Me.btnEliminar.Location = New System.Drawing.Point(1026, 53)
+		Me.btnEliminar.Location = New System.Drawing.Point(1111, 56)
 		Me.btnEliminar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.btnEliminar.Name = "btnEliminar"
 		Me.btnEliminar.Size = New System.Drawing.Size(74, 23)
@@ -91,7 +92,7 @@ Partial Class vistaAlojamientos
 		Me.btnModificar.BackColor = System.Drawing.Color.Black
 		Me.btnModificar.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnModificar.ForeColor = System.Drawing.Color.White
-		Me.btnModificar.Location = New System.Drawing.Point(945, 53)
+		Me.btnModificar.Location = New System.Drawing.Point(1030, 56)
 		Me.btnModificar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.btnModificar.Name = "btnModificar"
 		Me.btnModificar.Size = New System.Drawing.Size(74, 23)
@@ -104,7 +105,7 @@ Partial Class vistaAlojamientos
 		Me.btnCrear.BackColor = System.Drawing.Color.Black
 		Me.btnCrear.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnCrear.ForeColor = System.Drawing.Color.White
-		Me.btnCrear.Location = New System.Drawing.Point(864, 53)
+		Me.btnCrear.Location = New System.Drawing.Point(949, 56)
 		Me.btnCrear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.btnCrear.Name = "btnCrear"
 		Me.btnCrear.Size = New System.Drawing.Size(74, 23)
@@ -137,14 +138,14 @@ Partial Class vistaAlojamientos
 		Me.DataGridView1.Name = "DataGridView1"
 		Me.DataGridView1.ReadOnly = True
 		Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.DataGridView1.Size = New System.Drawing.Size(832, 622)
+		Me.DataGridView1.Size = New System.Drawing.Size(919, 622)
 		Me.DataGridView1.TabIndex = 63
 		'
 		'txtLocalizacion
 		'
 		Me.txtLocalizacion.Enabled = False
 		Me.txtLocalizacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtLocalizacion.Location = New System.Drawing.Point(864, 452)
+		Me.txtLocalizacion.Location = New System.Drawing.Point(975, 452)
 		Me.txtLocalizacion.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtLocalizacion.Name = "txtLocalizacion"
 		Me.txtLocalizacion.Size = New System.Drawing.Size(189, 20)
@@ -155,7 +156,7 @@ Partial Class vistaAlojamientos
 		Me.Label10.AutoSize = True
 		Me.Label10.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label10.ForeColor = System.Drawing.Color.White
-		Me.Label10.Location = New System.Drawing.Point(862, 435)
+		Me.Label10.Location = New System.Drawing.Point(973, 435)
 		Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label10.Name = "Label10"
 		Me.Label10.Size = New System.Drawing.Size(71, 15)
@@ -166,7 +167,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.txtTipo.Enabled = False
 		Me.txtTipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtTipo.Location = New System.Drawing.Point(864, 495)
+		Me.txtTipo.Location = New System.Drawing.Point(975, 495)
 		Me.txtTipo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtTipo.Name = "txtTipo"
 		Me.txtTipo.Size = New System.Drawing.Size(189, 20)
@@ -177,7 +178,7 @@ Partial Class vistaAlojamientos
 		Me.Label11.AutoSize = True
 		Me.Label11.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label11.ForeColor = System.Drawing.Color.White
-		Me.Label11.Location = New System.Drawing.Point(862, 478)
+		Me.Label11.Location = New System.Drawing.Point(973, 478)
 		Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label11.Name = "Label11"
 		Me.Label11.Size = New System.Drawing.Size(31, 15)
@@ -188,7 +189,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.txtDireccion.Enabled = False
 		Me.txtDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtDireccion.Location = New System.Drawing.Point(864, 233)
+		Me.txtDireccion.Location = New System.Drawing.Point(975, 233)
 		Me.txtDireccion.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtDireccion.Name = "txtDireccion"
 		Me.txtDireccion.Size = New System.Drawing.Size(189, 20)
@@ -199,7 +200,7 @@ Partial Class vistaAlojamientos
 		Me.Label9.AutoSize = True
 		Me.Label9.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label9.ForeColor = System.Drawing.Color.White
-		Me.Label9.Location = New System.Drawing.Point(862, 216)
+		Me.Label9.Location = New System.Drawing.Point(973, 216)
 		Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label9.Name = "Label9"
 		Me.Label9.Size = New System.Drawing.Size(58, 15)
@@ -210,7 +211,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.txtCodigo.Enabled = False
 		Me.txtCodigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtCodigo.Location = New System.Drawing.Point(864, 102)
+		Me.txtCodigo.Location = New System.Drawing.Point(975, 102)
 		Me.txtCodigo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtCodigo.Name = "txtCodigo"
 		Me.txtCodigo.Size = New System.Drawing.Size(189, 20)
@@ -221,7 +222,7 @@ Partial Class vistaAlojamientos
 		Me.Label6.AutoSize = True
 		Me.Label6.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label6.ForeColor = System.Drawing.Color.White
-		Me.Label6.Location = New System.Drawing.Point(861, 85)
+		Me.Label6.Location = New System.Drawing.Point(972, 85)
 		Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label6.Name = "Label6"
 		Me.Label6.Size = New System.Drawing.Size(44, 15)
@@ -232,7 +233,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.txtDescripcion.Enabled = False
 		Me.txtDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtDescripcion.Location = New System.Drawing.Point(864, 188)
+		Me.txtDescripcion.Location = New System.Drawing.Point(975, 188)
 		Me.txtDescripcion.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtDescripcion.Name = "txtDescripcion"
 		Me.txtDescripcion.Size = New System.Drawing.Size(189, 20)
@@ -243,7 +244,7 @@ Partial Class vistaAlojamientos
 		Me.Label7.AutoSize = True
 		Me.Label7.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label7.ForeColor = System.Drawing.Color.White
-		Me.Label7.Location = New System.Drawing.Point(861, 171)
+		Me.Label7.Location = New System.Drawing.Point(972, 171)
 		Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label7.Name = "Label7"
 		Me.Label7.Size = New System.Drawing.Size(70, 15)
@@ -254,7 +255,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.txtNombre.Enabled = False
 		Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtNombre.Location = New System.Drawing.Point(864, 145)
+		Me.txtNombre.Location = New System.Drawing.Point(975, 145)
 		Me.txtNombre.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtNombre.Name = "txtNombre"
 		Me.txtNombre.Size = New System.Drawing.Size(189, 20)
@@ -265,7 +266,7 @@ Partial Class vistaAlojamientos
 		Me.Label8.AutoSize = True
 		Me.Label8.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label8.ForeColor = System.Drawing.Color.White
-		Me.Label8.Location = New System.Drawing.Point(861, 128)
+		Me.Label8.Location = New System.Drawing.Point(972, 128)
 		Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label8.Name = "Label8"
 		Me.Label8.Size = New System.Drawing.Size(48, 15)
@@ -276,7 +277,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.txtMail.Enabled = False
 		Me.txtMail.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtMail.Location = New System.Drawing.Point(864, 278)
+		Me.txtMail.Location = New System.Drawing.Point(975, 278)
 		Me.txtMail.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtMail.Name = "txtMail"
 		Me.txtMail.Size = New System.Drawing.Size(189, 20)
@@ -287,7 +288,7 @@ Partial Class vistaAlojamientos
 		Me.Label4.AutoSize = True
 		Me.Label4.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label4.ForeColor = System.Drawing.Color.White
-		Me.Label4.Location = New System.Drawing.Point(862, 261)
+		Me.Label4.Location = New System.Drawing.Point(973, 261)
 		Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label4.Name = "Label4"
 		Me.Label4.Size = New System.Drawing.Size(40, 15)
@@ -298,7 +299,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.txtLocalidad.Enabled = False
 		Me.txtLocalidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtLocalidad.Location = New System.Drawing.Point(864, 407)
+		Me.txtLocalidad.Location = New System.Drawing.Point(975, 407)
 		Me.txtLocalidad.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtLocalidad.Name = "txtLocalidad"
 		Me.txtLocalidad.Size = New System.Drawing.Size(189, 20)
@@ -309,7 +310,7 @@ Partial Class vistaAlojamientos
 		Me.Label3.AutoSize = True
 		Me.Label3.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label3.ForeColor = System.Drawing.Color.White
-		Me.Label3.Location = New System.Drawing.Point(862, 390)
+		Me.Label3.Location = New System.Drawing.Point(973, 390)
 		Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label3.Name = "Label3"
 		Me.Label3.Size = New System.Drawing.Size(58, 15)
@@ -320,7 +321,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.txtLongitud.Enabled = False
 		Me.txtLongitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtLongitud.Location = New System.Drawing.Point(864, 364)
+		Me.txtLongitud.Location = New System.Drawing.Point(975, 364)
 		Me.txtLongitud.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtLongitud.Name = "txtLongitud"
 		Me.txtLongitud.Size = New System.Drawing.Size(189, 20)
@@ -331,7 +332,7 @@ Partial Class vistaAlojamientos
 		Me.Label2.AutoSize = True
 		Me.Label2.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label2.ForeColor = System.Drawing.Color.White
-		Me.Label2.Location = New System.Drawing.Point(862, 347)
+		Me.Label2.Location = New System.Drawing.Point(973, 347)
 		Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label2.Name = "Label2"
 		Me.Label2.Size = New System.Drawing.Size(53, 15)
@@ -342,7 +343,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.txtLatitud.Enabled = False
 		Me.txtLatitud.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtLatitud.Location = New System.Drawing.Point(864, 321)
+		Me.txtLatitud.Location = New System.Drawing.Point(975, 321)
 		Me.txtLatitud.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtLatitud.Name = "txtLatitud"
 		Me.txtLatitud.Size = New System.Drawing.Size(189, 20)
@@ -353,7 +354,7 @@ Partial Class vistaAlojamientos
 		Me.Label1.AutoSize = True
 		Me.Label1.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label1.ForeColor = System.Drawing.Color.White
-		Me.Label1.Location = New System.Drawing.Point(862, 304)
+		Me.Label1.Location = New System.Drawing.Point(973, 304)
 		Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label1.Name = "Label1"
 		Me.Label1.Size = New System.Drawing.Size(45, 15)
@@ -364,7 +365,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.txtWeb.Enabled = False
 		Me.txtWeb.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtWeb.Location = New System.Drawing.Point(864, 583)
+		Me.txtWeb.Location = New System.Drawing.Point(975, 583)
 		Me.txtWeb.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtWeb.Name = "txtWeb"
 		Me.txtWeb.Size = New System.Drawing.Size(189, 20)
@@ -375,7 +376,7 @@ Partial Class vistaAlojamientos
 		Me.Label5.AutoSize = True
 		Me.Label5.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label5.ForeColor = System.Drawing.Color.White
-		Me.Label5.Location = New System.Drawing.Point(862, 566)
+		Me.Label5.Location = New System.Drawing.Point(973, 566)
 		Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label5.Name = "Label5"
 		Me.Label5.Size = New System.Drawing.Size(30, 15)
@@ -386,7 +387,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.txtCapacidad.Enabled = False
 		Me.txtCapacidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtCapacidad.Location = New System.Drawing.Point(864, 626)
+		Me.txtCapacidad.Location = New System.Drawing.Point(975, 626)
 		Me.txtCapacidad.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtCapacidad.Name = "txtCapacidad"
 		Me.txtCapacidad.Size = New System.Drawing.Size(189, 20)
@@ -397,7 +398,7 @@ Partial Class vistaAlojamientos
 		Me.Label12.AutoSize = True
 		Me.Label12.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label12.ForeColor = System.Drawing.Color.White
-		Me.Label12.Location = New System.Drawing.Point(862, 609)
+		Me.Label12.Location = New System.Drawing.Point(973, 609)
 		Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label12.Name = "Label12"
 		Me.Label12.Size = New System.Drawing.Size(62, 15)
@@ -408,7 +409,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.txtTelefono.Enabled = False
 		Me.txtTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtTelefono.Location = New System.Drawing.Point(864, 538)
+		Me.txtTelefono.Location = New System.Drawing.Point(975, 538)
 		Me.txtTelefono.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.txtTelefono.Name = "txtTelefono"
 		Me.txtTelefono.Size = New System.Drawing.Size(189, 20)
@@ -419,7 +420,7 @@ Partial Class vistaAlojamientos
 		Me.Label13.AutoSize = True
 		Me.Label13.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label13.ForeColor = System.Drawing.Color.White
-		Me.Label13.Location = New System.Drawing.Point(862, 521)
+		Me.Label13.Location = New System.Drawing.Point(973, 521)
 		Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label13.Name = "Label13"
 		Me.Label13.Size = New System.Drawing.Size(52, 15)
@@ -430,7 +431,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.btnAceptar.BackColor = System.Drawing.Color.White
 		Me.btnAceptar.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnAceptar.Location = New System.Drawing.Point(900, 652)
+		Me.btnAceptar.Location = New System.Drawing.Point(1011, 652)
 		Me.btnAceptar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.btnAceptar.Name = "btnAceptar"
 		Me.btnAceptar.Size = New System.Drawing.Size(74, 23)
@@ -443,7 +444,7 @@ Partial Class vistaAlojamientos
 		'
 		Me.btnCancelar.BackColor = System.Drawing.Color.White
 		Me.btnCancelar.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnCancelar.Location = New System.Drawing.Point(978, 652)
+		Me.btnCancelar.Location = New System.Drawing.Point(1089, 652)
 		Me.btnCancelar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.btnCancelar.Name = "btnCancelar"
 		Me.btnCancelar.Size = New System.Drawing.Size(74, 23)
@@ -457,19 +458,31 @@ Partial Class vistaAlojamientos
 		Me.Label16.AutoSize = True
 		Me.Label16.Font = New System.Drawing.Font("Harlow Solid Italic", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label16.ForeColor = System.Drawing.Color.White
-		Me.Label16.Location = New System.Drawing.Point(12, 722)
+		Me.Label16.Location = New System.Drawing.Point(12, 752)
 		Me.Label16.Name = "Label16"
 		Me.Label16.Size = New System.Drawing.Size(311, 30)
 		Me.Label16.TabIndex = 128
 		Me.Label16.Text = "Alojamientos Euskadi Admin "
+		'
+		'lblSalir
+		'
+		Me.lblSalir.AutoSize = True
+		Me.lblSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblSalir.ForeColor = System.Drawing.Color.White
+		Me.lblSalir.Location = New System.Drawing.Point(1155, 9)
+		Me.lblSalir.Name = "lblSalir"
+		Me.lblSalir.Size = New System.Drawing.Size(27, 31)
+		Me.lblSalir.TabIndex = 129
+		Me.lblSalir.Text = "x"
 		'
 		'vistaAlojamientos
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.Color.Black
-		Me.ClientSize = New System.Drawing.Size(1108, 761)
+		Me.ClientSize = New System.Drawing.Size(1194, 794)
 		Me.ControlBox = False
+		Me.Controls.Add(Me.lblSalir)
 		Me.Controls.Add(Me.Label16)
 		Me.Controls.Add(Me.btnCancelar)
 		Me.Controls.Add(Me.btnAceptar)
@@ -551,4 +564,5 @@ Partial Class vistaAlojamientos
 	Friend WithEvents btnAceptar As Button
 	Friend WithEvents btnCancelar As Button
 	Friend WithEvents Label16 As Label
+	Friend WithEvents lblSalir As Label
 End Class

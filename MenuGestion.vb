@@ -92,12 +92,21 @@ Public Class MenuGestion
 			End Using
 		End Using
 
+		'Dim milliseconds = CLng(DateTime.UtcNow.Subtract(New DateTime(1970, 1, 1)).TotalSeconds)
+		'Console.WriteLine("primer punto" & milliseconds)
 
-        'Guardar los elementos en el xlsx
-        oBook.SaveAs("InformeAlojamientos.xlsx")
-        oExcel.Quit
 
-        MsgBox("Informe Generado! El archivo se guardara en la carpeta de Documentos")
+
+		'Guardar los elementos en el xlsx
+		oBook.SaveAs("InformeAlojamientos.xlsx")
+		oExcel.Quit
+
+		'Dim milliseconds2 = CLng(DateTime.UtcNow.Subtract(New DateTime(1970, 1, 1)).TotalSeconds)
+		'Console.WriteLine("2 punto" & milliseconds2)
+		'Console.WriteLine("tiempo total" & milliseconds - milliseconds2)
+
+
+		MsgBox("Informe Generado! El archivo se guardara en la carpeta de Documentos")
     End Sub
     ' INFORME USUARIOS
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -234,4 +243,12 @@ Public Class MenuGestion
         MsgBox("Informe Generado! El archivo se guardara en la carpeta de Documentos")
 
     End Sub
+
+	Private Sub MenuGestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+	End Sub
+
+	Private Sub LblSalir_Click(sender As Object, e As EventArgs) Handles lblSalir.Click
+		Application.ExitThread()
+	End Sub
 End Class

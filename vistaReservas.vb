@@ -42,10 +42,9 @@ Public Class vistaReservas
         txtTelefonoAlo.Text = DataGridView1.Rows(indiceSelect).Cells(5).Value
         txtFechaReserva.Text = DataGridView1.Rows(indiceSelect).Cells(6).Value
         txtFechaEntrada.Text = DataGridView1.Rows(indiceSelect).Cells(7).Value
-        txtFechaSalida.Text = DataGridView1.Rows(indiceSelect).Cells(8).Value
+		txtFechaSalida.Text = DataGridView1.Rows(indiceSelect).Cells(8).Value
 
-
-    End Sub
+	End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim indiceSelect As Integer = DataGridView1.SelectedCells.Item(0).RowIndex
@@ -117,4 +116,5 @@ Public Class vistaReservas
         cargaGrid()
 
     End Sub
+
 End Class
