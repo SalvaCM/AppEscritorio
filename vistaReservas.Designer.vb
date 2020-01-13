@@ -26,7 +26,6 @@ Partial Class vistaReservas
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.txtDni = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtTelefonoAlo = New System.Windows.Forms.TextBox()
@@ -44,6 +43,8 @@ Partial Class vistaReservas
         Me.txtNombreAloj = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -83,15 +84,6 @@ Partial Class vistaReservas
         Me.Button2.TabIndex = 76
         Me.Button2.Text = "MODIFICAR"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(1085, 180)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 75
-        Me.Button1.Text = "CREAR"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'txtDni
         '
@@ -233,11 +225,31 @@ Partial Class vistaReservas
         Me.DataGridView1.Size = New System.Drawing.Size(797, 457)
         Me.DataGridView1.TabIndex = 95
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(877, 416)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 96
+        Me.Button1.Text = "CANCELAR"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(991, 416)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.TabIndex = 97
+        Me.Button5.Text = "GUARDAR"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
         'vistaReservas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1184, 563)
+        Me.Controls.Add(Me.Button5)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.txtNombreAloj)
         Me.Controls.Add(Me.Label11)
@@ -251,7 +263,6 @@ Partial Class vistaReservas
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtDni)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtTelefonoAlo)
@@ -272,15 +283,14 @@ Partial Class vistaReservas
 	Friend WithEvents Button4 As Button
 	Friend WithEvents Button3 As Button
 	Friend WithEvents Button2 As Button
-	Friend WithEvents Button1 As Button
-	Friend WithEvents txtDni As TextBox
-	Friend WithEvents Label4 As Label
-	Friend WithEvents txtTelefonoAlo As TextBox
-	Friend WithEvents Label3 As Label
-	Friend WithEvents txtApellidos As TextBox
-	Friend WithEvents Label2 As Label
-	Friend WithEvents txtNombreUsuario As TextBox
-	Friend WithEvents Label1 As Label
+    Friend WithEvents txtDni As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtTelefonoAlo As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtApellidos As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtNombreUsuario As TextBox
+    Friend WithEvents Label1 As Label
     Friend WithEvents txtFechaSalida As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents txtFechaEntrada As TextBox
@@ -290,4 +300,6 @@ Partial Class vistaReservas
     Friend WithEvents txtNombreAloj As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button5 As Button
 End Class
