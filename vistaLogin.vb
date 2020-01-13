@@ -4,7 +4,8 @@ Imports MySql.Data.MySqlClient
 
 Public Class vistaLogin
 	Public usuario, password As String
-	Public con As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
+	Public conexion As New Conexion
+	'Public con As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 		usuario = txtNombre.Text
 		password = txtPassword.Text
@@ -38,8 +39,8 @@ Public Class vistaLogin
 				Dim passwordEncriptada As String = MD5EncryptPass(password)
 				Dim query As String = "SELECT dni,password FROM tadministradores WHERE dni='" & usuarioEncriptado & "' AND  password='" & passwordEncriptada & "'"
 
-				con.Open()
-				Dim cmd As New MySqlCommand(query, con)
+				conexion.con.Open()
+				Dim cmd As New MySqlCommand(query, conexion.con)
 				'adapterUsuario.
 				Dim reader As MySqlDataReader = cmd.ExecuteReader()
 				While reader.Read()
@@ -51,15 +52,15 @@ Public Class vistaLogin
 				Console.WriteLine("hola user" & dbUser)
 				Console.WriteLine("hola pp" & dbPass)
 
-				con.Close()
+				conexion.con.Close()
 
 				If (usuarioEncriptado = dbUser And passwordEncriptada = dbPass) Then
-					MsgBox("Usuario corrrecto,Conectado", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Login!")
+					MsgBox("Conectado Satisfactoriamente", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Login!")
 					Me.Hide()
 					MenuGestion.Show()
 				Else
 
-					MsgBox("Los datos introducidos no son correctos", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Error!")
+					MsgBox("Usuario Incorrecto", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Error!")
 				End If
 			End If
 		Catch ex As Exception
@@ -71,6 +72,10 @@ Public Class vistaLogin
 	Private Sub VistaLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Dim conexion As New Conexion
 		conexion.Conectar()
+	End Sub
+
+	Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+		Application.ExitThread()
 	End Sub
 
 	Public Function MD5EncryptPass(ByVal StrPass As String)

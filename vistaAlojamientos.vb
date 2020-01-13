@@ -4,8 +4,8 @@ Imports System.IO
 Imports MySql.Data.MySqlClient
 
 Public Class vistaAlojamientos
-	Public con As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
-	Public adapter As New MySqlDataAdapter("SELECT cCodAlojamiento'CODIGO',cNombre'NOMBRE',cDescripcion'DESCRIPCION',cDireccion'DIRECCION',cEmail'EMAIL',cLongitud'LONGITUD',cLatitud'LATITUD',cLocalidad'LOCALIDAD',cLocalizacion'LOCALIZACION',cTipo'TIPO',cTelefono'TELEFONO',cWeb'WEB',cCapacidad'CAPACIDAD' FROM TALOJAMIENTOS", con)
+	Dim conexion As New Conexion
+	Public adapter As New MySqlDataAdapter("SELECT cCodAlojamiento'CODIGO',cNombre'NOMBRE',cDescripcion'DESCRIPCION',cDireccion'DIRECCION',cEmail'EMAIL',cLongitud'LONGITUD',cLatitud'LATITUD',cLocalidad'LOCALIDAD',cLocalizacion'LOCALIZACION',cTipo'TIPO',cTelefono'TELEFONO',cWeb'WEB',cCapacidad'CAPACIDAD' FROM TALOJAMIENTOS", conexion.con)
 	Public indice As Integer
 	Public codigo, capacidad As Integer
 	Public descripcion, direccion, email, tipo, localizacion, telefono, nombre, localidad, paginaWeb, latitud, longitud As String
@@ -39,10 +39,10 @@ Public Class vistaAlojamientos
 		If (codigo <> -1) Then
 			'(" & codigo & "," & capacidad & ",'" & descripcion & "','" & direccion & "','" & latitud & "','" & longitud & "','" & localidad & "','" & nombre & "','" & telefono & "','" & email & "','" & localizacion & "','" & tipo & "','" & paginaWeb & "')'
 			Try
-				con.Open()
+				conexion.con.Open()
 
 				Dim query As String = "Update talojamientos set cCapacidad=@capacidad,cDescripcion=@descripcion,cDireccion=@direccion,cEmail=@email,cLatitud=@latitud,cLocalidad=@localidad,cLocalizacion=@localizacion,cLongitud=@longitud,cNombre=@nombre,cTelefono=@telefono,cTipo=@tipo,cWeb=@web  where cCodAlojamiento=@codigo ;"
-				Dim cmd As New MySqlCommand(query, con)
+				Dim cmd As New MySqlCommand(query, conexion.con)
 				cmd.CommandType = CommandType.Text
 				cmd.Parameters.AddWithValue("@codigo", codigo)
 				cmd.Parameters.AddWithValue("@capacidad", capacidad)
@@ -65,7 +65,7 @@ Public Class vistaAlojamientos
 
 			Finally
 
-				con.Close()
+				conexion.con.Close()
 				DataGridView1.DataSource = Nothing
 				DataGridView1.Refresh()
 				cargaGrid()
@@ -75,49 +75,9 @@ Public Class vistaAlojamientos
 
 	End Sub
 
-	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
 		MenuGestion.Show()
 		Me.Close()
-	End Sub
-
-	Private Sub Button1_Click(sender As Object, e As EventArgs)
-
-
-		'Dim fs As FileStream = Nothing
-		'Dim sr As StreamWriter = Nothing
-		'Dim directorio As String = "C:\Users\IN1DM3B_07\Desktop\errores"
-		'Try
-		'	fs = New FileStream(directorio & "\Errores.txt", FileMode.Create, FileAccess.Write) '
-		'	sr = New StreamWriter(fs)
-		'	'For Each row As DataGridViewRow In DataGridView1.Rows
-		'	'r Each cell As DataGridViewCell In DataGridView
-		'	codigo = Convert.ToInt32(row.Cells(0).Value)
-		'			nombre = row.Cells(1).Value
-		'			descripcion = row.Cells(2).Value
-		'			capacidad = Convert.ToInt32(txtCapacidad.Text)
-
-		'			direccion = txtDireccion.Text
-		'			latitud = txtLatitud.Text
-		'			longitud = txtLongitud.Text
-		'			localidad = txtLocalidad.Text
-
-		'			telefono = txtTelefono.Text
-		'			email = txtMail.Text
-		'			localizacion = txtLocalizacion.Text
-		'			tipo = txtTipo.Text
-		'			paginaWeb = txtWeb.Text
-
-		'			'sr.WriteLine("Error:" & linea)
-		'		Next
-
-		'		sr.Close()
-		'	fs.Close()
-		'Catch ex As Exception
-		'	Console.ForegroundColor = ConsoleColor.Red
-		'	Console.WriteLine(ex)
-		'	Console.ForegroundColor = ConsoleColor.Gray
-		'End Try
-
 	End Sub
 
 	Private Sub CrearAlojamiento()
@@ -138,10 +98,10 @@ Public Class vistaAlojamientos
 
 			Try
 				'codigo = Convert.ToInt32(DataGridView1.Rows(indice).Cells(0).Value)'
-				con.Open()
+				conexion.con.Open()
 
 				Dim query As String = "Insert into talojamientos (cCodAlojamiento,cCapacidad,cDescripcion,cDireccion,cEmail,cLatitud,cLocalidad,cLocalizacion,cLongitud,cNombre,cTelefono,cTipo,cWeb) values (" & codigo & "," & capacidad & ",'" & descripcion & "','" & direccion & "','" & latitud & "','" & longitud & "','" & localidad & "','" & nombre & "','" & telefono & "','" & email & "','" & localizacion & "','" & tipo & "','" & paginaWeb & "'); "
-				Dim cmd As New MySqlCommand(query, con)
+				Dim cmd As New MySqlCommand(query, conexion.con)
 				cmd.ExecuteNonQuery()
 
 			Catch ex As Exception
@@ -149,7 +109,7 @@ Public Class vistaAlojamientos
 
 			Finally
 
-				con.Close()
+				conexion.con.Close()
 				DataGridView1.DataSource = Nothing
 				DataGridView1.Refresh()
 				cargaGrid()
@@ -225,7 +185,7 @@ Public Class vistaAlojamientos
 		indice = DataGridView1.CurrentCell.RowIndex
 		Try
 			Dim codigo As Integer = Convert.ToInt32(DataGridView1.Rows(indice).Cells(0).Value)
-			con.Open()
+			conexion.con.Open()
 			Dim query As String = "Delete From talojamientos where cCodAlojamiento=" & codigo
 
 
@@ -235,7 +195,7 @@ Public Class vistaAlojamientos
 
 				Exit Sub
 			Else
-				Dim cmd As New MySqlCommand(query, con)
+				Dim cmd As New MySqlCommand(query, conexion.con)
 				cmd.ExecuteNonQuery()
 
 			End If
@@ -244,7 +204,7 @@ Public Class vistaAlojamientos
 
 		Finally
 
-			con.Close()
+			conexion.con.Close()
 			DataGridView1.DataSource = Nothing
 			DataGridView1.Refresh()
 			cargaGrid()
@@ -260,11 +220,11 @@ Public Class vistaAlojamientos
 		cargaGrid()
 	End Sub
 	Sub cargaGrid()
-		con.Open()
+		conexion.con.Open()
 		Dim tabla As New DataTable()
 		adapter.Fill(tabla)
 		DataGridView1.DataSource = tabla
-		con.Close()
+		conexion.con.Close()
 	End Sub
 	Sub deshabilitarTxt()
 		txtNombre.Enabled = False
@@ -285,6 +245,7 @@ Public Class vistaAlojamientos
 		btnCrear.Enabled = True
 		btnModificar.Enabled = True
 		btnEliminar.Enabled = True
+		btnVolver.Enabled = True
 
 	End Sub
 	Sub habilitarTxt()
@@ -306,13 +267,14 @@ Public Class vistaAlojamientos
 		btnCrear.Enabled = False
 		btnModificar.Enabled = False
 		btnEliminar.Enabled = False
+		btnVolver.Enabled = False
 	End Sub
 	Function maxCod()
 		Dim maxCodigo As Integer
 		Try
-			con.Open()
+			conexion.con.Open()
 			Dim query As String = "SELECT max(cCodAlojamiento) FROM TALOJAMIENTOS"
-			Dim cmd As New MySqlCommand(query, con)
+			Dim cmd As New MySqlCommand(query, conexion.con)
 			maxCodigo = cmd.ExecuteScalar()
 			If (maxCodigo <> Nothing) Then
 
@@ -325,7 +287,7 @@ Public Class vistaAlojamientos
 			MessageBox.Show("No se pudo obtener el codigo" & ex.Message, "Error")
 			maxCodigo = -1
 		Finally
-			con.Close()
+			conexion.con.Close()
 		End Try
 		Return maxCodigo
 	End Function

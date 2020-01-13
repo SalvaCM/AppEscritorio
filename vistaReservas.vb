@@ -1,10 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class vistaReservas
-    Public con As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
-    Public query As String = "SELECT r.cReserva'Codigo Reserva', a.cNombre'Nombre Apartamento', u.cDni'DNI', u.cNombre'Nombre Usuario', u.cApellidos'Apellidos', u.cTelefono'Telefono Usuario', r.cFechaRealizada'Fecha Realizada', r.cFechaEntrada'Fecha Entrada', r.cFechaSalida'Fecha Saluda' FROM talojamientos a, treservas r, tusuarios u WHERE r.cCodAlojamiento = a.cCodAlojamiento AND cCodUsuario = cDni"
-    Public adapter As New MySqlDataAdapter(query, con)
-    'Volver
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+	Public conexion As New Conexion
+	Public query As String = "SELECT r.cReserva'Codigo Reserva', a.cNombre'Nombre Apartamento', u.cDni'DNI', u.cNombre'Nombre Usuario', u.cApellidos'Apellidos', u.cTelefono'Telefono Usuario', r.cFechaRealizada'Fecha Realizada', r.cFechaEntrada'Fecha Entrada', r.cFechaSalida'Fecha Saluda' FROM talojamientos a, treservas r, tusuarios u WHERE r.cCodAlojamiento = a.cCodAlojamiento AND cCodUsuario = cDni"
+	Public adapter As New MySqlDataAdapter(query, conexion.con)
+	'Volver
+	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         MenuGestion.Show()
         Me.Close()
     End Sub
@@ -29,8 +29,8 @@ Public Class vistaReservas
         Dim tabla As New DataTable()
         adapter.Fill(tabla)
         DataGridView1.DataSource = tabla
-        con.Close()
-    End Sub
+		conexion.con.Close()
+	End Sub
 
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
 
@@ -59,12 +59,12 @@ Public Class vistaReservas
             If (result = DialogResult.Yes) Then
                 Try
                     query = "DELETE FROM treservas WHERE cReserva = " & DataGridView1.Rows(indiceSelect).Cells(0).Value
-                    con.Open()
-                    Dim mysc As New MySqlCommand(query, con)
-                    mysc.ExecuteNonQuery()
+					conexion.con.Open()
+					Dim mysc As New MySqlCommand(query, conexion.con)
+					mysc.ExecuteNonQuery()
                     MessageBox.Show("Reserva eliminada!")
-                    con.Close()
-                Catch ex As Exception
+					conexion.con.Close()
+				Catch ex As Exception
                     MessageBox.Show(ex.Message)
                 End Try
 
@@ -100,16 +100,16 @@ Public Class vistaReservas
             Dim fecha1 As Date = txtFechaEntrada.Text
             Dim fecha2 As Date = txtFechaSalida.Text
             Dim upd As String = "UPDATE treservas SET cFechaEntrada = '" & fecha1.Year & "-" & fecha1.Month & "-" & fecha1.Day & "', cFechaSalida = '" & fecha2.Year & "-" & fecha2.Month & "-" & fecha2.Day & "' WHERE cReserva = " & codigo
-            con.Open()
-            Command = New MySqlCommand(upd, con)
+			conexion.con.Open()
+			Command = New MySqlCommand(upd, conexion.con)
 
-            READER = Command.ExecuteReader
+			READER = Command.ExecuteReader
 
             MessageBox.Show("Usuario guardado con exito!")
-            con.Close()
+			conexion.con.Close()
 
 
-        End If
+		End If
         txtFechaEntrada.Enabled = False
         txtFechaSalida.Enabled = False
         Button1.Visible = False

@@ -1,10 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class vistaUsuarios
-    Public con As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
-    Public adapter As New MySqlDataAdapter("SELECT cDni'DNI', cApellidos'Apellidos', cNombre'Nombre', cTelefono'Telefono', cTipoUsuario'Tipo' FROM TUSUARIOS", con)
-    'Volver
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+	Public conexion As New Conexion
+	Public adapter As New MySqlDataAdapter("SELECT cDni'DNI', cApellidos'Apellidos', cNombre'Nombre', cTelefono'Telefono', cTipoUsuario'Tipo' FROM TUSUARIOS", conexion.con)
+	'Volver
+	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         MenuGestion.Show()
         Me.Close()
     End Sub
@@ -13,8 +13,8 @@ Public Class vistaUsuarios
         Dim tabla As New DataTable()
         adapter.Fill(tabla)
         DataGridView1.DataSource = tabla
-        con.Close()
-        txtDni.Text = DataGridView1.Rows(0).Cells(0).Value
+		conexion.con.Close()
+		txtDni.Text = DataGridView1.Rows(0).Cells(0).Value
         txtNombre.Text = DataGridView1.Rows(0).Cells(2).Value
         txtApellidos.Text = DataGridView1.Rows(0).Cells(1).Value
         txtTelefono.Text = DataGridView1.Rows(0).Cells(3).Value
@@ -46,12 +46,12 @@ Public Class vistaUsuarios
             If (result = DialogResult.Yes) Then
                 Try
                     query = "DELETE FROM tusuarios WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
-                    con.Open()
-                    Dim mysc As New MySqlCommand(query, con)
-                    mysc.ExecuteNonQuery()
+					conexion.con.Open()
+					Dim mysc As New MySqlCommand(query, conexion.con)
+					mysc.ExecuteNonQuery()
                     MessageBox.Show("Usuario dado de baja")
-                    con.Close()
-                Catch ex As Exception
+					conexion.con.Close()
+				Catch ex As Exception
                     MessageBox.Show(ex.Message)
                 End Try
 
@@ -102,8 +102,8 @@ Public Class vistaUsuarios
 
         If result = DialogResult.Yes Then
             Try
-                con.Open()
-                If Label6.Text = "Modificar" Then
+				conexion.con.Open()
+				If Label6.Text = "Modificar" Then
                     Dim indiceSelect As Integer = DataGridView1.SelectedCells.Item(0).RowIndex
 
                     Dim dni = txtDni.Text
@@ -117,14 +117,14 @@ Public Class vistaUsuarios
                 Else
                     query = "insert into tusuarios values ('" & txtDni.Text & "','" & txtApellidos.Text & "','hola','" & txtNombre.Text & "'," & txtTelefono.Text & ",' " & comboTipoUsuario.Text & "')"
                 End If
-                Command = New MySqlCommand(query, con)
+				Command = New MySqlCommand(query, conexion.con)
 
-                READER = Command.ExecuteReader
+				READER = Command.ExecuteReader
 
                 MessageBox.Show("Usuario guardado con exito!")
-                con.Close()
+				conexion.con.Close()
 
-            Catch ex As MySqlException
+			Catch ex As MySqlException
                 MessageBox.Show(ex.Message)
             End Try
             cargaGrid()
@@ -141,12 +141,12 @@ Public Class vistaUsuarios
     End Sub
 
     Sub cargaGrid()
-        con.Open()
-        Dim tabla As New DataTable()
+		conexion.con.Open()
+		Dim tabla As New DataTable()
         adapter.Fill(tabla)
         DataGridView1.DataSource = tabla
-        con.Close()
-    End Sub
+		conexion.con.Close()
+	End Sub
     Sub deshabilitarTxt()
         txtDni.Enabled = False
         txtNombre.Enabled = False
@@ -225,14 +225,14 @@ Public Class vistaUsuarios
             End If
 
             Dim tabla As New DataTable()
-            Dim nAdapter As New MySqlDataAdapter(query, con)
-            con.Open()
+			Dim nAdapter As New MySqlDataAdapter(query, conexion.con)
+			conexion.con.Open()
 
-            nAdapter.Fill(tabla)
+			nAdapter.Fill(tabla)
             DataGridView1.DataSource = tabla
-            con.Close()
+			conexion.con.Close()
 
-        End If
+		End If
 
     End Sub
 
