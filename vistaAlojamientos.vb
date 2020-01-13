@@ -75,17 +75,28 @@ Public Class vistaAlojamientos
 
 	End Sub
 
-	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+	Private Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
 		MenuGestion.Show()
 		Me.Close()
 	End Sub
 
-	Private Sub Label14_Click(sender As Object, e As EventArgs) Handles lblSalir.Click
+	Private Sub lblSalir_Click(sender As Object, e As EventArgs) Handles lblSalir.Click
 		Application.ExitThread()
 	End Sub
-
+	Private Sub validar()
+		Dim tbox As TextBox
+		For Each ctrl In Me.Controls
+			If TypeOf ctrl Is TextBox Then
+				tbox = CType(ctrl, TextBox)
+				If tbox.Text Is Nothing Then
+					MsgBox("Es necesario rellenar todos los campos")
+				End If
+			End If
+		Next
+	End Sub
 
 	Private Sub CrearAlojamiento()
+
 		codigo = maxCod()
 		capacidad = Convert.ToInt32(txtCapacidad.Text)
 		descripcion = txtDescripcion.Text
@@ -186,7 +197,8 @@ Public Class vistaAlojamientos
 
 	End Sub
 
-	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+	Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+		'if indice = -1 ' seleccionee
 		indice = DataGridView1.CurrentCell.RowIndex
 		Try
 			Dim codigo As Integer = Convert.ToInt32(DataGridView1.Rows(indice).Cells(0).Value)

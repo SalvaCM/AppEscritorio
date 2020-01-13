@@ -117,4 +117,7 @@ Public Class vistaReservas
 
     End Sub
 
+    Private Sub lblSalir_Click(sender As Object, e As EventArgs) Handles lblSalir.Click
+        Application.ExitThread()
+    End Sub
 End Class

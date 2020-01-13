@@ -31,8 +31,11 @@ Public Class MenuGestion
 		oSheet.Columns("B").ColumnWidth = oSheet.Columns("B").ColumnWidth * 3
 		oSheet.Columns("C").ColumnWidth = oSheet.Columns("C").ColumnWidth * 3
 		oSheet.Columns("D").ColumnWidth = oSheet.Columns("D").ColumnWidth * 3
+		oSheet.Columns("E").ColumnWidth = oSheet.Columns("E").ColumnWidth * 2
 		oSheet.Columns("H").ColumnWidth = oSheet.Columns("H").ColumnWidth * 2
+		oSheet.Columns("I").ColumnWidth = oSheet.Columns("I").ColumnWidth * 2
 		oSheet.Columns("J").ColumnWidth = oSheet.Columns("J").ColumnWidth * 2
+		oSheet.Columns("K").ColumnWidth = oSheet.Columns("K").ColumnWidth * 2
 		oSheet.Columns("L").ColumnWidth = oSheet.Columns("L").ColumnWidth * 2
 
         'Ponemos la parte de arriba de la tabla

@@ -186,7 +186,7 @@ Public Class vistaUsuarios
 
     End Sub
     'buscar un usuario
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
         Dim query As String = "SELECT cDni'DNI', cApellidos'Apellidos', cNombre'Nombre', cTelefono'Telefono', cTipoUsuario'Tipo' FROM TUSUARIOS "
         Dim primero As Boolean = True
         ' si no se ha escrito ningun elemento y le damos a buscar, nos saltara un mensaje
@@ -225,22 +225,23 @@ Public Class vistaUsuarios
             End If
 
             Dim tabla As New DataTable()
-			Dim nAdapter As New MySqlDataAdapter(query, conexion.con)
-			conexion.con.Open()
+            Dim nAdapter As New MySqlDataAdapter(query, conexion.con)
+            conexion.con.Open()
 
-			nAdapter.Fill(tabla)
+            nAdapter.Fill(tabla)
             DataGridView1.DataSource = tabla
-			conexion.con.Close()
+            conexion.con.Close()
 
-		End If
+        End If
 
     End Sub
 
-    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs)
         cargaGrid()
     End Sub
 
-	Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
-	End Sub
+    Private Sub lblSalir_Click(sender As Object, e As EventArgs) Handles lblSalir.Click
+        Application.ExitThread()
+    End Sub
 End Class

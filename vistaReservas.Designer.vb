@@ -22,7 +22,6 @@ Partial Class vistaReservas
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Me.Label15 = New System.Windows.Forms.Label()
 		Me.Button4 = New System.Windows.Forms.Button()
 		Me.Button3 = New System.Windows.Forms.Button()
 		Me.Button2 = New System.Windows.Forms.Button()
@@ -45,48 +44,44 @@ Partial Class vistaReservas
 		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.Button5 = New System.Windows.Forms.Button()
+		Me.lblSalir = New System.Windows.Forms.Label()
+		Me.Label15 = New System.Windows.Forms.Label()
+		Me.Label16 = New System.Windows.Forms.Label()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
-		'
-		'Label15
-		'
-		Me.Label15.AutoSize = True
-		Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label15.Location = New System.Drawing.Point(12, 30)
-		Me.Label15.Name = "Label15"
-		Me.Label15.Size = New System.Drawing.Size(328, 29)
-		Me.Label15.TabIndex = 79
-		Me.Label15.Text = "GESTION DE RESERVAS :"
 		'
 		'Button4
 		'
 		Me.Button4.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Button4.Location = New System.Drawing.Point(1097, 726)
+		Me.Button4.ForeColor = System.Drawing.Color.White
+		Me.Button4.Location = New System.Drawing.Point(1067, 713)
 		Me.Button4.Name = "Button4"
-		Me.Button4.Size = New System.Drawing.Size(75, 23)
+		Me.Button4.Size = New System.Drawing.Size(105, 36)
 		Me.Button4.TabIndex = 78
 		Me.Button4.Text = "VOLVER"
-		Me.Button4.UseVisualStyleBackColor = True
+		Me.Button4.UseVisualStyleBackColor = False
 		'
 		'Button3
 		'
 		Me.Button3.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Button3.ForeColor = System.Drawing.Color.White
 		Me.Button3.Location = New System.Drawing.Point(1049, 75)
 		Me.Button3.Name = "Button3"
 		Me.Button3.Size = New System.Drawing.Size(75, 23)
 		Me.Button3.TabIndex = 77
 		Me.Button3.Text = "ELIMINAR"
-		Me.Button3.UseVisualStyleBackColor = True
+		Me.Button3.UseVisualStyleBackColor = False
 		'
 		'Button2
 		'
 		Me.Button2.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Button2.ForeColor = System.Drawing.Color.White
 		Me.Button2.Location = New System.Drawing.Point(968, 75)
 		Me.Button2.Name = "Button2"
 		Me.Button2.Size = New System.Drawing.Size(75, 23)
 		Me.Button2.TabIndex = 76
 		Me.Button2.Text = "MODIFICAR"
-		Me.Button2.UseVisualStyleBackColor = True
+		Me.Button2.UseVisualStyleBackColor = False
 		'
 		'txtDni
 		'
@@ -256,6 +251,7 @@ Partial Class vistaReservas
 		'
 		'Button5
 		'
+		Me.Button5.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button5.Location = New System.Drawing.Point(997, 469)
 		Me.Button5.Name = "Button5"
 		Me.Button5.Size = New System.Drawing.Size(75, 23)
@@ -263,12 +259,50 @@ Partial Class vistaReservas
 		Me.Button5.Text = "GUARDAR"
 		Me.Button5.UseVisualStyleBackColor = True
 		'
+		'lblSalir
+		'
+		Me.lblSalir.AutoSize = True
+		Me.lblSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblSalir.ForeColor = System.Drawing.Color.White
+		Me.lblSalir.Location = New System.Drawing.Point(1145, 9)
+		Me.lblSalir.Name = "lblSalir"
+		Me.lblSalir.Size = New System.Drawing.Size(27, 31)
+		Me.lblSalir.TabIndex = 130
+		Me.lblSalir.Text = "x"
+		'
+		'Label15
+		'
+		Me.Label15.AutoSize = True
+		Me.Label15.Font = New System.Drawing.Font("Impact", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label15.ForeColor = System.Drawing.Color.White
+		Me.Label15.Location = New System.Drawing.Point(25, 30)
+		Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+		Me.Label15.Name = "Label15"
+		Me.Label15.Size = New System.Drawing.Size(226, 29)
+		Me.Label15.TabIndex = 131
+		Me.Label15.Text = "GESTION DE RESERVAS :"
+		'
+		'Label16
+		'
+		Me.Label16.AutoSize = True
+		Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label16.ForeColor = System.Drawing.Color.White
+		Me.Label16.Location = New System.Drawing.Point(12, 723)
+		Me.Label16.Name = "Label16"
+		Me.Label16.Size = New System.Drawing.Size(324, 29)
+		Me.Label16.TabIndex = 132
+		Me.Label16.Text = "Alojamientos Euskadi Admin "
+		'
 		'vistaReservas
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.Color.Black
 		Me.ClientSize = New System.Drawing.Size(1184, 761)
+		Me.ControlBox = False
+		Me.Controls.Add(Me.Label16)
+		Me.Controls.Add(Me.Label15)
+		Me.Controls.Add(Me.lblSalir)
 		Me.Controls.Add(Me.Button5)
 		Me.Controls.Add(Me.Button1)
 		Me.Controls.Add(Me.DataGridView1)
@@ -280,7 +314,6 @@ Partial Class vistaReservas
 		Me.Controls.Add(Me.Label7)
 		Me.Controls.Add(Me.txtFechaEntrada)
 		Me.Controls.Add(Me.Label8)
-		Me.Controls.Add(Me.Label15)
 		Me.Controls.Add(Me.Button4)
 		Me.Controls.Add(Me.Button3)
 		Me.Controls.Add(Me.Button2)
@@ -292,15 +325,13 @@ Partial Class vistaReservas
 		Me.Controls.Add(Me.Label2)
 		Me.Controls.Add(Me.txtNombreUsuario)
 		Me.Controls.Add(Me.Label1)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
 		Me.Name = "vistaReservas"
-		Me.Text = "Reservas"
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
 	End Sub
-
-	Friend WithEvents Label15 As Label
 	Friend WithEvents Button4 As Button
 	Friend WithEvents Button3 As Button
 	Friend WithEvents Button2 As Button
@@ -323,4 +354,7 @@ Partial Class vistaReservas
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button1 As Button
     Friend WithEvents Button5 As Button
+	Friend WithEvents lblSalir As Label
+	Friend WithEvents Label15 As Label
+	Friend WithEvents Label16 As Label
 End Class
