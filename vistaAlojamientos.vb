@@ -1,5 +1,6 @@
 ﻿
 Imports System.Data.SqlClient
+Imports System.IO
 Imports MySql.Data.MySqlClient
 
 Public Class vistaAlojamientos
@@ -77,6 +78,46 @@ Public Class vistaAlojamientos
 	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 		MenuGestion.Show()
 		Me.Close()
+	End Sub
+
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+
+		Dim fs As FileStream = Nothing
+		Dim sr As StreamWriter = Nothing
+		Dim directorio As String = "C:\Users\IN1DM3B_07\Desktop\errores"
+		Try
+			fs = New FileStream(directorio & "\Errores.txt", FileMode.Create, FileAccess.Write) '
+			sr = New StreamWriter(fs)
+			'For Each row As DataGridViewRow In DataGridView1.Rows
+			'For Each cell As DataGridViewCell In DataGridView
+			codigo = Convert.ToInt32(row.Cells(0).Value)
+					nombre = row.Cells(1).Value
+					descripcion = row.Cells(2).Value
+					capacidad = Convert.ToInt32(txtCapacidad.Text)
+
+					direccion = txtDireccion.Text
+					latitud = txtLatitud.Text
+					longitud = txtLongitud.Text
+					localidad = txtLocalidad.Text
+
+					telefono = txtTelefono.Text
+					email = txtMail.Text
+					localizacion = txtLocalizacion.Text
+					tipo = txtTipo.Text
+					paginaWeb = txtWeb.Text
+
+					'sr.WriteLine("Error:" & linea)
+				Next
+
+				sr.Close()
+			fs.Close()
+		Catch ex As Exception
+			Console.ForegroundColor = ConsoleColor.Red
+			Console.WriteLine(ex)
+			Console.ForegroundColor = ConsoleColor.Gray
+		End Try
+
 	End Sub
 
 	Private Sub CrearAlojamiento()

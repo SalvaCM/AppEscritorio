@@ -31,42 +31,46 @@ Partial Class vistaLogin
 		'
 		'txtNombre
 		'
-		Me.txtNombre.Location = New System.Drawing.Point(367, 307)
+		Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtNombre.Location = New System.Drawing.Point(434, 251)
 		Me.txtNombre.Name = "txtNombre"
-		Me.txtNombre.Size = New System.Drawing.Size(100, 20)
+		Me.txtNombre.Size = New System.Drawing.Size(100, 31)
 		Me.txtNombre.TabIndex = 0
 		'
 		'txtPassword
 		'
-		Me.txtPassword.Location = New System.Drawing.Point(367, 360)
+		Me.txtPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtPassword.Location = New System.Drawing.Point(434, 313)
 		Me.txtPassword.Name = "txtPassword"
 		Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-		Me.txtPassword.Size = New System.Drawing.Size(100, 20)
+		Me.txtPassword.Size = New System.Drawing.Size(100, 31)
 		Me.txtPassword.TabIndex = 1
 		'
 		'Label1
 		'
 		Me.Label1.AutoSize = True
-		Me.Label1.Location = New System.Drawing.Point(367, 291)
+		Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label1.Location = New System.Drawing.Point(342, 257)
 		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(43, 13)
+		Me.Label1.Size = New System.Drawing.Size(86, 25)
 		Me.Label1.TabIndex = 2
 		Me.Label1.Text = "Usuario"
 		'
 		'Label2
 		'
 		Me.Label2.AutoSize = True
-		Me.Label2.Location = New System.Drawing.Point(367, 344)
+		Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label2.Location = New System.Drawing.Point(305, 319)
 		Me.Label2.Name = "Label2"
-		Me.Label2.Size = New System.Drawing.Size(67, 13)
+		Me.Label2.Size = New System.Drawing.Size(123, 25)
 		Me.Label2.TabIndex = 3
-		Me.Label2.Text = "Contraseña :"
+		Me.Label2.Text = "Contraseña"
 		'
 		'Button1
 		'
-		Me.Button1.Location = New System.Drawing.Point(367, 398)
+		Me.Button1.Location = New System.Drawing.Point(434, 372)
 		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(75, 23)
+		Me.Button1.Size = New System.Drawing.Size(100, 37)
 		Me.Button1.TabIndex = 4
 		Me.Button1.Text = "Login"
 		Me.Button1.UseVisualStyleBackColor = True

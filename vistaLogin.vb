@@ -51,8 +51,6 @@ Public Class vistaLogin
 				Console.WriteLine("hola user" & dbUser)
 				Console.WriteLine("hola pp" & dbPass)
 
-
-
 				con.Close()
 
 				If (usuarioEncriptado = dbUser And passwordEncriptada = dbPass) Then

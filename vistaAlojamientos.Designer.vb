@@ -56,6 +56,7 @@ Partial Class vistaAlojamientos
 		Me.Label13 = New System.Windows.Forms.Label()
 		Me.btnAceptar = New System.Windows.Forms.Button()
 		Me.btnCancelar = New System.Windows.Forms.Button()
+		Me.Button1 = New System.Windows.Forms.Button()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
@@ -360,11 +361,21 @@ Partial Class vistaAlojamientos
 		Me.btnCancelar.UseVisualStyleBackColor = True
 		Me.btnCancelar.Visible = False
 		'
+		'Button1
+		'
+		Me.Button1.Location = New System.Drawing.Point(18, 644)
+		Me.Button1.Name = "Button1"
+		Me.Button1.Size = New System.Drawing.Size(156, 35)
+		Me.Button1.TabIndex = 127
+		Me.Button1.Text = "Generar Informe"
+		Me.Button1.UseVisualStyleBackColor = True
+		'
 		'vistaAlojamientos
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1108, 761)
+		Me.Controls.Add(Me.Button1)
 		Me.Controls.Add(Me.btnCancelar)
 		Me.Controls.Add(Me.btnAceptar)
 		Me.Controls.Add(Me.txtWeb)
@@ -441,4 +452,5 @@ Partial Class vistaAlojamientos
 	Friend WithEvents Label13 As Label
 	Friend WithEvents btnAceptar As Button
 	Friend WithEvents btnCancelar As Button
+	Friend WithEvents Button1 As Button
 End Class
