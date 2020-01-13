@@ -114,7 +114,6 @@
     <Compile Include="vistaLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RellenarTablaDesdeSql.vb" />
     <Compile Include="Reserva.vb" />
     <Compile Include="vistaAlojamientos.Designer.vb">
       <DependentUpon>vistaAlojamientos.vb</DependentUpon>
