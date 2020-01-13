@@ -218,6 +218,9 @@ Public Class vistaAlojamientos
 	End Sub
 	Private Sub Alojamientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		cargaGrid()
+		For Each column As DataGridViewColumn In DataGridView1.Columns
+			column.SortMode = DataGridViewColumnSortMode.NotSortable
+		Next
 	End Sub
 	Sub cargaGrid()
 		conexion.con.Open()
