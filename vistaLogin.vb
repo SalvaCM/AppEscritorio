@@ -5,6 +5,7 @@ Imports MySql.Data.MySqlClient
 Public Class vistaLogin
 	Public usuario, password As String
 	Public conexion As New Conexion
+	Public tipoUser As String = ""
 	'Public con As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 		usuario = txtNombre.Text
@@ -27,7 +28,6 @@ Public Class vistaLogin
 
 		Dim dbUser
 		Dim dbPass
-		Dim tipoUser
 		Try
 
 			If (usuario = "") Then
@@ -49,12 +49,11 @@ Public Class vistaLogin
 					Console.WriteLine("pass ><<<<<<<<<<<<<<<<<<<<<<<<<<")
 					dbPass = reader("cContrasena").ToString()
 					tipoUser = reader("cTipoUsuario").ToString()
-
-
-
 				End While
+
 				Console.WriteLine("hola user" & dbUser)
 				Console.WriteLine("hola pp" & dbPass)
+				Console.WriteLine("hola pp" & tipoUser)
 
 				conexion.con.Close()
 

@@ -25,8 +25,7 @@ Partial Class vistaUsuarios
 		Me.Label16 = New System.Windows.Forms.Label()
 		Me.lblSalir = New System.Windows.Forms.Label()
 		Me.btnActualizar = New System.Windows.Forms.Button()
-		Me.Button1 = New System.Windows.Forms.Button()
-		Me.busMail = New System.Windows.Forms.ComboBox()
+		Me.btnBuscar = New System.Windows.Forms.Button()
 		Me.Label9 = New System.Windows.Forms.Label()
 		Me.busApellido = New System.Windows.Forms.TextBox()
 		Me.Label8 = New System.Windows.Forms.Label()
@@ -51,6 +50,7 @@ Partial Class vistaUsuarios
 		Me.txtNombre = New System.Windows.Forms.TextBox()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.txtEmail = New System.Windows.Forms.TextBox()
+		Me.busMail = New System.Windows.Forms.TextBox()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
@@ -88,26 +88,17 @@ Partial Class vistaUsuarios
 		Me.btnActualizar.Text = "ACTUALIZAR"
 		Me.btnActualizar.UseVisualStyleBackColor = False
 		'
-		'Button1
+		'btnBuscar
 		'
-		Me.Button1.BackColor = System.Drawing.Color.Black
-		Me.Button1.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Button1.ForeColor = System.Drawing.Color.White
-		Me.Button1.Location = New System.Drawing.Point(408, 106)
-		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(94, 23)
-		Me.Button1.TabIndex = 159
-		Me.Button1.Text = "BUSCAR"
-		Me.Button1.UseVisualStyleBackColor = False
-		'
-		'busMail
-		'
-		Me.busMail.FormattingEnabled = True
-		Me.busMail.Items.AddRange(New Object() {"Admin", "Normal"})
-		Me.busMail.Location = New System.Drawing.Point(119, 104)
-		Me.busMail.Name = "busMail"
-		Me.busMail.Size = New System.Drawing.Size(120, 21)
-		Me.busMail.TabIndex = 158
+		Me.btnBuscar.BackColor = System.Drawing.Color.Black
+		Me.btnBuscar.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnBuscar.ForeColor = System.Drawing.Color.White
+		Me.btnBuscar.Location = New System.Drawing.Point(408, 106)
+		Me.btnBuscar.Name = "btnBuscar"
+		Me.btnBuscar.Size = New System.Drawing.Size(94, 23)
+		Me.btnBuscar.TabIndex = 159
+		Me.btnBuscar.Text = "BUSCAR"
+		Me.btnBuscar.UseVisualStyleBackColor = False
 		'
 		'Label9
 		'
@@ -363,6 +354,13 @@ Partial Class vistaUsuarios
 		Me.txtEmail.Size = New System.Drawing.Size(189, 20)
 		Me.txtEmail.TabIndex = 163
 		'
+		'busMail
+		'
+		Me.busMail.Location = New System.Drawing.Point(119, 106)
+		Me.busMail.Name = "busMail"
+		Me.busMail.Size = New System.Drawing.Size(120, 20)
+		Me.busMail.TabIndex = 164
+		'
 		'vistaUsuarios
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -370,12 +368,12 @@ Partial Class vistaUsuarios
 		Me.BackColor = System.Drawing.Color.Black
 		Me.ClientSize = New System.Drawing.Size(1184, 761)
 		Me.ControlBox = False
+		Me.Controls.Add(Me.busMail)
 		Me.Controls.Add(Me.txtEmail)
 		Me.Controls.Add(Me.Label16)
 		Me.Controls.Add(Me.lblSalir)
 		Me.Controls.Add(Me.btnActualizar)
-		Me.Controls.Add(Me.Button1)
-		Me.Controls.Add(Me.busMail)
+		Me.Controls.Add(Me.btnBuscar)
 		Me.Controls.Add(Me.Label9)
 		Me.Controls.Add(Me.busApellido)
 		Me.Controls.Add(Me.Label8)
@@ -410,8 +408,7 @@ Partial Class vistaUsuarios
 	Friend WithEvents Label16 As Label
 	Friend WithEvents lblSalir As Label
 	Friend WithEvents btnActualizar As Button
-	Friend WithEvents Button1 As Button
-	Friend WithEvents busMail As ComboBox
+	Friend WithEvents btnBuscar As Button
 	Friend WithEvents Label9 As Label
 	Friend WithEvents busApellido As TextBox
 	Friend WithEvents Label8 As Label
@@ -436,4 +433,5 @@ Partial Class vistaUsuarios
 	Friend WithEvents txtNombre As TextBox
 	Friend WithEvents Label1 As Label
 	Friend WithEvents txtEmail As TextBox
+	Friend WithEvents busMail As TextBox
 End Class

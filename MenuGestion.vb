@@ -301,5 +301,15 @@ Public Class MenuGestion
 		MsgBox("Informe Generado! El archivo se guardara en la carpeta de Documentos")
 	End Sub
 
+	Private Sub MenuGestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		If vistaLogin.tipoUser = "admin" Then
+			btnAdmin.Visible = True
+			btnInformeAdmin.Visible = True
+		Else
+			Label3.Visible = False
+			btnAdmin.Visible = False
+			btnInformeAdmin.Visible = False
+		End If
 
+	End Sub
 End Class

@@ -105,7 +105,6 @@ Public Class vistaUsuarios
 		Dim telefono = txtTelefono.Text
 		Dim mail = txtEmail.Text
 
-
 		If result = DialogResult.Yes Then
 			Try
 				conexion.con.Open()
@@ -115,7 +114,7 @@ Public Class vistaUsuarios
 					query = "UPDATE tusuarios SET cDni = '" & dni & "', cNombre = '" & nombre & "', cApellidos = '" & apellidos & "', cTelefono = " & telefono & ", cEmail = '" & mail & "' "
 					query = query + "WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
 				Else
-					query = "insert into tusuarios values ('" & dni & "','" & apellidos & "','default','" & nombre & "'," & telefono & ",' " & mail & "')"
+					query = "insert into tusuarios (cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail) values ('" & dni & "','" & apellidos & "','default','" & nombre & "'," & telefono & ",' " & mail & "')"
 				End If
 				Command = New MySqlCommand(query, conexion.con)
 
@@ -155,7 +154,7 @@ Public Class vistaUsuarios
 		btnModificar.Enabled = True
 		btnEliminar.Enabled = True
 		btnCancelar.Visible = False
-		Button1.Enabled = True
+		btnBuscar.Enabled = True
 		btnActualizar.Enabled = True
 		busApellido.Enabled = True
 		busNombre.Enabled = True
@@ -176,7 +175,7 @@ Public Class vistaUsuarios
 		btnCancelar.Visible = True
 		btnModi.Visible = True
 		txtEmail.Enabled = True
-		Button1.Enabled = False
+		btnBuscar.Enabled = False
 		btnActualizar.Enabled = False
 		busApellido.Enabled = False
 		busNombre.Enabled = False
@@ -184,7 +183,7 @@ Public Class vistaUsuarios
 
 	End Sub
 	'buscar un usuario
-	Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+	Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btnBuscar.Click
 		Dim query As String = "SELECT cDni'DNI', cApellidos'Apellidos', cNombre'Nombre', cTelefono'Telefono', cEmail'Email' FROM TUSUARIOS "
 		Dim primero As Boolean = True
 		' si no se ha escrito ningun elemento y le damos a buscar, nos saltara un mensaje
@@ -219,7 +218,7 @@ Public Class vistaUsuarios
 					query = query + "AND "
 				End If
 
-				query = query + "cTipoUsuario = '" & busMail.Text & "' "
+				query = query + "cEmail = '" & busMail.Text & "' "
 			End If
 
 			Dim tabla As New DataTable()
