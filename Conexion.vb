@@ -4,6 +4,7 @@ Imports MySql.Data.MySqlClient
 Public Class Conexion
 	Public con As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
 	'Server JOCHEMANUE	Public con As New MySqlConnection("Server=188.213.5.150; Database=alojamientos; Uid=accesoadatos; Pwd=123456") '
+	'Public con As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")'
 	Public Sub Conectar()
 		':::Utilizamos el try para capturar posibles errores
 		Try

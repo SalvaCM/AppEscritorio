@@ -12,13 +12,18 @@ Public Class vistaAlojamientos
 	Public modo As String = "Crear" 'modos disponibles : Crear , Modificar / Se usa para saber si hay que crear un aloj o modificarlo'
 
 	Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
-		deshabilitarTxt()
-		btnCancelar.Visible = False
-		btnAceptar.Visible = False
-		If modo = "Crear" Then
-			CrearAlojamiento()
+		If validar() Then
+
+			deshabilitarTxt()
+			btnCancelar.Visible = False
+			btnAceptar.Visible = False
+			If modo = "Crear" Then
+				CrearAlojamiento()
+			Else
+				ModificarAlojamiento()
+			End If
 		Else
-			ModificarAlojamiento()
+			MsgBox("Es necesario rellenar todos los campos")
 		End If
 	End Sub
 
@@ -59,17 +64,19 @@ Public Class vistaAlojamientos
 				cmd.Parameters.AddWithValue("@web", paginaWeb)
 
 				cmd.ExecuteNonQuery()
-
+				MsgBox("Modificado Correctamente!")
 			Catch ex As Exception
 				MessageBox.Show("Error en actualizacion en la tabla..." & ex.Message, "Error")
 
 			Finally
 
 				conexion.con.Close()
-				DataGridView1.DataSource = Nothing
-				DataGridView1.Refresh()
-				cargaGrid()
+
 			End Try
+
+			DataGridView1.DataSource = Nothing
+			DataGridView1.Refresh()
+			cargaGrid()
 		End If
 
 
@@ -83,17 +90,30 @@ Public Class vistaAlojamientos
 	Private Sub lblSalir_Click(sender As Object, e As EventArgs) Handles lblSalir.Click
 		Application.ExitThread()
 	End Sub
-	Private Sub validar()
+	Private Function validar()
+		Dim validado As Boolean = True
 		Dim tbox As TextBox
 		For Each ctrl In Me.Controls
 			If TypeOf ctrl Is TextBox Then
 				tbox = CType(ctrl, TextBox)
-				If tbox.Text Is Nothing Then
-					MsgBox("Es necesario rellenar todos los campos")
+				If tbox.Name <> "txtCodigo" Then
+
+					If tbox.Text = Nothing Or tbox.Text = "" Then
+						validado = False
+					End If
+					If tbox.Name = "txtTelefono" Then
+						If tbox.Text.Length > 9 Then
+							validado = False
+							MsgBox("El numero debe ser de 9 cifras")
+						End If
+					End If
+
 				End If
 			End If
 		Next
-	End Sub
+
+		Return validado
+	End Function
 
 	Private Sub CrearAlojamiento()
 
@@ -119,7 +139,7 @@ Public Class vistaAlojamientos
 				Dim query As String = "Insert into talojamientos (cCodAlojamiento,cCapacidad,cDescripcion,cDireccion,cEmail,cLatitud,cLocalidad,cLocalizacion,cLongitud,cNombre,cTelefono,cTipo,cWeb) values (" & codigo & "," & capacidad & ",'" & descripcion & "','" & direccion & "','" & latitud & "','" & longitud & "','" & localidad & "','" & nombre & "','" & telefono & "','" & email & "','" & localizacion & "','" & tipo & "','" & paginaWeb & "'); "
 				Dim cmd As New MySqlCommand(query, conexion.con)
 				cmd.ExecuteNonQuery()
-
+				MsgBox("Creado Correctamente!")
 			Catch ex As Exception
 				MessageBox.Show("Error en insercion en la tabla..." & ex.Message, "Insert Records")
 
@@ -131,6 +151,7 @@ Public Class vistaAlojamientos
 				cargaGrid()
 			End Try
 		End If
+
 	End Sub
 
 	Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
@@ -143,20 +164,7 @@ Public Class vistaAlojamientos
 	Private Sub BtnCrear_Click(sender As Object, e As EventArgs) Handles btnCrear.Click
 		modo = "Crear"
 		habilitarTxt()
-		txtCodigo.Text = ""
-		txtCapacidad.Text = ""
-		txtDescripcion.Text = ""
-		txtDireccion.Text = ""
-		txtLatitud.Text = ""
-		txtLongitud.Text = ""
-		txtLocalidad.Text = ""
-		txtNombre.Text = ""
-		txtLocalidad.Text = ""
-		txtTelefono.Text = ""
-		txtMail.Text = ""
-		txtLocalizacion.Text = ""
-		txtTipo.Text = ""
-		txtWeb.Text = ""
+		limpiarTxtBox()
 		btnAceptar.Visible = True
 		btnCancelar.Visible = True
 	End Sub
@@ -179,7 +187,6 @@ Public Class vistaAlojamientos
 		telefono = DataGridView1.Rows(indice).Cells(10).Value
 		paginaWeb = DataGridView1.Rows(indice).Cells(11).Value
 		capacidad = Convert.ToInt32(DataGridView1.Rows(indice).Cells(12).Value)
-
 
 		txtCodigo.Text = codigo.ToString
 		txtCapacidad.Text = capacidad.ToString
@@ -204,40 +211,30 @@ Public Class vistaAlojamientos
 			Dim codigo As Integer = Convert.ToInt32(DataGridView1.Rows(indice).Cells(0).Value)
 			conexion.con.Open()
 			Dim query As String = "Delete From talojamientos where cCodAlojamiento=" & codigo
-
-
 			If MessageBox.Show("Confirmar Borrado", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.No Then
-
 				MsgBox("Cancelado")
-
 				Exit Sub
 			Else
 				Dim cmd As New MySqlCommand(query, conexion.con)
 				cmd.ExecuteNonQuery()
-
 			End If
 		Catch ex As Exception
 			MessageBox.Show("Error borrando de la tabla..." & ex.Message, "Delete Records")
-
 		Finally
-
 			conexion.con.Close()
-			DataGridView1.DataSource = Nothing
-			DataGridView1.Refresh()
-			cargaGrid()
 		End Try
-
+		DataGridView1.DataSource = Nothing
+		DataGridView1.Refresh()
+		cargaGrid()
 	End Sub
 	Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
 		deshabilitarTxt()
+		limpiarTxtBox()
 		btnCancelar.Visible = False
 		btnAceptar.Visible = False
 	End Sub
 	Private Sub Alojamientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		cargaGrid()
-		For Each column As DataGridViewColumn In DataGridView1.Columns
-			column.SortMode = DataGridViewColumnSortMode.NotSortable
-		Next
 	End Sub
 	Sub cargaGrid()
 		conexion.con.Open()
@@ -245,6 +242,9 @@ Public Class vistaAlojamientos
 		adapter.Fill(tabla)
 		DataGridView1.DataSource = tabla
 		conexion.con.Close()
+		For Each column As DataGridViewColumn In DataGridView1.Columns
+			column.SortMode = DataGridViewColumnSortMode.NotSortable
+		Next
 	End Sub
 	Sub deshabilitarTxt()
 		txtNombre.Enabled = False
@@ -288,6 +288,22 @@ Public Class vistaAlojamientos
 		btnModificar.Enabled = False
 		btnEliminar.Enabled = False
 		btnVolver.Enabled = False
+	End Sub
+	Private Sub limpiarTxtBox()
+		txtCodigo.Text = ""
+		txtCapacidad.Text = ""
+		txtDescripcion.Text = ""
+		txtDireccion.Text = ""
+		txtLatitud.Text = ""
+		txtLongitud.Text = ""
+		txtLocalidad.Text = ""
+		txtNombre.Text = ""
+		txtLocalidad.Text = ""
+		txtTelefono.Text = ""
+		txtMail.Text = ""
+		txtLocalizacion.Text = ""
+		txtTipo.Text = ""
+		txtWeb.Text = ""
 	End Sub
 	Function maxCod()
 		Dim maxCodigo As Integer

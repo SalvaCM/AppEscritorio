@@ -27,6 +27,7 @@ Public Class vistaLogin
 
 		Dim dbUser
 		Dim dbPass
+		Dim tipoUser
 		Try
 
 			If (usuario = "") Then
@@ -37,16 +38,19 @@ Public Class vistaLogin
 
 				Dim usuarioEncriptado As String = MD5EncryptPass(usuario)
 				Dim passwordEncriptada As String = MD5EncryptPass(password)
-				Dim query As String = "SELECT dni,password FROM tadministradores WHERE dni='" & usuarioEncriptado & "' AND  password='" & passwordEncriptada & "'"
+				Dim query As String = "SELECT cDni,cContrasena,cTipoUsuario FROM tAdministradores WHERE cDni='" & usuarioEncriptado & "' AND  cContrasena='" & passwordEncriptada & "'"
 
 				conexion.con.Open()
 				Dim cmd As New MySqlCommand(query, conexion.con)
 				'adapterUsuario.
 				Dim reader As MySqlDataReader = cmd.ExecuteReader()
 				While reader.Read()
-					dbUser = reader("dni").ToString()
+					dbUser = reader("cDni").ToString()
 					Console.WriteLine("pass ><<<<<<<<<<<<<<<<<<<<<<<<<<")
-					dbPass = reader("password").ToString()
+					dbPass = reader("cContrasena").ToString()
+					tipoUser = reader("cTipoUsuario").ToString()
+
+
 
 				End While
 				Console.WriteLine("hola user" & dbUser)
