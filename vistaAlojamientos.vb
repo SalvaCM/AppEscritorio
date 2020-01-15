@@ -5,7 +5,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class vistaAlojamientos
 	Dim conexion As New Conexion
-	Public adapter As New MySqlDataAdapter("SELECT cCodAlojamiento'CODIGO',cNombre'NOMBRE',cDescripcion'DESCRIPCION',cDireccion'DIRECCION',cEmail'EMAIL',cLongitud'LONGITUD',cLatitud'LATITUD',cLocalidad'LOCALIDAD',cLocalizacion'LOCALIZACION',cTipo'TIPO',cTelefono'TELEFONO',cWeb'WEB',cCapacidad'CAPACIDAD' FROM TALOJAMIENTOS", conexion.con)
+	Public adapter As New MySqlDataAdapter("SELECT cCodAlojamiento'CODIGO',cNombre'NOMBRE',cDescripcion'DESCRIPCION',cDireccion'DIRECCION',cEmail'EMAIL',cLongitud'LONGITUD',cLatitud'LATITUD',cLocalidad'LOCALIDAD',cLocalizacion'LOCALIZACION',cTipo'TIPO',cTelefono'TELEFONO',cWeb'WEB',cCapacidad'CAPACIDAD' FROM tAlojamientos", conexion.con)
 	Public indice As Integer
 	Public codigo, capacidad As Integer
 	Public descripcion, direccion, email, tipo, localizacion, telefono, nombre, localidad, paginaWeb, latitud, longitud As String
@@ -46,7 +46,7 @@ Public Class vistaAlojamientos
 			Try
 				conexion.con.Open()
 
-				Dim query As String = "Update talojamientos set cCapacidad=@capacidad,cDescripcion=@descripcion,cDireccion=@direccion,cEmail=@email,cLatitud=@latitud,cLocalidad=@localidad,cLocalizacion=@localizacion,cLongitud=@longitud,cNombre=@nombre,cTelefono=@telefono,cTipo=@tipo,cWeb=@web  where cCodAlojamiento=@codigo ;"
+				Dim query As String = "Update tAlojamientos set cCapacidad=@capacidad,cDescripcion=@descripcion,cDireccion=@direccion,cEmail=@email,cLatitud=@latitud,cLocalidad=@localidad,cLocalizacion=@localizacion,cLongitud=@longitud,cNombre=@nombre,cTelefono=@telefono,cTipo=@tipo,cWeb=@web  where cCodAlojamiento=@codigo ;"
 				Dim cmd As New MySqlCommand(query, conexion.con)
 				cmd.CommandType = CommandType.Text
 				cmd.Parameters.AddWithValue("@codigo", codigo)
@@ -136,7 +136,7 @@ Public Class vistaAlojamientos
 				'codigo = Convert.ToInt32(DataGridView1.Rows(indice).Cells(0).Value)'
 				conexion.con.Open()
 
-				Dim query As String = "Insert into talojamientos (cCodAlojamiento,cCapacidad,cDescripcion,cDireccion,cEmail,cLatitud,cLocalidad,cLocalizacion,cLongitud,cNombre,cTelefono,cTipo,cWeb) values (" & codigo & "," & capacidad & ",'" & descripcion & "','" & direccion & "','" & latitud & "','" & longitud & "','" & localidad & "','" & nombre & "','" & telefono & "','" & email & "','" & localizacion & "','" & tipo & "','" & paginaWeb & "'); "
+				Dim query As String = "Insert into tAlojamientos (cCodAlojamiento,cCapacidad,cDescripcion,cDireccion,cEmail,cLatitud,cLocalidad,cLocalizacion,cLongitud,cNombre,cTelefono,cTipo,cWeb) values (" & codigo & "," & capacidad & ",'" & descripcion & "','" & direccion & "','" & latitud & "','" & longitud & "','" & localidad & "','" & nombre & "','" & telefono & "','" & email & "','" & localizacion & "','" & tipo & "','" & paginaWeb & "'); "
 				Dim cmd As New MySqlCommand(query, conexion.con)
 				cmd.ExecuteNonQuery()
 				MsgBox("Creado Correctamente!")
@@ -210,7 +210,7 @@ Public Class vistaAlojamientos
 		Try
 			Dim codigo As Integer = Convert.ToInt32(DataGridView1.Rows(indice).Cells(0).Value)
 			conexion.con.Open()
-			Dim query As String = "Delete From talojamientos where cCodAlojamiento=" & codigo
+			Dim query As String = "Delete From tAlojamientos where cCodAlojamiento=" & codigo
 			If MessageBox.Show("Confirmar Borrado", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.No Then
 				MsgBox("Cancelado")
 				Exit Sub
@@ -309,7 +309,7 @@ Public Class vistaAlojamientos
 		Dim maxCodigo As Integer
 		Try
 			conexion.con.Open()
-			Dim query As String = "SELECT max(cCodAlojamiento) FROM TALOJAMIENTOS"
+			Dim query As String = "SELECT max(cCodAlojamiento) FROM tAlojamientos"
 			Dim cmd As New MySqlCommand(query, conexion.con)
 			maxCodigo = cmd.ExecuteScalar()
 			If (maxCodigo <> Nothing) Then

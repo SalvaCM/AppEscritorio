@@ -62,7 +62,7 @@ Public Class MenuGestion
 		oSheet.Range("A1:M1").Font.Bold = True
 
 		Try
-			Dim query As String = "SELECT cCodAlojamiento'CODIGO',cNombre'NOMBRE',cDescripcion'DESCRIPCION',cDireccion'DIRECCION',cEmail'EMAIL',cLongitud'LONGITUD',cLatitud'LATITUD',cLocalidad'LOCALIDAD',cLocalizacion'LOCALIZACION',cTipo'TIPO',cTelefono'TELEFONO',cWeb'WEB',cCapacidad'CAPACIDAD' FROM TALOJAMIENTOS"
+			Dim query As String = "SELECT cCodAlojamiento'CODIGO',cNombre'NOMBRE',cDescripcion'DESCRIPCION',cDireccion'DIRECCION',cEmail'EMAIL',cLongitud'LONGITUD',cLatitud'LATITUD',cLocalidad'LOCALIDAD',cLocalizacion'LOCALIZACION',cTipo'TIPO',cTelefono'TELEFONO',cWeb'WEB',cCapacidad'CAPACIDAD' FROM tAlojamientos"
 			Dim cmd As New MySqlCommand(query, conexion.con)
 			conexion.con.Open()
 			Dim sqlReader As MySqlDataReader = cmd.ExecuteReader()
@@ -202,7 +202,7 @@ Public Class MenuGestion
 
 
 		Try
-			Dim query As String = "SELECT * FROM treservas"
+			Dim query As String = "SELECT * FROM tReservas"
 			Dim cmd As New MySqlCommand(query, conexion.con)
 			conexion.con.Open()
 			Dim sqlReader As MySqlDataReader = cmd.ExecuteReader()

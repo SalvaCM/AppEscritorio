@@ -1,8 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class vistaReservas
 	Public conexion As New Conexion
-	Public query As String = "SELECT r.cReserva'Codigo Reserva', a.cNombre'Nombre Apartamento', u.cDni'DNI', u.cNombre'Nombre Usuario', u.cApellidos'Apellidos', u.cTelefono'Telefono Usuario', r.cFechaRealizada'Fecha Realizada', r.cFechaEntrada'Fecha Entrada', r.cFechaSalida'Fecha Saluda' FROM talojamientos a, treservas r, tusuarios u WHERE r.cCodAlojamiento = a.cCodAlojamiento AND cCodUsuario = cDni"
-	Public adapter As New MySqlDataAdapter(query, conexion.con)
+    Public query As String = "SELECT r.cReserva'Codigo Reserva', a.cNombre'Nombre Apartamento', u.cDni'DNI', u.cNombre'Nombre Usuario', u.cApellidos'Apellidos', u.cTelefono'Telefono Usuario', r.cFechaRealizada'Fecha Realizada', r.cFechaEntrada'Fecha Entrada', r.cFechaSalida'Fecha Saluda' FROM tAlojamientos a, tReservas r, tUsuarios u WHERE r.cCodAlojamiento = a.cCodAlojamiento AND cCodUsuario = cDni"
+    Public adapter As New MySqlDataAdapter(query, conexion.con)
 	'Volver
 	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         MenuGestion.Show()

@@ -2,7 +2,7 @@
 
 Public Class vistaUsuarios
 	Public conexion As New Conexion
-	Public adapter As New MySqlDataAdapter("SELECT cDni'DNI', cApellidos'Apellidos', cNombre'Nombre', cTelefono'Telefono', cEmail'eMail' FROM TUSUARIOS", conexion.con)
+	Public adapter As New MySqlDataAdapter("SELECT cDni'DNI', cApellidos'Apellidos', cNombre'Nombre', cTelefono'Telefono', cEmail'eMail' FROM tUsuarios", conexion.con)
 	'Volver
 	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 		MenuGestion.Show()
