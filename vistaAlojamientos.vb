@@ -1,7 +1,4 @@
-﻿
-Imports System.Data.SqlClient
-Imports System.IO
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 
 Public Class vistaAlojamientos
 	Dim conexion As New Conexion
@@ -202,28 +199,49 @@ Public Class vistaAlojamientos
 		txtTipo.Text = tipo
 		txtWeb.Text = paginaWeb
 
-	End Sub
+
+
+
+
+    End Sub
 
 	Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-		'if indice = -1 ' seleccionee
-		indice = DataGridView1.CurrentCell.RowIndex
-		Try
-			Dim codigo As Integer = Convert.ToInt32(DataGridView1.Rows(indice).Cells(0).Value)
-			conexion.con.Open()
-			Dim query As String = "Delete From tAlojamientos where cCodAlojamiento=" & codigo
-			If MessageBox.Show("Confirmar Borrado", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.No Then
-				MsgBox("Cancelado")
-				Exit Sub
-			Else
-				Dim cmd As New MySqlCommand(query, conexion.con)
-				cmd.ExecuteNonQuery()
-			End If
-		Catch ex As Exception
-			MessageBox.Show("Error borrando de la tabla..." & ex.Message, "Delete Records")
-		Finally
-			conexion.con.Close()
-		End Try
-		DataGridView1.DataSource = Nothing
+        'if indice = -1 ' seleccionee
+        indice = DataGridView1.CurrentCell.RowIndex
+        Dim codigo As Integer = Convert.ToInt32(DataGridView1.Rows(indice).Cells(0).Value)
+        Dim query As String = "Delete From tAlojamientos where cCodAlojamiento=" & codigo
+
+
+        If MessageBox.Show("¿Estas seguro que quieres eliminar el alojamiento y sus reservas?", "Confirmar Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
+            ' eliminamos el alojamiento seleccionado
+            Try
+                conexion.con.Open()
+                Dim cmd As New MySqlCommand(query, conexion.con)
+                cmd.ExecuteNonQuery()
+            Catch ex As Exception
+                MessageBox.Show("Error borrando de la tabla..." & ex.Message, "Delete Records")
+            Finally
+                conexion.con.Close()
+            End Try
+
+            'eliminar las reservas asignadas al alojamiento
+
+            Try
+                conexion.con.Open()
+                query = "Delete from tReservas where cCodAlojamiento = " & codigo
+                Dim cmd As New MySqlCommand(query, conexion.con)
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("Alojamiento y sus reservas han sido eliminadas")
+            Catch ex As Exception
+                MessageBox.Show("Error borrando de la tabla..." & ex.Message, "Delete Records")
+            Finally
+                conexion.con.Close()
+            End Try
+
+
+        End If
+
+        DataGridView1.DataSource = Nothing
 		DataGridView1.Refresh()
 		cargaGrid()
 	End Sub

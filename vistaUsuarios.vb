@@ -45,8 +45,8 @@ Public Class vistaUsuarios
 			Dim result As DialogResult = MessageBox.Show("Estas seguro que quieres eliminar este usuario?", "Atencion", MessageBoxButtons.YesNo)
 			If (result = DialogResult.Yes) Then
 				Try
-					query = "DELETE FROM TUSUARIOS WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
-					conexion.con.Open()
+                    query = "DELETE FROM tUsuarios WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
+                    conexion.con.Open()
 					Dim mysc As New MySqlCommand(query, conexion.con)
 					mysc.ExecuteNonQuery()
 					MessageBox.Show("Usuario dado de baja")
@@ -111,11 +111,11 @@ Public Class vistaUsuarios
 				If Label6.Text = "Modificar" Then
 
 
-					query = "UPDATE tusuarios SET cDni = '" & dni & "', cNombre = '" & nombre & "', cApellidos = '" & apellidos & "', cTelefono = " & telefono & ", cEmail = '" & mail & "' "
-					query = query + "WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
+                    query = "UPDATE tUsuarios SET cDni = '" & dni & "', cNombre = '" & nombre & "', cApellidos = '" & apellidos & "', cTelefono = " & telefono & ", cEmail = '" & mail & "' "
+                    query = query + "WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
 				Else
-					query = "insert into tusuarios (cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail) values ('" & dni & "','" & apellidos & "','default','" & nombre & "'," & telefono & ",' " & mail & "')"
-				End If
+                    query = "insert into tUsuarios (cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail) values ('" & dni & "','" & apellidos & "','default','" & nombre & "'," & telefono & ",' " & mail & "')"
+                End If
 				Command = New MySqlCommand(query, conexion.con)
 
 				READER = Command.ExecuteReader
@@ -184,8 +184,8 @@ Public Class vistaUsuarios
 	End Sub
 	'buscar un usuario
 	Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles btnBuscar.Click
-		Dim query As String = "SELECT cDni'DNI', cApellidos'Apellidos', cNombre'Nombre', cTelefono'Telefono', cEmail'Email' FROM TUSUARIOS "
-		Dim primero As Boolean = True
+        Dim query As String = "SELECT cDni'DNI', cApellidos'Apellidos', cNombre'Nombre', cTelefono'Telefono', cEmail'Email' FROM tUsuarios "
+        Dim primero As Boolean = True
 		' si no se ha escrito ningun elemento y le damos a buscar, nos saltara un mensaje
 		If busNombre.Text = "" And busApellido.Text = "" And busMail.Text = "" Then
 			MsgBox("No has añadido ningun campo de busqueda")

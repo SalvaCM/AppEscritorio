@@ -48,8 +48,8 @@ Public Class vistaAdministradores
 			Dim result As DialogResult = MessageBox.Show("Estas seguro que quieres eliminar este usuario?", "Atencion", MessageBoxButtons.YesNo)
 			If (result = DialogResult.Yes) Then
 				Try
-					query = "DELETE FROM TADMINISTRADORES WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
-					conexion.con.Open()
+                    query = "DELETE FROM tAdministradores WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
+                    conexion.con.Open()
 					Dim mysc As New MySqlCommand(query, conexion.con)
 					mysc.ExecuteNonQuery()
 					MessageBox.Show("Usuario dado de baja")
@@ -133,11 +133,11 @@ Public Class vistaAdministradores
 					If txtPassw.Enabled = True Then
 						passW = passwordEncriptada
 					End If
-					query = "UPDATE TADMINISTRADORES SET cDni = '" & usuarioEncriptado & "', cNombre = '" & nombre & "', cApellidos = '" & apellidos & "', cTelefono = " & telefono & ", cTipoUsuario = '" & tipo & "',cContrasena ='" & passW & "'"
-					query = query + "WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
+                    query = "UPDATE tAdministradores SET cDni = '" & usuarioEncriptado & "', cNombre = '" & nombre & "', cApellidos = '" & apellidos & "', cTelefono = " & telefono & ", cTipoUsuario = '" & tipo & "',cContrasena ='" & passW & "'"
+                    query = query + "WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
 				Else
-					query = "insert into TADMINISTRADORES values ('" & usuarioEncriptado & "','" & apellidos & "','" & passwordEncriptada & "','" & nombre & "'," & telefono & ",' " & tipo & "')"
-				End If
+                    query = "insert into tAdministradores values ('" & usuarioEncriptado & "','" & apellidos & "','" & passwordEncriptada & "','" & nombre & "'," & telefono & ",' " & tipo & "')"
+                End If
 				Command = New MySqlCommand(query, conexion.con)
 
 				READER = Command.ExecuteReader

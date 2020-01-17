@@ -23,6 +23,16 @@ Public Class vistaReservas
         Button5.Visible = False
         cargaGrid()
 
+        txtNombreAloj.Text = DataGridView1.Rows(0).Cells(1).Value
+        txtDni.Text = DataGridView1.Rows(0).Cells(2).Value
+        txtNombreUsuario.Text = DataGridView1.Rows(0).Cells(3).Value
+        txtApellidos.Text = DataGridView1.Rows(0).Cells(4).Value
+        txtTelefonoAlo.Text = DataGridView1.Rows(0).Cells(5).Value
+        txtFechaReserva.Text = DataGridView1.Rows(0).Cells(6).Value
+        txtFechaEntrada.Text = DataGridView1.Rows(0).Cells(7).Value
+        txtFechaSalida.Text = DataGridView1.Rows(0).Cells(8).Value
+
+
     End Sub
 
     Private Sub cargaGrid()
@@ -98,8 +108,8 @@ Public Class vistaReservas
         If result = DialogResult.Yes Then
             Dim fecha1 As Date = txtFechaEntrada.Text
             Dim fecha2 As Date = txtFechaSalida.Text
-            Dim upd As String = "UPDATE treservas SET cFechaEntrada = '" & fecha1.Year & "-" & fecha1.Month & "-" & fecha1.Day & "', cFechaSalida = '" & fecha2.Year & "-" & fecha2.Month & "-" & fecha2.Day & "' WHERE cReserva = " & codigo
-			conexion.con.Open()
+            Dim upd As String = "UPDATE tReservas SET cFechaEntrada = '" & fecha1.Year & "-" & fecha1.Month & "-" & fecha1.Day & "', cFechaSalida = '" & fecha2.Year & "-" & fecha2.Month & "-" & fecha2.Day & "' WHERE cReserva = " & codigo
+            conexion.con.Open()
 			Command = New MySqlCommand(upd, conexion.con)
 
 			READER = Command.ExecuteReader
@@ -120,4 +130,5 @@ Public Class vistaReservas
     Private Sub lblSalir_Click(sender As Object, e As EventArgs) Handles lblSalir.Click
         Application.ExitThread()
     End Sub
+
 End Class
