@@ -104,11 +104,13 @@ Public Class vistaAdministradores
 	End Sub
 
 	Private Sub limpiarCampos()
-		txtDni.Text = ""
-		txtNombre.Text = ""
-		txtApellidos.Text = ""
-		txtTelefono.Text = ""
-		txtPassw.Text = ""
+		Dim tbox As TextBox
+		For Each ctrl As TextBox In Me.Controls
+			If TypeOf ctrl Is TextBox Then
+				tbox = CType(ctrl, TextBox)
+				tbox.Text = Nothing
+			End If
+		Next
 	End Sub
 	'funcionalidad del boton que aparece al darle a crear o modificar usuario
 	Private Sub BtnModi_Click(sender As Object, e As EventArgs) Handles btnModi.Click

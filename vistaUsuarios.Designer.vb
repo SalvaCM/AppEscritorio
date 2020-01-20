@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class vistaUsuarios
 	Inherits System.Windows.Forms.Form
 
 	'Form reemplaza a Dispose para limpiar la lista de componentes.
-	<System.Diagnostics.DebuggerNonUserCode()> _
+	<System.Diagnostics.DebuggerNonUserCode()>
 	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
 		Try
 			If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class vistaUsuarios
 	'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
 	'Se puede modificar usando el Diseñador de Windows Forms.  
 	'No lo modifique con el editor de código.
-	<System.Diagnostics.DebuggerStepThrough()> _
+	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
 		Me.Label16 = New System.Windows.Forms.Label()
 		Me.lblSalir = New System.Windows.Forms.Label()
@@ -57,11 +57,11 @@ Partial Class vistaUsuarios
 		'Label16
 		'
 		Me.Label16.AutoSize = True
-		Me.Label16.Font = New System.Drawing.Font("Harlow Solid Italic", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label16.ForeColor = System.Drawing.Color.White
 		Me.Label16.Location = New System.Drawing.Point(14, 713)
 		Me.Label16.Name = "Label16"
-		Me.Label16.Size = New System.Drawing.Size(311, 30)
+		Me.Label16.Size = New System.Drawing.Size(324, 29)
 		Me.Label16.TabIndex = 162
 		Me.Label16.Text = "Alojamientos Euskadi Admin "
 		'
@@ -150,21 +150,22 @@ Partial Class vistaUsuarios
 		'Label15
 		'
 		Me.Label15.AutoSize = True
-		Me.Label15.Font = New System.Drawing.Font("Impact", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label15.Font = New System.Drawing.Font("Impact", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label15.ForeColor = System.Drawing.Color.White
 		Me.Label15.Location = New System.Drawing.Point(76, 34)
 		Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label15.Name = "Label15"
-		Me.Label15.Size = New System.Drawing.Size(227, 29)
+		Me.Label15.Size = New System.Drawing.Size(251, 34)
 		Me.Label15.TabIndex = 152
-		Me.Label15.Text = "GESTION DE USUARIOS :"
+		Me.Label15.Text = "GESTION DE USUARIOS"
 		'
 		'Label6
 		'
 		Me.Label6.AutoSize = True
-		Me.Label6.Location = New System.Drawing.Point(1043, 245)
+		Me.Label6.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label6.Location = New System.Drawing.Point(1095, 308)
 		Me.Label6.Name = "Label6"
-		Me.Label6.Size = New System.Drawing.Size(65, 13)
+		Me.Label6.Size = New System.Drawing.Size(77, 17)
 		Me.Label6.TabIndex = 151
 		Me.Label6.Text = "modi o crear"
 		Me.Label6.Visible = False
@@ -172,8 +173,8 @@ Partial Class vistaUsuarios
 		'btnModi
 		'
 		Me.btnModi.BackColor = System.Drawing.Color.White
-		Me.btnModi.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnModi.Location = New System.Drawing.Point(932, 362)
+		Me.btnModi.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnModi.Location = New System.Drawing.Point(977, 406)
 		Me.btnModi.Name = "btnModi"
 		Me.btnModi.Size = New System.Drawing.Size(75, 23)
 		Me.btnModi.TabIndex = 150
@@ -184,8 +185,8 @@ Partial Class vistaUsuarios
 		'btnCancelar
 		'
 		Me.btnCancelar.BackColor = System.Drawing.Color.White
-		Me.btnCancelar.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnCancelar.Location = New System.Drawing.Point(818, 363)
+		Me.btnCancelar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnCancelar.Location = New System.Drawing.Point(863, 407)
 		Me.btnCancelar.Name = "btnCancelar"
 		Me.btnCancelar.Size = New System.Drawing.Size(79, 22)
 		Me.btnCancelar.TabIndex = 149
@@ -226,11 +227,11 @@ Partial Class vistaUsuarios
 		'btnEliminar
 		'
 		Me.btnEliminar.BackColor = System.Drawing.Color.Black
-		Me.btnEliminar.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnEliminar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnEliminar.ForeColor = System.Drawing.Color.White
-		Me.btnEliminar.Location = New System.Drawing.Point(1033, 208)
+		Me.btnEliminar.Location = New System.Drawing.Point(1045, 135)
 		Me.btnEliminar.Name = "btnEliminar"
-		Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
+		Me.btnEliminar.Size = New System.Drawing.Size(75, 33)
 		Me.btnEliminar.TabIndex = 145
 		Me.btnEliminar.Text = "ELIMINAR"
 		Me.btnEliminar.UseVisualStyleBackColor = False
@@ -238,11 +239,11 @@ Partial Class vistaUsuarios
 		'btnModificar
 		'
 		Me.btnModificar.BackColor = System.Drawing.Color.Black
-		Me.btnModificar.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnModificar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnModificar.ForeColor = System.Drawing.Color.White
-		Me.btnModificar.Location = New System.Drawing.Point(1033, 178)
+		Me.btnModificar.Location = New System.Drawing.Point(958, 135)
 		Me.btnModificar.Name = "btnModificar"
-		Me.btnModificar.Size = New System.Drawing.Size(75, 23)
+		Me.btnModificar.Size = New System.Drawing.Size(75, 33)
 		Me.btnModificar.TabIndex = 144
 		Me.btnModificar.Text = "MODIFICAR"
 		Me.btnModificar.UseVisualStyleBackColor = False
@@ -250,11 +251,11 @@ Partial Class vistaUsuarios
 		'btnCrear
 		'
 		Me.btnCrear.BackColor = System.Drawing.Color.Black
-		Me.btnCrear.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnCrear.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnCrear.ForeColor = System.Drawing.Color.White
-		Me.btnCrear.Location = New System.Drawing.Point(1033, 148)
+		Me.btnCrear.Location = New System.Drawing.Point(862, 135)
 		Me.btnCrear.Name = "btnCrear"
-		Me.btnCrear.Size = New System.Drawing.Size(75, 23)
+		Me.btnCrear.Size = New System.Drawing.Size(75, 33)
 		Me.btnCrear.TabIndex = 143
 		Me.btnCrear.Text = "CREAR"
 		Me.btnCrear.UseVisualStyleBackColor = False
@@ -262,96 +263,101 @@ Partial Class vistaUsuarios
 		'Label5
 		'
 		Me.Label5.AutoSize = True
-		Me.Label5.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label5.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label5.ForeColor = System.Drawing.Color.White
-		Me.Label5.Location = New System.Drawing.Point(815, 307)
+		Me.Label5.Location = New System.Drawing.Point(860, 351)
 		Me.Label5.Name = "Label5"
-		Me.Label5.Size = New System.Drawing.Size(37, 15)
+		Me.Label5.Size = New System.Drawing.Size(43, 17)
 		Me.Label5.TabIndex = 142
 		Me.Label5.Text = "EMAIL :"
 		'
 		'txtDni
 		'
 		Me.txtDni.Enabled = False
-		Me.txtDni.Location = New System.Drawing.Point(818, 152)
+		Me.txtDni.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtDni.Location = New System.Drawing.Point(863, 196)
 		Me.txtDni.Name = "txtDni"
-		Me.txtDni.Size = New System.Drawing.Size(189, 20)
+		Me.txtDni.Size = New System.Drawing.Size(189, 23)
 		Me.txtDni.TabIndex = 141
 		'
 		'Label4
 		'
 		Me.Label4.AutoSize = True
-		Me.Label4.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label4.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label4.ForeColor = System.Drawing.Color.White
-		Me.Label4.Location = New System.Drawing.Point(815, 135)
+		Me.Label4.Location = New System.Drawing.Point(860, 179)
 		Me.Label4.Name = "Label4"
-		Me.Label4.Size = New System.Drawing.Size(26, 15)
+		Me.Label4.Size = New System.Drawing.Size(31, 17)
 		Me.Label4.TabIndex = 140
 		Me.Label4.Text = "DNI :"
 		'
 		'txtTelefono
 		'
 		Me.txtTelefono.Enabled = False
-		Me.txtTelefono.Location = New System.Drawing.Point(818, 281)
+		Me.txtTelefono.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtTelefono.Location = New System.Drawing.Point(863, 325)
 		Me.txtTelefono.Name = "txtTelefono"
-		Me.txtTelefono.Size = New System.Drawing.Size(189, 20)
+		Me.txtTelefono.Size = New System.Drawing.Size(189, 23)
 		Me.txtTelefono.TabIndex = 139
 		'
 		'Label3
 		'
 		Me.Label3.AutoSize = True
-		Me.Label3.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label3.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label3.ForeColor = System.Drawing.Color.White
-		Me.Label3.Location = New System.Drawing.Point(815, 264)
+		Me.Label3.Location = New System.Drawing.Point(860, 308)
 		Me.Label3.Name = "Label3"
-		Me.Label3.Size = New System.Drawing.Size(52, 15)
+		Me.Label3.Size = New System.Drawing.Size(60, 17)
 		Me.Label3.TabIndex = 138
 		Me.Label3.Text = "TELEFONO :"
 		'
 		'txtApellidos
 		'
 		Me.txtApellidos.Enabled = False
-		Me.txtApellidos.Location = New System.Drawing.Point(818, 238)
+		Me.txtApellidos.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtApellidos.Location = New System.Drawing.Point(863, 282)
 		Me.txtApellidos.Name = "txtApellidos"
-		Me.txtApellidos.Size = New System.Drawing.Size(189, 20)
+		Me.txtApellidos.Size = New System.Drawing.Size(189, 23)
 		Me.txtApellidos.TabIndex = 137
 		'
 		'Label2
 		'
 		Me.Label2.AutoSize = True
-		Me.Label2.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label2.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label2.ForeColor = System.Drawing.Color.White
-		Me.Label2.Location = New System.Drawing.Point(815, 221)
+		Me.Label2.Location = New System.Drawing.Point(860, 265)
 		Me.Label2.Name = "Label2"
-		Me.Label2.Size = New System.Drawing.Size(57, 15)
+		Me.Label2.Size = New System.Drawing.Size(67, 17)
 		Me.Label2.TabIndex = 136
 		Me.Label2.Text = "APELLIDOS :"
 		'
 		'txtNombre
 		'
 		Me.txtNombre.Enabled = False
-		Me.txtNombre.Location = New System.Drawing.Point(818, 195)
+		Me.txtNombre.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtNombre.Location = New System.Drawing.Point(863, 239)
 		Me.txtNombre.Name = "txtNombre"
-		Me.txtNombre.Size = New System.Drawing.Size(189, 20)
+		Me.txtNombre.Size = New System.Drawing.Size(189, 23)
 		Me.txtNombre.TabIndex = 135
 		'
 		'Label1
 		'
 		Me.Label1.AutoSize = True
-		Me.Label1.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label1.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label1.ForeColor = System.Drawing.Color.White
-		Me.Label1.Location = New System.Drawing.Point(815, 178)
+		Me.Label1.Location = New System.Drawing.Point(860, 222)
 		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(48, 15)
+		Me.Label1.Size = New System.Drawing.Size(55, 17)
 		Me.Label1.TabIndex = 134
 		Me.Label1.Text = "NOMBRE :"
 		'
 		'txtEmail
 		'
 		Me.txtEmail.Enabled = False
-		Me.txtEmail.Location = New System.Drawing.Point(818, 325)
+		Me.txtEmail.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.txtEmail.Location = New System.Drawing.Point(863, 369)
 		Me.txtEmail.Name = "txtEmail"
-		Me.txtEmail.Size = New System.Drawing.Size(189, 20)
+		Me.txtEmail.Size = New System.Drawing.Size(189, 23)
 		Me.txtEmail.TabIndex = 163
 		'
 		'busMail

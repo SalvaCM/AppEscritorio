@@ -39,7 +39,6 @@ Public Class vistaAlojamientos
 		tipo = txtTipo.Text
 		paginaWeb = txtWeb.Text
 		If (codigo <> -1) Then
-			'(" & codigo & "," & capacidad & ",'" & descripcion & "','" & direccion & "','" & latitud & "','" & longitud & "','" & localidad & "','" & nombre & "','" & telefono & "','" & email & "','" & localizacion & "','" & tipo & "','" & paginaWeb & "')'
 			Try
 				conexion.con.Open()
 
@@ -99,7 +98,7 @@ Public Class vistaAlojamientos
 						validado = False
 					End If
 					If tbox.Name = "txtTelefono" Then
-						If tbox.Text.Length > 9 Then
+						If tbox.Text.Length <> 9 Then
 							validado = False
 							MsgBox("El numero debe ser de 9 cifras")
 						End If
@@ -148,6 +147,10 @@ Public Class vistaAlojamientos
 				cargaGrid()
 			End Try
 		End If
+
+	End Sub
+
+	Private Sub Label15_Click(sender As Object, e As EventArgs) Handles Label15.Click
 
 	End Sub
 
