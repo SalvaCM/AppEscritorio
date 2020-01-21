@@ -3,73 +3,44 @@ Imports System.Security.Cryptography
 Imports MySql.Data.MySqlClient
 
 Public Class vistaLogin
-	Public usuario, password As String
+	Public funciones As New Funciones
 	Public conexion As New Conexion
 	Public tipoUser As String = ""
-	'Public con As New MySqlConnection("Server=192.168.101.24; Database=alojamientos; Uid=grupoAlojamientos; Pwd=123456")
+	Public usuarioEncriptado As String = Nothing
+	Private passwordEncriptada As String = Nothing
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-		usuario = txtNombre.Text
-		password = txtPassword.Text
-		If usuario = Nothing And password = Nothing Then
-			MsgBox("Error, Rellene los campos")
+		If (txtNombre.Text = "") Then
+			MsgBox("Introduzca Usuario", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Error!")
+		ElseIf (txtPassword.Text = "") Then
+			MsgBox("Introduzca Contraseña", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Error!")
 		Else
 			conectarUsuario()
 		End If
-
-
 	End Sub
 
 	Sub conectarUsuario()
+		Dim dbUser As String = ""
+		Dim dbPass As String = ""
+		Dim query As String = "SELECT cDni,cContrasena,cTipoUsuario FROM tAdministradores WHERE cDni='" & usuarioEncriptado & "' AND  cContrasena='" & passwordEncriptada & "'"
+		Dim reader As MySqlDataReader
 
-		'Dim dni As String = ConfigurationManager.AppSettings.Get("Admin")
-		'Dim password As String = ConfigurationManager.AppSettings.Get("Password")
-		usuario = txtNombre.Text
-		password = txtPassword.Text
+		usuarioEncriptado = MD5EncryptPass(txtNombre.Text)
+		passwordEncriptada = MD5EncryptPass(txtPassword.Text)
 
-		Dim dbUser
-		Dim dbPass
-		Try
+		reader = funciones.dataReader(query)
+		While reader.Read()
+			dbUser = reader("cDni").ToString()
+			dbPass = reader("cContrasena").ToString()
+			tipoUser = reader("cTipoUsuario").ToString()
+		End While
 
-			If (usuario = "") Then
-				MsgBox("Introduzca Usuario", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Error!")
-			ElseIf (password = "") Then
-				MsgBox("Introduzca Contraseña", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Error!")
-			Else
-
-				Dim usuarioEncriptado As String = MD5EncryptPass(usuario)
-				Dim passwordEncriptada As String = MD5EncryptPass(password)
-				Dim query As String = "SELECT cDni,cContrasena,cTipoUsuario FROM tAdministradores WHERE cDni='" & usuarioEncriptado & "' AND  cContrasena='" & passwordEncriptada & "'"
-
-				conexion.con.Open()
-				Dim cmd As New MySqlCommand(query, conexion.con)
-				'adapterUsuario.
-				Dim reader As MySqlDataReader = cmd.ExecuteReader()
-				While reader.Read()
-					dbUser = reader("cDni").ToString()
-					Console.WriteLine("pass ><<<<<<<<<<<<<<<<<<<<<<<<<<")
-					dbPass = reader("cContrasena").ToString()
-					tipoUser = reader("cTipoUsuario").ToString()
-				End While
-
-				Console.WriteLine("hola user" & dbUser)
-				Console.WriteLine("hola pp" & dbPass)
-				Console.WriteLine("hola pp" & tipoUser)
-
-				conexion.con.Close()
-
-				If (usuarioEncriptado = dbUser And passwordEncriptada = dbPass) Then
-					MsgBox("Conectado Satisfactoriamente", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Login!")
-					Me.Hide()
-					MenuGestion.Show()
-				Else
-
-					MsgBox("Usuario Incorrecto", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Error!")
-				End If
-			End If
-		Catch ex As Exception
-			MessageBox.Show(ex.Message)
-			MessageBox.Show("Stack Trace: " & vbCrLf & ex.StackTrace)
-		End Try
+		If (usuarioEncriptado = dbUser And passwordEncriptada = dbPass) Then
+			MsgBox("Conectado Satisfactoriamente", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Login!")
+			Me.Hide()
+			MenuGestion.Show()
+		Else
+			MsgBox("Usuario Incorrecto", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Error!")
+		End If
 	End Sub
 
 	Private Sub VistaLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -85,19 +56,16 @@ Public Class vistaLogin
 		Dim md5 As MD5CryptoServiceProvider
 		Dim bytValue() As Byte
 		Dim bytHash() As Byte
-		Dim contraEncriptada As String
+		Dim pwEncriptada As String = Nothing
 		Dim i As Integer
-		contraEncriptada = ""
 
 		md5 = New MD5CryptoServiceProvider
 		bytValue = System.Text.Encoding.UTF8.GetBytes(StrPass)
 		bytHash = md5.ComputeHash(bytValue)
 		md5.Clear()
-
 		For i = 0 To bytHash.Length - 1
-			contraEncriptada &= bytHash(i).ToString("x").PadLeft(2, "0")
+			pwEncriptada &= bytHash(i).ToString("x").PadLeft(2, "0")
 		Next
-
-		Return contraEncriptada
+		Return pwEncriptada
 	End Function
 End Class

@@ -2,7 +2,8 @@
 
 Public Class Funciones
     Dim Conexion As New Conexion
-    Public Sub CargarGrid(DataGridView1 As DataGridView, adapter As MySqlDataAdapter)
+    Public Sub CargarGrid(DataGridView1 As DataGridView, query As String)
+        Dim adapter As New MySqlDataAdapter(query, Conexion.con)
         Conexion.con.Open()
         Dim tabla As New DataTable()
         adapter.Fill(tabla)
@@ -46,5 +47,19 @@ Public Class Funciones
             Conexion.con.Close()
         End Try
         Return maxCodigo
+    End Function
+    Function dataReader(query As String)
+        Dim datos As MySqlDataReader
+        Try
+            Conexion.con.Open()
+            Dim cmd As New MySqlCommand(query, Conexion.con)
+            datos = cmd.ExecuteReader()
+        Catch ex As Exception
+            MessageBox.Show("No se pudo obtener el codigo" & ex.Message, "Error")
+            datos = Nothing
+        Finally
+            Conexion.con.Close()
+        End Try
+        Return datos
     End Function
 End Class
