@@ -22,17 +22,28 @@ Public Class vistaLogin
 		Dim dbUser As String = ""
 		Dim dbPass As String = ""
 		Dim query As String = "SELECT cDni,cContrasena,cTipoUsuario FROM tAdministradores WHERE cDni='" & usuarioEncriptado & "' AND  cContrasena='" & passwordEncriptada & "'"
-		Dim reader As MySqlDataReader
+
 
 		usuarioEncriptado = MD5EncryptPass(txtNombre.Text)
 		passwordEncriptada = MD5EncryptPass(txtPassword.Text)
 
-		reader = funciones.dataReader(query)
+		conexion.con.Open()
+		Dim cmd As New MySqlCommand(query, conexion.con)
+		'adapterUsuario.
+		Dim reader As MySqlDataReader = cmd.ExecuteReader()
 		While reader.Read()
 			dbUser = reader("cDni").ToString()
+
 			dbPass = reader("cContrasena").ToString()
 			tipoUser = reader("cTipoUsuario").ToString()
 		End While
+
+		Console.WriteLine("hola user" & dbUser)
+		Console.WriteLine("hola pp" & dbPass)
+		Console.WriteLine("hola pp" & tipoUser)
+
+		conexion.con.Close()
+
 
 		If (usuarioEncriptado = dbUser And passwordEncriptada = dbPass) Then
 			MsgBox("Conectado Satisfactoriamente", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Login!")
@@ -41,11 +52,6 @@ Public Class vistaLogin
 		Else
 			MsgBox("Usuario Incorrecto", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Error!")
 		End If
-	End Sub
-
-	Private Sub VistaLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		Dim conexion As New Conexion
-		conexion.Conectar()
 	End Sub
 
 	Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click

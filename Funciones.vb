@@ -18,7 +18,7 @@ Public Class Funciones
             Conexion.con.Open()
             Dim cmd As New MySqlCommand(query, Conexion.con)
             cmd.ExecuteNonQuery()
-            MsgBox("Modificado Correctamente!")
+            MsgBox("Cambios Guardados!")
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error")
             Console.WriteLine(ex.Message)
@@ -50,16 +50,18 @@ Public Class Funciones
     End Function
     Function dataReader(query As String)
         Dim datos As MySqlDataReader
+        Dim data As New DataTable
         Try
             Conexion.con.Open()
             Dim cmd As New MySqlCommand(query, Conexion.con)
             datos = cmd.ExecuteReader()
+            data.Load(datos)
         Catch ex As Exception
             MessageBox.Show("No se pudo obtener el codigo" & ex.Message, "Error")
             datos = Nothing
         Finally
             Conexion.con.Close()
         End Try
-        Return datos
+        Return data
     End Function
 End Class

@@ -66,10 +66,10 @@ Partial Class vistaAlojamientos
 		Me.btnVolver.BackColor = System.Drawing.Color.Black
 		Me.btnVolver.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnVolver.ForeColor = System.Drawing.Color.White
-		Me.btnVolver.Location = New System.Drawing.Point(1082, 739)
+		Me.btnVolver.Location = New System.Drawing.Point(1087, 739)
 		Me.btnVolver.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.btnVolver.Name = "btnVolver"
-		Me.btnVolver.Size = New System.Drawing.Size(101, 43)
+		Me.btnVolver.Size = New System.Drawing.Size(96, 43)
 		Me.btnVolver.TabIndex = 29
 		Me.btnVolver.Text = "VOLVER"
 		Me.btnVolver.UseVisualStyleBackColor = False
@@ -430,11 +430,11 @@ Partial Class vistaAlojamientos
 		'btnAceptar
 		'
 		Me.btnAceptar.BackColor = System.Drawing.Color.White
-		Me.btnAceptar.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnAceptar.Location = New System.Drawing.Point(1004, 670)
+		Me.btnAceptar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnAceptar.Location = New System.Drawing.Point(1010, 660)
 		Me.btnAceptar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.btnAceptar.Name = "btnAceptar"
-		Me.btnAceptar.Size = New System.Drawing.Size(74, 23)
+		Me.btnAceptar.Size = New System.Drawing.Size(70, 33)
 		Me.btnAceptar.TabIndex = 125
 		Me.btnAceptar.Text = "ACEPTAR"
 		Me.btnAceptar.UseVisualStyleBackColor = False
@@ -443,11 +443,11 @@ Partial Class vistaAlojamientos
 		'btnCancelar
 		'
 		Me.btnCancelar.BackColor = System.Drawing.Color.White
-		Me.btnCancelar.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnCancelar.Location = New System.Drawing.Point(1082, 670)
+		Me.btnCancelar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.btnCancelar.Location = New System.Drawing.Point(1087, 660)
 		Me.btnCancelar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.btnCancelar.Name = "btnCancelar"
-		Me.btnCancelar.Size = New System.Drawing.Size(74, 23)
+		Me.btnCancelar.Size = New System.Drawing.Size(70, 33)
 		Me.btnCancelar.TabIndex = 126
 		Me.btnCancelar.Text = "CANCELAR"
 		Me.btnCancelar.UseVisualStyleBackColor = False

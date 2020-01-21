@@ -21,4 +21,5 @@ Public Class Conexion
 		End Try
 		con.Close()
 	End Sub
+
 End Class

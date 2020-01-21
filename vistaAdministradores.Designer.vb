@@ -182,7 +182,7 @@ Partial Class vistaAdministradores
 		'
 		Me.Button4.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button4.ForeColor = System.Drawing.Color.White
-		Me.Button4.Location = New System.Drawing.Point(1084, 966)
+		Me.Button4.Location = New System.Drawing.Point(1087, 737)
 		Me.Button4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
 		Me.Button4.Name = "Button4"
 		Me.Button4.Size = New System.Drawing.Size(98, 48)
@@ -218,7 +218,7 @@ Partial Class vistaAdministradores
 		Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
 		Me.DataGridView1.ShowCellToolTips = False
 		Me.DataGridView1.ShowEditingIcon = False
-		Me.DataGridView1.Size = New System.Drawing.Size(702, 694)
+		Me.DataGridView1.Size = New System.Drawing.Size(702, 583)
 		Me.DataGridView1.TabIndex = 65
 		'
 		'btnCancelar
@@ -273,7 +273,7 @@ Partial Class vistaAdministradores
 		Me.Label16.AutoSize = True
 		Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label16.ForeColor = System.Drawing.Color.White
-		Me.Label16.Location = New System.Drawing.Point(12, 985)
+		Me.Label16.Location = New System.Drawing.Point(12, 756)
 		Me.Label16.Name = "Label16"
 		Me.Label16.Size = New System.Drawing.Size(324, 29)
 		Me.Label16.TabIndex = 133
@@ -305,7 +305,7 @@ Partial Class vistaAdministradores
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 17.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.Color.Black
-		Me.ClientSize = New System.Drawing.Size(1194, 1038)
+		Me.ClientSize = New System.Drawing.Size(1194, 794)
 		Me.ControlBox = False
 		Me.Controls.Add(Me.Label10)
 		Me.Controls.Add(Me.txtPassw)
