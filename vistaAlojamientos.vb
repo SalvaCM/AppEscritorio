@@ -1,11 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class vistaAlojamientos
-	Dim conexion As New Conexion
-	Public adapter As New MySqlDataAdapter("SELECT cCodAlojamiento'CODIGO',cNombre'NOMBRE',cDescripcion'DESCRIPCION',cDireccion'DIRECCION',cEmail'EMAIL',cLongitud'LONGITUD',cLatitud'LATITUD',cLocalidad'LOCALIDAD',cLocalizacion'LOCALIZACION',cTipo'TIPO',cTelefono'TELEFONO',cWeb'WEB',cCapacidad'CAPACIDAD' FROM tAlojamientos", Conexion.con)
+	Public queryAlojamientos = "SELECT cCodAlojamiento'CODIGO',cNombre'NOMBRE',cDescripcion'DESCRIPCION',cDireccion'DIRECCION',cEmail'EMAIL',cLongitud'LONGITUD',cLatitud'LATITUD',cLocalidad'LOCALIDAD',cLocalizacion'LOCALIZACION',cTipo'TIPO',cTelefono'TELEFONO',cWeb'WEB',cCapacidad'CAPACIDAD' FROM tAlojamientos"
 	Public indice As Integer
-	Public codigo, capacidad As Integer
-	Public descripcion, direccion, email, tipo, localizacion, telefono, nombre, localidad, paginaWeb, latitud, longitud As String
 	Public modo As String = "Crear" 'modos disponibles : Crear , Modificar / Se usa para saber si hay que crear un aloj o modificarlo'
 	Public funciones As New Funciones
 	Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
@@ -29,7 +26,7 @@ Public Class vistaAlojamientos
 			funciones.LLamadaBD(query)
 			DataGridView1.DataSource = Nothing
 			DataGridView1.Refresh()
-			funciones.CargarGrid(DataGridView1, adapter)
+			funciones.CargarGrid(DataGridView1, queryAlojamientos)
 		End If
 	End Sub
 
@@ -66,12 +63,12 @@ Public Class vistaAlojamientos
 
 	Private Sub CrearAlojamiento()
 
-		codigo = funciones.maxCod("cCodAlojamiento", "tAlojamientos")
+		Dim codigo = funciones.maxCod("cCodAlojamiento", "tAlojamientos")
 		Dim query As String = "Insert into tAlojamientos (cCodAlojamiento,cCapacidad,cDescripcion,cDireccion,cEmail,cLatitud,cLocalidad,cLocalizacion,cLongitud,cNombre,cTelefono,cTipo,cWeb) values (" & codigo & "," & Convert.ToInt32(txtCapacidad.Text) & ",'" & txtDescripcion.Text & "','" & txtDireccion.Text & "','" & txtLatitud.Text & "','" & txtLongitud.Text & "','" & txtLocalidad.Text & "','" & txtNombre.Text & "','" & txtTelefono.Text & "','" & txtMail.Text & "','" & txtLocalizacion.Text & "','" & txtTipo.Text & "','" & txtWeb.Text & "'); "
 		funciones.LLamadaBD(query)
 		DataGridView1.DataSource = Nothing
 		DataGridView1.Refresh()
-		funciones.CargarGrid(DataGridView1, adapter)
+		funciones.CargarGrid(DataGridView1, queryAlojamientos)
 	End Sub
 
 	Private Sub BtnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
@@ -119,7 +116,7 @@ Public Class vistaAlojamientos
 			End If
 			DataGridView1.DataSource = Nothing
 			DataGridView1.Refresh()
-			funciones.CargarGrid(DataGridView1, adapter)
+			funciones.CargarGrid(DataGridView1, queryAlojamientos)
 		Else
 			MsgBox("No ha seleccionado ningun alojamiento")
 		End If
@@ -131,7 +128,7 @@ Public Class vistaAlojamientos
 		btnAceptar.Visible = False
 	End Sub
 	Private Sub Alojamientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		funciones.CargarGrid(DataGridView1, adapter)
+		funciones.CargarGrid(DataGridView1, queryAlojamientos)
 	End Sub
 	Sub deshabilitarTxt()
 		For Each ctrl In Me.Controls
