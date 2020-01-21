@@ -108,6 +108,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Funciones.vb" />
     <Compile Include="vistaUsuarios.Designer.vb">
       <DependentUpon>vistaUsuarios.vb</DependentUpon>
     </Compile>
