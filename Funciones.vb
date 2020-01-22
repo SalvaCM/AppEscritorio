@@ -3,13 +3,19 @@
 Public Class Funciones
     Dim Conexion As New Conexion
     Public Sub CargarGrid(DataGridView1 As DataGridView, query As String)
-        Dim adapter As New MySqlDataAdapter(query, Conexion.con)
-        Conexion.con.Open()
-        Dim tabla As New DataTable()
-        adapter.Fill(tabla)
-        DataGridView1.DataSource = tabla
-        Conexion.con.Close()
-        For Each column As DataGridViewColumn In DataGridView1.Columns
+		Dim adapter As New MySqlDataAdapter(query, Conexion.con)
+		'Try
+		Conexion.con.Open()
+			Dim tabla As New DataTable()
+			adapter.Fill(tabla)
+			DataGridView1.DataSource = tabla
+		'Catch ex As Exception
+		'MessageBox.Show(ex.Message, "Error")
+		'Console.WriteLine(ex.Message)
+		'Finally
+		Conexion.con.Close()
+		'End Try
+		For Each column As DataGridViewColumn In DataGridView1.Columns
             column.SortMode = DataGridViewColumnSortMode.NotSortable
         Next
     End Sub
@@ -49,19 +55,23 @@ Public Class Funciones
         Return maxCodigo
     End Function
     Function dataReader(query As String)
-        Dim datos As MySqlDataReader
-        Dim data As New DataTable
-        Try
+		Dim reader As MySqlDataReader
+		Dim userData(2) As String
+		Try
             Conexion.con.Open()
             Dim cmd As New MySqlCommand(query, Conexion.con)
-            datos = cmd.ExecuteReader()
-            data.Load(datos)
-        Catch ex As Exception
-            MessageBox.Show("No se pudo obtener el codigo" & ex.Message, "Error")
-            datos = Nothing
-        Finally
+			reader = cmd.ExecuteReader()
+			While reader.Read()
+				userData(0) = reader("cDni").ToString()
+				userData(1) = reader("cContrasena").ToString()
+				userData(2) = reader("cTipoUsuario").ToString()
+			End While
+		Catch ex As Exception
+			MessageBox.Show("No se pudo obtener datos," & ex.Message, "Error")
+			reader = Nothing
+		Finally
             Conexion.con.Close()
         End Try
-        Return data
-    End Function
+		Return userData
+	End Function
 End Class

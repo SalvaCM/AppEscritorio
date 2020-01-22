@@ -1,8 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class vistaUsuarios
-	Public conexion As New Conexion
-	Public adapter As New MySqlDataAdapter("SELECT cDni'DNI', cApellidos'Apellidos', cNombre'Nombre', cTelefono'Telefono', cEmail'eMail' FROM tUsuarios", conexion.con)
+	Public funciones As New Funciones
+	Public queryUsuarios = "SELECT cDni'DNI', cApellidos'Apellidos', cNombre'Nombre', cTelefono'Telefono', cEmail'eMail' FROM tUsuarios"
+	Dim modo = "CREAR"
 	'Volver
 	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
 		MenuGestion.Show()
@@ -10,15 +11,7 @@ Public Class vistaUsuarios
 	End Sub
 
 	Private Sub VistaUsuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		Dim tabla As New DataTable()
-		adapter.Fill(tabla)
-		DataGridView1.DataSource = tabla
-		conexion.con.Close()
-		txtDni.Text = DataGridView1.Rows(0).Cells(0).Value
-		txtNombre.Text = DataGridView1.Rows(0).Cells(2).Value
-		txtApellidos.Text = DataGridView1.Rows(0).Cells(1).Value
-		txtTelefono.Text = DataGridView1.Rows(0).Cells(3).Value
-		txtEmail.Text = DataGridView1.Rows(0).Cells(4).Value
+		funciones.CargarGrid(DataGridView1, queryUsuarios)
 
 	End Sub
 	'CUANDO HAGAS CLICK EN UNA CELL, QUE SE PONGA EN LOS TEXTBOX LOS DATOS
@@ -44,19 +37,12 @@ Public Class vistaUsuarios
 		Else
 			Dim result As DialogResult = MessageBox.Show("Estas seguro que quieres eliminar este usuario?", "Atencion", MessageBoxButtons.YesNo)
 			If (result = DialogResult.Yes) Then
-				Try
-					query = "DELETE FROM tUsuarios WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
-					conexion.con.Open()
-					Dim mysc As New MySqlCommand(query, conexion.con)
-					mysc.ExecuteNonQuery()
-					MessageBox.Show("Usuario dado de baja")
-					conexion.con.Close()
-				Catch ex As Exception
-					MessageBox.Show(ex.Message)
-				End Try
 
+				query = "DELETE FROM tUsuarios WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
+					funciones.LLamadaBD(query)
+				MessageBox.Show("Usuario dado de baja")
 			End If
-			cargaGrid()
+			funciones.CargarGrid(DataGridView1, queryUsuarios)
 		End If
 
 	End Sub
@@ -74,7 +60,7 @@ Public Class vistaUsuarios
 			txtApellidos.Text = DataGridView1.Rows(indiceSelect).Cells(1).Value
 			txtTelefono.Text = DataGridView1.Rows(indiceSelect).Cells(3).Value
 			txtEmail.Text = DataGridView1.Rows(indiceSelect).Cells(4).Value
-			Label6.Text = "Modificar"
+			modo = "MODIFICAR"
 		End If
 
 	End Sub
@@ -87,15 +73,13 @@ Public Class vistaUsuarios
 		txtNombre.Text = Nothing
 		txtApellidos.Text = Nothing
 		txtTelefono.Text = Nothing
-		Label6.Text = "Crear"
+		modo = "CREAR"
 
 	End Sub
 	'funcionalidad del boton que aparece al darle a crear o modificar usuario
 	Private Sub BtnModi_Click(sender As Object, e As EventArgs) Handles btnModi.Click
 
-		Dim READER As MySqlDataReader
 		Dim query As String
-		Dim Command As MySqlCommand
 		Dim result As DialogResult = MessageBox.Show("Estas seguro que quieres guardar los datos este usuario?", "Atencion", MessageBoxButtons.YesNo)
 		Dim indiceSelect As Integer = DataGridView1.SelectedCells.Item(0).RowIndex
 
@@ -106,27 +90,15 @@ Public Class vistaUsuarios
 		Dim mail = txtEmail.Text
 
 		If result = DialogResult.Yes Then
-			Try
-				conexion.con.Open()
-				If Label6.Text = "Modificar" Then
-
-
-					query = "UPDATE tUsuarios SET cDni = '" & dni & "', cNombre = '" & nombre & "', cApellidos = '" & apellidos & "', cTelefono = " & telefono & ", cEmail = '" & mail & "' "
-					query = query + "WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
-				Else
-					query = "insert into tUsuarios (cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail) values ('" & dni & "','" & apellidos & "','default','" & nombre & "'," & telefono & ",' " & mail & "')"
+			If modo = "MODIFICAR" Then
+				query = "UPDATE tUsuarios SET cDni = '" & dni & "', cNombre = '" & nombre & "', cApellidos = '" & apellidos & "', cTelefono = " & telefono & ", cEmail = '" & mail & "' "
+				query = query + "WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
+			Else
+				query = "insert into tUsuarios (cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail) values ('" & dni & "','" & apellidos & "','default','" & nombre & "'," & telefono & ",' " & mail & "')"
 				End If
-				Command = New MySqlCommand(query, conexion.con)
-
-				READER = Command.ExecuteReader
-
-				MessageBox.Show("Usuario guardado con exito!")
-				conexion.con.Close()
-
-			Catch ex As MySqlException
-				MessageBox.Show(ex.Message)
-			End Try
-			cargaGrid()
+			funciones.LLamadaBD(query)
+			MessageBox.Show("Usuario guardado con exito!")
+			funciones.CargarGrid(DataGridView1, queryUsuarios)
 			deshabilitarTxt()
 
 		End If
@@ -137,13 +109,6 @@ Public Class vistaUsuarios
 		deshabilitarTxt()
 	End Sub
 
-	Sub cargaGrid()
-		conexion.con.Open()
-		Dim tabla As New DataTable()
-		adapter.Fill(tabla)
-		DataGridView1.DataSource = tabla
-		conexion.con.Close()
-	End Sub
 	Sub deshabilitarTxt()
 		txtDni.Enabled = False
 		txtNombre.Enabled = False
@@ -221,24 +186,17 @@ Public Class vistaUsuarios
 				query = query + "cEmail = '" & busMail.Text & "' "
 			End If
 
-			Dim tabla As New DataTable()
-			Dim nAdapter As New MySqlDataAdapter(query, conexion.con)
-			conexion.con.Open()
-
-			nAdapter.Fill(tabla)
-			DataGridView1.DataSource = tabla
-			conexion.con.Close()
+			funciones.CargarGrid(DataGridView1, query)
 
 		End If
 
 	End Sub
 
 	Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-		cargaGrid()
+		funciones.CargarGrid(DataGridView1, queryUsuarios)
 	End Sub
 
-
-	Private Sub lblSalir_Click(sender As Object, e As EventArgs) Handles lblSalir.Click
+	Private Sub LbSalir_Click(sender As Object, e As EventArgs) Handles lbSalir.Click
 		Application.ExitThread()
 	End Sub
 End Class

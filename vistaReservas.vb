@@ -1,39 +1,35 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class vistaReservas
     Dim funciones As New Funciones
-    Public queryReservas As String = "SELECT r.cReserva'Codigo Reserva', a.cNombre'Nombre Apartamento', u.cDni'DNI', u.cNombre'Nombre Usuario', u.cApellidos'Apellidos', u.cTelefono'Telefono Usuario', r.cFechaRealizada'Fecha Realizada', r.cFechaEntrada'Fecha Entrada', r.cFechaSalida'Fecha Saluda' FROM tAlojamientos a, tReservas r, tUsuarios u WHERE r.cCodAlojamiento = a.cCodAlojamiento AND cCodUsuario = cDni"
-    Public adapter As New MySqlDataAdapter
-    'Volver
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+	Public queryReservas = "SELECT r.cReserva'codigo', a.cNombre'Nombre Alojamiento', u.cDni'DNI', u.cNombre'Nombre Usuario', u.cApellidos'Apellidos', u.cTelefono'Telefono Usuario', r.cFechaRealizada'Fecha Realizada', r.cFechaEntrada'Fecha Entrada', r.cFechaSalida'Fecha Salida' FROM tAlojamientos a, tReservas r, tUsuarios u WHERE r.cCodAlojamiento = a.cCodAlojamiento AND r.cCodUsuario = u.cDni order by a.cCodAlojamiento DESC"
+	'Volver
+	Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         MenuGestion.Show()
         Me.Close()
     End Sub
-    'Cargar la lista de las reservas
-    Private Sub VistaReservas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        deshabilitarTxt()
-        btnCancelar.Visible = False
-        btnGuardar.Visible = False
-        funciones.CargarGrid(DataGridView1, queryReservas)
+	'Cargar la lista de las reservas
+	Private Sub VistaReservas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		deshabilitarTxt()
+		funciones.CargarGrid(DataGridView1, queryReservas)
+	End Sub
 
-    End Sub
+	Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView1.SelectionChanged
 
-    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+		Dim indice = DataGridView1.CurrentCell.RowIndex
+		txtNombreAloj.Text = DataGridView1.Rows(indice).Cells(1).Value
+		txtDni.Text = DataGridView1.Rows(indice).Cells(2).Value
+		txtNombreUsuario.Text = DataGridView1.Rows(indice).Cells(3).Value
+		txtApellidos.Text = DataGridView1.Rows(indice).Cells(4).Value
+		txtTelefonoAlo.Text = DataGridView1.Rows(indice).Cells(5).Value
+		txtFechaReserva.Text = DataGridView1.Rows(indice).Cells(6).Value
+		txtFechaEntrada.Text = DataGridView1.Rows(indice).Cells(7).Value
+		txtFechaSalida.Text = DataGridView1.Rows(indice).Cells(8).Value
 
-        Dim indiceSelect As Integer = DataGridView1.SelectedCells.Item(0).RowIndex
-        txtNombreAloj.Text = DataGridView1.Rows(indiceSelect).Cells(1).Value
-        txtDni.Text = DataGridView1.Rows(indiceSelect).Cells(2).Value
-        txtNombreUsuario.Text = DataGridView1.Rows(indiceSelect).Cells(3).Value
-        txtApellidos.Text = DataGridView1.Rows(indiceSelect).Cells(4).Value
-        txtTelefonoAlo.Text = DataGridView1.Rows(indiceSelect).Cells(5).Value
-        txtFechaReserva.Text = DataGridView1.Rows(indiceSelect).Cells(6).Value
-        txtFechaEntrada.Text = DataGridView1.Rows(indiceSelect).Cells(7).Value
-        txtFechaSalida.Text = DataGridView1.Rows(indiceSelect).Cells(8).Value
+	End Sub
 
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
-        Dim indiceSelect As Integer = DataGridView1.SelectedCells.Item(0).RowIndex
-        Dim query As String
+	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+		Dim indiceSelect As Integer = DataGridView1.CurrentCell.RowIndex
+		Dim query As String
         txtDni.Text = DataGridView1.Rows(indiceSelect).Cells(0).Value
         If txtDni.Text = "" Or txtDni.Text = Nothing Then
             MsgBox("No tienes seleccionado ninguna reserva")
@@ -64,8 +60,8 @@ Public Class vistaReservas
     'BOTON GUARDAR
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Dim result As DialogResult = MessageBox.Show("Estas seguro que quieres guardar los datos este usuario?", "Atencion", MessageBoxButtons.YesNo)
-        Dim indiceSelect As Integer = DataGridView1.SelectedCells.Item(0).RowIndex
-        Dim codigo = DataGridView1.Rows(indiceSelect).Cells(0).Value
+		Dim indiceSelect As Integer = DataGridView1.CurrentCell.RowIndex
+		Dim codigo = DataGridView1.Rows(indiceSelect).Cells(0).Value
 
         If result = DialogResult.Yes Then
             Dim fecha1 As Date = txtFechaEntrada.Text
@@ -85,81 +81,22 @@ Public Class vistaReservas
     Private Sub lblSalir_Click(sender As Object, e As EventArgs) Handles lblSalir.Click
         Application.ExitThread()
     End Sub
-    Sub deshabilitarTxt()
-        For Each ctrl In Me.Controls
-            If TypeOf ctrl Is TextBox Then
-                ctrl.Enabled = False
-            End If
-        Next
-        DataGridView1.Enabled = True
-        'btnCrear.Enabled = True
-        'btnModificar.Enabled = True
-        'btnEliminar.Enabled = True
-        'btnVolver.Enabled = True
+	Sub deshabilitarTxt()
+		For Each ctrl In Me.Controls
+			If TypeOf ctrl Is TextBox Then
+				ctrl.Enabled = False
+			End If
+		Next
+		DataGridView1.Enabled = True
+		'btnCrear.Enabled = True
+		'btnModificar.Enabled = True
+		'btnEliminar.Enabled = True
+		'btnVolver.Enabled = True
 
-    End Sub
+	End Sub
 
-    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
-
-    End Sub
-
-    Private Sub txtNombreAloj_TextChanged(sender As Object, e As EventArgs) Handles txtNombreAloj.TextChanged
-
-    End Sub
-
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
-
-    End Sub
-
-    Private Sub txtFechaEntrada_TextChanged(sender As Object, e As EventArgs) Handles txtFechaEntrada.TextChanged
-
-    End Sub
-
-    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
-
-    End Sub
-
-    Private Sub txtFechaSalida_TextChanged(sender As Object, e As EventArgs) Handles txtFechaSalida.TextChanged
-
-    End Sub
-
-    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
-
-    End Sub
-
-    Private Sub txtFechaReserva_TextChanged(sender As Object, e As EventArgs) Handles txtFechaReserva.TextChanged
-
-    End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-
-    End Sub
-
-    Private Sub txtDni_TextChanged(sender As Object, e As EventArgs) Handles txtDni.TextChanged
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub txtNombreUsuario_TextChanged(sender As Object, e As EventArgs) Handles txtNombreUsuario.TextChanged
-
-    End Sub
-
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
-    End Sub
-
-    Private Sub txtApellidos_TextChanged(sender As Object, e As EventArgs) Handles txtApellidos.TextChanged
-
-    End Sub
-
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-
-    End Sub
-
-    Private Sub txtTelefonoAlo_TextChanged(sender As Object, e As EventArgs) Handles txtTelefonoAlo.TextChanged
-
-    End Sub
+	Private Sub Button4_Click_1(sender As Object, e As EventArgs)
+		MenuGestion.Show()
+		Me.Close()
+	End Sub
 End Class

@@ -22,6 +22,7 @@ Partial Class vistaAlojamientos
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
+		Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.btnVolver = New System.Windows.Forms.Button()
 		Me.btnEliminar = New System.Windows.Forms.Button()
 		Me.btnModificar = New System.Windows.Forms.Button()
@@ -56,8 +57,8 @@ Partial Class vistaAlojamientos
 		Me.Label13 = New System.Windows.Forms.Label()
 		Me.btnAceptar = New System.Windows.Forms.Button()
 		Me.btnCancelar = New System.Windows.Forms.Button()
-		Me.Label16 = New System.Windows.Forms.Label()
 		Me.lblSalir = New System.Windows.Forms.Label()
+		Me.Label16 = New System.Windows.Forms.Label()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
@@ -79,10 +80,10 @@ Partial Class vistaAlojamientos
 		Me.btnEliminar.BackColor = System.Drawing.Color.Black
 		Me.btnEliminar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnEliminar.ForeColor = System.Drawing.Color.White
-		Me.btnEliminar.Location = New System.Drawing.Point(1104, 74)
+		Me.btnEliminar.Location = New System.Drawing.Point(1100, 71)
 		Me.btnEliminar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.btnEliminar.Name = "btnEliminar"
-		Me.btnEliminar.Size = New System.Drawing.Size(74, 26)
+		Me.btnEliminar.Size = New System.Drawing.Size(78, 29)
 		Me.btnEliminar.TabIndex = 28
 		Me.btnEliminar.Text = "ELIMINAR"
 		Me.btnEliminar.UseVisualStyleBackColor = False
@@ -92,10 +93,10 @@ Partial Class vistaAlojamientos
 		Me.btnModificar.BackColor = System.Drawing.Color.Black
 		Me.btnModificar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnModificar.ForeColor = System.Drawing.Color.White
-		Me.btnModificar.Location = New System.Drawing.Point(1023, 74)
+		Me.btnModificar.Location = New System.Drawing.Point(1020, 71)
 		Me.btnModificar.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.btnModificar.Name = "btnModificar"
-		Me.btnModificar.Size = New System.Drawing.Size(74, 26)
+		Me.btnModificar.Size = New System.Drawing.Size(76, 29)
 		Me.btnModificar.TabIndex = 27
 		Me.btnModificar.Text = "MODIFICAR"
 		Me.btnModificar.UseVisualStyleBackColor = False
@@ -105,10 +106,10 @@ Partial Class vistaAlojamientos
 		Me.btnCrear.BackColor = System.Drawing.Color.Black
 		Me.btnCrear.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnCrear.ForeColor = System.Drawing.Color.White
-		Me.btnCrear.Location = New System.Drawing.Point(942, 74)
+		Me.btnCrear.Location = New System.Drawing.Point(938, 71)
 		Me.btnCrear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.btnCrear.Name = "btnCrear"
-		Me.btnCrear.Size = New System.Drawing.Size(74, 26)
+		Me.btnCrear.Size = New System.Drawing.Size(78, 29)
 		Me.btnCrear.TabIndex = 26
 		Me.btnCrear.Text = "CREAR"
 		Me.btnCrear.UseVisualStyleBackColor = False
@@ -118,7 +119,7 @@ Partial Class vistaAlojamientos
 		Me.Label15.AutoSize = True
 		Me.Label15.Font = New System.Drawing.Font("Impact", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label15.ForeColor = System.Drawing.Color.White
-		Me.Label15.Location = New System.Drawing.Point(21, 32)
+		Me.Label15.Location = New System.Drawing.Point(20, 32)
 		Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label15.Name = "Label15"
 		Me.Label15.Size = New System.Drawing.Size(315, 36)
@@ -132,7 +133,15 @@ Partial Class vistaAlojamientos
 		Me.DataGridView1.AllowUserToResizeRows = False
 		Me.DataGridView1.BackgroundColor = System.Drawing.Color.Black
 		Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.DataGridView1.Location = New System.Drawing.Point(27, 71)
+		DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+		DataGridViewCellStyle5.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+		DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+		Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
+		Me.DataGridView1.Location = New System.Drawing.Point(26, 71)
 		Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.DataGridView1.MultiSelect = False
 		Me.DataGridView1.Name = "DataGridView1"
@@ -453,27 +462,28 @@ Partial Class vistaAlojamientos
 		Me.btnCancelar.UseVisualStyleBackColor = False
 		Me.btnCancelar.Visible = False
 		'
-		'Label16
-		'
-		Me.Label16.AutoSize = True
-		Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label16.ForeColor = System.Drawing.Color.White
-		Me.Label16.Location = New System.Drawing.Point(12, 752)
-		Me.Label16.Name = "Label16"
-		Me.Label16.Size = New System.Drawing.Size(324, 29)
-		Me.Label16.TabIndex = 128
-		Me.Label16.Text = "Alojamientos Euskadi Admin "
-		'
 		'lblSalir
 		'
 		Me.lblSalir.AutoSize = True
-		Me.lblSalir.Font = New System.Drawing.Font("Impact", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.lblSalir.ForeColor = System.Drawing.Color.White
-		Me.lblSalir.Location = New System.Drawing.Point(1155, 9)
+		Me.lblSalir.Location = New System.Drawing.Point(1154, 9)
+		Me.lblSalir.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.lblSalir.Name = "lblSalir"
-		Me.lblSalir.Size = New System.Drawing.Size(30, 39)
+		Me.lblSalir.Size = New System.Drawing.Size(27, 31)
 		Me.lblSalir.TabIndex = 129
 		Me.lblSalir.Text = "x"
+		'
+		'Label16
+		'
+		Me.Label16.AutoSize = True
+		Me.Label16.Font = New System.Drawing.Font("Harlow Solid Italic", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label16.ForeColor = System.Drawing.Color.White
+		Me.Label16.Location = New System.Drawing.Point(12, 755)
+		Me.Label16.Name = "Label16"
+		Me.Label16.Size = New System.Drawing.Size(311, 30)
+		Me.Label16.TabIndex = 132
+		Me.Label16.Text = "Alojamientos Euskadi Admin "
 		'
 		'vistaAlojamientos
 		'
@@ -482,8 +492,8 @@ Partial Class vistaAlojamientos
 		Me.BackColor = System.Drawing.Color.Black
 		Me.ClientSize = New System.Drawing.Size(1194, 794)
 		Me.ControlBox = False
-		Me.Controls.Add(Me.lblSalir)
 		Me.Controls.Add(Me.Label16)
+		Me.Controls.Add(Me.lblSalir)
 		Me.Controls.Add(Me.btnCancelar)
 		Me.Controls.Add(Me.btnAceptar)
 		Me.Controls.Add(Me.txtWeb)
@@ -563,6 +573,6 @@ Partial Class vistaAlojamientos
 	Friend WithEvents Label13 As Label
 	Friend WithEvents btnAceptar As Button
 	Friend WithEvents btnCancelar As Button
-	Friend WithEvents Label16 As Label
 	Friend WithEvents lblSalir As Label
+	Friend WithEvents Label16 As Label
 End Class

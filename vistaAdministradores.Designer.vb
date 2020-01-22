@@ -41,9 +41,9 @@ Partial Class vistaAdministradores
 		Me.btnModi = New System.Windows.Forms.Button()
 		Me.Label15 = New System.Windows.Forms.Label()
 		Me.lblSalir = New System.Windows.Forms.Label()
-		Me.Label16 = New System.Windows.Forms.Label()
 		Me.Label10 = New System.Windows.Forms.Label()
 		Me.txtPassw = New System.Windows.Forms.TextBox()
+		Me.Label16 = New System.Windows.Forms.Label()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
@@ -224,7 +224,7 @@ Partial Class vistaAdministradores
 		'btnCancelar
 		'
 		Me.btnCancelar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnCancelar.Location = New System.Drawing.Point(835, 524)
+		Me.btnCancelar.Location = New System.Drawing.Point(864, 524)
 		Me.btnCancelar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
 		Me.btnCancelar.Name = "btnCancelar"
 		Me.btnCancelar.Size = New System.Drawing.Size(79, 29)
@@ -260,24 +260,13 @@ Partial Class vistaAdministradores
 		'lblSalir
 		'
 		Me.lblSalir.AutoSize = True
-		Me.lblSalir.Font = New System.Drawing.Font("Impact", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.lblSalir.ForeColor = System.Drawing.Color.White
 		Me.lblSalir.Location = New System.Drawing.Point(1155, 12)
 		Me.lblSalir.Name = "lblSalir"
-		Me.lblSalir.Size = New System.Drawing.Size(30, 39)
+		Me.lblSalir.Size = New System.Drawing.Size(27, 31)
 		Me.lblSalir.TabIndex = 131
 		Me.lblSalir.Text = "x"
-		'
-		'Label16
-		'
-		Me.Label16.AutoSize = True
-		Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label16.ForeColor = System.Drawing.Color.White
-		Me.Label16.Location = New System.Drawing.Point(12, 756)
-		Me.Label16.Name = "Label16"
-		Me.Label16.Size = New System.Drawing.Size(324, 29)
-		Me.Label16.TabIndex = 133
-		Me.Label16.Text = "Alojamientos Euskadi Admin "
 		'
 		'Label10
 		'
@@ -300,6 +289,17 @@ Partial Class vistaAdministradores
 		Me.txtPassw.Size = New System.Drawing.Size(189, 23)
 		Me.txtPassw.TabIndex = 134
 		'
+		'Label16
+		'
+		Me.Label16.AutoSize = True
+		Me.Label16.Font = New System.Drawing.Font("Harlow Solid Italic", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label16.ForeColor = System.Drawing.Color.White
+		Me.Label16.Location = New System.Drawing.Point(12, 755)
+		Me.Label16.Name = "Label16"
+		Me.Label16.Size = New System.Drawing.Size(311, 30)
+		Me.Label16.TabIndex = 136
+		Me.Label16.Text = "Alojamientos Euskadi Admin "
+		'
 		'vistaAdministradores
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 17.0!)
@@ -307,9 +307,9 @@ Partial Class vistaAdministradores
 		Me.BackColor = System.Drawing.Color.Black
 		Me.ClientSize = New System.Drawing.Size(1194, 794)
 		Me.ControlBox = False
+		Me.Controls.Add(Me.Label16)
 		Me.Controls.Add(Me.Label10)
 		Me.Controls.Add(Me.txtPassw)
-		Me.Controls.Add(Me.Label16)
 		Me.Controls.Add(Me.lblSalir)
 		Me.Controls.Add(Me.Label15)
 		Me.Controls.Add(Me.btnModi)
@@ -357,7 +357,7 @@ Partial Class vistaAdministradores
     Friend WithEvents btnModi As Button
 	Friend WithEvents Label15 As Label
 	Friend WithEvents lblSalir As Label
-	Friend WithEvents Label16 As Label
 	Friend WithEvents Label10 As Label
 	Friend WithEvents txtPassw As TextBox
+	Friend WithEvents Label16 As Label
 End Class

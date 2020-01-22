@@ -21,32 +21,17 @@ Public Class vistaLogin
 	Sub conectarUsuario()
 		Dim dbUser As String = ""
 		Dim dbPass As String = ""
-		Dim query As String = "SELECT cDni,cContrasena,cTipoUsuario FROM tAdministradores WHERE cDni='" & usuarioEncriptado & "' AND  cContrasena='" & passwordEncriptada & "'"
-
-
+		Dim datosUser(2) As String
 		usuarioEncriptado = MD5EncryptPass(txtNombre.Text)
 		passwordEncriptada = MD5EncryptPass(txtPassword.Text)
 
-		conexion.con.Open()
-		Dim cmd As New MySqlCommand(query, conexion.con)
-		'adapterUsuario.
-		Dim reader As MySqlDataReader = cmd.ExecuteReader()
-		While reader.Read()
-			dbUser = reader("cDni").ToString()
-
-			dbPass = reader("cContrasena").ToString()
-			tipoUser = reader("cTipoUsuario").ToString()
-		End While
-
-		Console.WriteLine("hola user" & dbUser)
-		Console.WriteLine("hola pp" & dbPass)
-		Console.WriteLine("hola pp" & tipoUser)
-
-		conexion.con.Close()
-
-
+		Dim query As String = "SELECT cDni,cContrasena,cTipoUsuario FROM tAdministradores WHERE cDni='" & usuarioEncriptado & "' AND  cContrasena='" & passwordEncriptada & "'"
+		datosUser = funciones.dataReader(query)
+		dbUser = datosUser(0)
+		dbPass = datosUser(1)
 		If (usuarioEncriptado = dbUser And passwordEncriptada = dbPass) Then
 			MsgBox("Conectado Satisfactoriamente", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Login!")
+			tipoUser = datosUser(2)
 			Me.Hide()
 			MenuGestion.Show()
 		Else

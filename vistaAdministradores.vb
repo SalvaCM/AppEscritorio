@@ -80,7 +80,7 @@ Public Class vistaAdministradores
 	End Sub
 	Private Sub limpiarCampos()
 		Dim tbox As TextBox
-		For Each ctrl As TextBox In Me.Controls
+		For Each ctrl In Me.Controls
 			If TypeOf ctrl Is TextBox Then
 				tbox = CType(ctrl, TextBox)
 				tbox.Text = Nothing

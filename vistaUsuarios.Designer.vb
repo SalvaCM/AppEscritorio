@@ -22,7 +22,6 @@ Partial Class vistaUsuarios
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-		Me.Label16 = New System.Windows.Forms.Label()
 		Me.lblSalir = New System.Windows.Forms.Label()
 		Me.btnActualizar = New System.Windows.Forms.Button()
 		Me.btnBuscar = New System.Windows.Forms.Button()
@@ -32,7 +31,6 @@ Partial Class vistaUsuarios
 		Me.busNombre = New System.Windows.Forms.TextBox()
 		Me.Label7 = New System.Windows.Forms.Label()
 		Me.Label15 = New System.Windows.Forms.Label()
-		Me.Label6 = New System.Windows.Forms.Label()
 		Me.btnModi = New System.Windows.Forms.Button()
 		Me.btnCancelar = New System.Windows.Forms.Button()
 		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -51,30 +49,11 @@ Partial Class vistaUsuarios
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.txtEmail = New System.Windows.Forms.TextBox()
 		Me.busMail = New System.Windows.Forms.TextBox()
+		Me.lbSalir = New System.Windows.Forms.Label()
+		Me.Label16 = New System.Windows.Forms.Label()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
-		'
-		'Label16
-		'
-		Me.Label16.AutoSize = True
-		Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label16.ForeColor = System.Drawing.Color.White
-		Me.Label16.Location = New System.Drawing.Point(14, 713)
-		Me.Label16.Name = "Label16"
-		Me.Label16.Size = New System.Drawing.Size(324, 29)
-		Me.Label16.TabIndex = 162
-		Me.Label16.Text = "Alojamientos Euskadi Admin "
-		'
-		'lblSalir
-		'
-		Me.lblSalir.AutoSize = True
-		Me.lblSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.lblSalir.ForeColor = System.Drawing.Color.White
-		Me.lblSalir.Location = New System.Drawing.Point(1138, -31)
-		Me.lblSalir.Name = "lblSalir"
-		Me.lblSalir.Size = New System.Drawing.Size(27, 31)
-		Me.lblSalir.TabIndex = 161
-		Me.lblSalir.Text = "x"
+
 		'
 		'btnActualizar
 		'
@@ -159,24 +138,13 @@ Partial Class vistaUsuarios
 		Me.Label15.TabIndex = 152
 		Me.Label15.Text = "GESTION DE USUARIOS"
 		'
-		'Label6
-		'
-		Me.Label6.AutoSize = True
-		Me.Label6.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label6.Location = New System.Drawing.Point(1095, 308)
-		Me.Label6.Name = "Label6"
-		Me.Label6.Size = New System.Drawing.Size(77, 17)
-		Me.Label6.TabIndex = 151
-		Me.Label6.Text = "modi o crear"
-		Me.Label6.Visible = False
-		'
 		'btnModi
 		'
 		Me.btnModi.BackColor = System.Drawing.Color.White
 		Me.btnModi.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnModi.Location = New System.Drawing.Point(977, 406)
+		Me.btnModi.Location = New System.Drawing.Point(970, 431)
 		Me.btnModi.Name = "btnModi"
-		Me.btnModi.Size = New System.Drawing.Size(75, 23)
+		Me.btnModi.Size = New System.Drawing.Size(75, 33)
 		Me.btnModi.TabIndex = 150
 		Me.btnModi.Text = "ACEPTAR"
 		Me.btnModi.UseVisualStyleBackColor = False
@@ -186,9 +154,9 @@ Partial Class vistaUsuarios
 		'
 		Me.btnCancelar.BackColor = System.Drawing.Color.White
 		Me.btnCancelar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.btnCancelar.Location = New System.Drawing.Point(863, 407)
+		Me.btnCancelar.Location = New System.Drawing.Point(889, 431)
 		Me.btnCancelar.Name = "btnCancelar"
-		Me.btnCancelar.Size = New System.Drawing.Size(79, 22)
+		Me.btnCancelar.Size = New System.Drawing.Size(75, 33)
 		Me.btnCancelar.TabIndex = 149
 		Me.btnCancelar.Text = "CANCELAR"
 		Me.btnCancelar.UseVisualStyleBackColor = False
@@ -200,7 +168,7 @@ Partial Class vistaUsuarios
 		Me.DataGridView1.AllowUserToDeleteRows = False
 		Me.DataGridView1.BackgroundColor = System.Drawing.Color.Black
 		Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.DataGridView1.Location = New System.Drawing.Point(60, 135)
+		Me.DataGridView1.Location = New System.Drawing.Point(68, 144)
 		Me.DataGridView1.MultiSelect = False
 		Me.DataGridView1.Name = "DataGridView1"
 		Me.DataGridView1.ReadOnly = True
@@ -229,7 +197,7 @@ Partial Class vistaUsuarios
 		Me.btnEliminar.BackColor = System.Drawing.Color.Black
 		Me.btnEliminar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnEliminar.ForeColor = System.Drawing.Color.White
-		Me.btnEliminar.Location = New System.Drawing.Point(1045, 135)
+		Me.btnEliminar.Location = New System.Drawing.Point(1020, 159)
 		Me.btnEliminar.Name = "btnEliminar"
 		Me.btnEliminar.Size = New System.Drawing.Size(75, 33)
 		Me.btnEliminar.TabIndex = 145
@@ -241,9 +209,9 @@ Partial Class vistaUsuarios
 		Me.btnModificar.BackColor = System.Drawing.Color.Black
 		Me.btnModificar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnModificar.ForeColor = System.Drawing.Color.White
-		Me.btnModificar.Location = New System.Drawing.Point(958, 135)
+		Me.btnModificar.Location = New System.Drawing.Point(936, 159)
 		Me.btnModificar.Name = "btnModificar"
-		Me.btnModificar.Size = New System.Drawing.Size(75, 33)
+		Me.btnModificar.Size = New System.Drawing.Size(78, 33)
 		Me.btnModificar.TabIndex = 144
 		Me.btnModificar.Text = "MODIFICAR"
 		Me.btnModificar.UseVisualStyleBackColor = False
@@ -253,7 +221,7 @@ Partial Class vistaUsuarios
 		Me.btnCrear.BackColor = System.Drawing.Color.Black
 		Me.btnCrear.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnCrear.ForeColor = System.Drawing.Color.White
-		Me.btnCrear.Location = New System.Drawing.Point(862, 135)
+		Me.btnCrear.Location = New System.Drawing.Point(855, 159)
 		Me.btnCrear.Name = "btnCrear"
 		Me.btnCrear.Size = New System.Drawing.Size(75, 33)
 		Me.btnCrear.TabIndex = 143
@@ -265,7 +233,7 @@ Partial Class vistaUsuarios
 		Me.Label5.AutoSize = True
 		Me.Label5.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label5.ForeColor = System.Drawing.Color.White
-		Me.Label5.Location = New System.Drawing.Point(860, 351)
+		Me.Label5.Location = New System.Drawing.Point(853, 375)
 		Me.Label5.Name = "Label5"
 		Me.Label5.Size = New System.Drawing.Size(43, 17)
 		Me.Label5.TabIndex = 142
@@ -275,7 +243,7 @@ Partial Class vistaUsuarios
 		'
 		Me.txtDni.Enabled = False
 		Me.txtDni.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtDni.Location = New System.Drawing.Point(863, 196)
+		Me.txtDni.Location = New System.Drawing.Point(856, 220)
 		Me.txtDni.Name = "txtDni"
 		Me.txtDni.Size = New System.Drawing.Size(189, 23)
 		Me.txtDni.TabIndex = 141
@@ -285,7 +253,7 @@ Partial Class vistaUsuarios
 		Me.Label4.AutoSize = True
 		Me.Label4.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label4.ForeColor = System.Drawing.Color.White
-		Me.Label4.Location = New System.Drawing.Point(860, 179)
+		Me.Label4.Location = New System.Drawing.Point(853, 203)
 		Me.Label4.Name = "Label4"
 		Me.Label4.Size = New System.Drawing.Size(31, 17)
 		Me.Label4.TabIndex = 140
@@ -295,7 +263,7 @@ Partial Class vistaUsuarios
 		'
 		Me.txtTelefono.Enabled = False
 		Me.txtTelefono.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtTelefono.Location = New System.Drawing.Point(863, 325)
+		Me.txtTelefono.Location = New System.Drawing.Point(856, 349)
 		Me.txtTelefono.Name = "txtTelefono"
 		Me.txtTelefono.Size = New System.Drawing.Size(189, 23)
 		Me.txtTelefono.TabIndex = 139
@@ -305,7 +273,7 @@ Partial Class vistaUsuarios
 		Me.Label3.AutoSize = True
 		Me.Label3.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label3.ForeColor = System.Drawing.Color.White
-		Me.Label3.Location = New System.Drawing.Point(860, 308)
+		Me.Label3.Location = New System.Drawing.Point(853, 332)
 		Me.Label3.Name = "Label3"
 		Me.Label3.Size = New System.Drawing.Size(60, 17)
 		Me.Label3.TabIndex = 138
@@ -315,7 +283,7 @@ Partial Class vistaUsuarios
 		'
 		Me.txtApellidos.Enabled = False
 		Me.txtApellidos.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtApellidos.Location = New System.Drawing.Point(863, 282)
+		Me.txtApellidos.Location = New System.Drawing.Point(856, 306)
 		Me.txtApellidos.Name = "txtApellidos"
 		Me.txtApellidos.Size = New System.Drawing.Size(189, 23)
 		Me.txtApellidos.TabIndex = 137
@@ -325,7 +293,7 @@ Partial Class vistaUsuarios
 		Me.Label2.AutoSize = True
 		Me.Label2.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label2.ForeColor = System.Drawing.Color.White
-		Me.Label2.Location = New System.Drawing.Point(860, 265)
+		Me.Label2.Location = New System.Drawing.Point(853, 289)
 		Me.Label2.Name = "Label2"
 		Me.Label2.Size = New System.Drawing.Size(67, 17)
 		Me.Label2.TabIndex = 136
@@ -335,7 +303,7 @@ Partial Class vistaUsuarios
 		'
 		Me.txtNombre.Enabled = False
 		Me.txtNombre.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtNombre.Location = New System.Drawing.Point(863, 239)
+		Me.txtNombre.Location = New System.Drawing.Point(856, 263)
 		Me.txtNombre.Name = "txtNombre"
 		Me.txtNombre.Size = New System.Drawing.Size(189, 23)
 		Me.txtNombre.TabIndex = 135
@@ -345,7 +313,7 @@ Partial Class vistaUsuarios
 		Me.Label1.AutoSize = True
 		Me.Label1.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label1.ForeColor = System.Drawing.Color.White
-		Me.Label1.Location = New System.Drawing.Point(860, 222)
+		Me.Label1.Location = New System.Drawing.Point(853, 246)
 		Me.Label1.Name = "Label1"
 		Me.Label1.Size = New System.Drawing.Size(55, 17)
 		Me.Label1.TabIndex = 134
@@ -355,7 +323,7 @@ Partial Class vistaUsuarios
 		'
 		Me.txtEmail.Enabled = False
 		Me.txtEmail.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtEmail.Location = New System.Drawing.Point(863, 369)
+		Me.txtEmail.Location = New System.Drawing.Point(856, 393)
 		Me.txtEmail.Name = "txtEmail"
 		Me.txtEmail.Size = New System.Drawing.Size(189, 23)
 		Me.txtEmail.TabIndex = 163
@@ -367,6 +335,28 @@ Partial Class vistaUsuarios
 		Me.busMail.Size = New System.Drawing.Size(120, 20)
 		Me.busMail.TabIndex = 164
 		'
+		'lbSalir
+		'
+		Me.lbSalir.AutoSize = True
+		Me.lbSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lbSalir.ForeColor = System.Drawing.Color.White
+		Me.lbSalir.Location = New System.Drawing.Point(1145, 9)
+		Me.lbSalir.Name = "lbSalir"
+		Me.lbSalir.Size = New System.Drawing.Size(27, 31)
+		Me.lbSalir.TabIndex = 165
+		Me.lbSalir.Text = "x"
+		'
+		'Label16
+		'
+		Me.Label16.AutoSize = True
+		Me.Label16.Font = New System.Drawing.Font("Harlow Solid Italic", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.Label16.ForeColor = System.Drawing.Color.White
+		Me.Label16.Location = New System.Drawing.Point(12, 722)
+		Me.Label16.Name = "Label16"
+		Me.Label16.Size = New System.Drawing.Size(311, 30)
+		Me.Label16.TabIndex = 166
+		Me.Label16.Text = "Alojamientos Euskadi Admin "
+		'
 		'vistaUsuarios
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -374,9 +364,10 @@ Partial Class vistaUsuarios
 		Me.BackColor = System.Drawing.Color.Black
 		Me.ClientSize = New System.Drawing.Size(1184, 761)
 		Me.ControlBox = False
+		Me.Controls.Add(Me.Label16)
+		Me.Controls.Add(Me.lbSalir)
 		Me.Controls.Add(Me.busMail)
 		Me.Controls.Add(Me.txtEmail)
-		Me.Controls.Add(Me.Label16)
 		Me.Controls.Add(Me.lblSalir)
 		Me.Controls.Add(Me.btnActualizar)
 		Me.Controls.Add(Me.btnBuscar)
@@ -386,7 +377,6 @@ Partial Class vistaUsuarios
 		Me.Controls.Add(Me.busNombre)
 		Me.Controls.Add(Me.Label7)
 		Me.Controls.Add(Me.Label15)
-		Me.Controls.Add(Me.Label6)
 		Me.Controls.Add(Me.btnModi)
 		Me.Controls.Add(Me.btnCancelar)
 		Me.Controls.Add(Me.DataGridView1)
@@ -410,8 +400,6 @@ Partial Class vistaUsuarios
 		Me.PerformLayout()
 
 	End Sub
-
-	Friend WithEvents Label16 As Label
 	Friend WithEvents lblSalir As Label
 	Friend WithEvents btnActualizar As Button
 	Friend WithEvents btnBuscar As Button
@@ -421,7 +409,6 @@ Partial Class vistaUsuarios
 	Friend WithEvents busNombre As TextBox
 	Friend WithEvents Label7 As Label
 	Friend WithEvents Label15 As Label
-	Friend WithEvents Label6 As Label
 	Friend WithEvents btnModi As Button
 	Friend WithEvents btnCancelar As Button
 	Friend WithEvents DataGridView1 As DataGridView
@@ -440,4 +427,6 @@ Partial Class vistaUsuarios
 	Friend WithEvents Label1 As Label
 	Friend WithEvents txtEmail As TextBox
 	Friend WithEvents busMail As TextBox
+	Friend WithEvents lbSalir As Label
+	Friend WithEvents Label16 As Label
 End Class
