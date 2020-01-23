@@ -53,7 +53,13 @@ Partial Class vistaUsuarios
 		Me.Label16 = New System.Windows.Forms.Label()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
-
+		'
+		'lblSalir
+		'
+		Me.lblSalir.Location = New System.Drawing.Point(0, 0)
+		Me.lblSalir.Name = "lblSalir"
+		Me.lblSalir.Size = New System.Drawing.Size(100, 23)
+		Me.lblSalir.TabIndex = 167
 		'
 		'btnActualizar
 		'
@@ -134,9 +140,9 @@ Partial Class vistaUsuarios
 		Me.Label15.Location = New System.Drawing.Point(76, 34)
 		Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label15.Name = "Label15"
-		Me.Label15.Size = New System.Drawing.Size(251, 34)
+		Me.Label15.Size = New System.Drawing.Size(237, 34)
 		Me.Label15.TabIndex = 152
-		Me.Label15.Text = "GESTION DE USUARIOS"
+		Me.Label15.Text = "GESTION DE CLIENTES"
 		'
 		'btnModi
 		'
@@ -185,7 +191,7 @@ Partial Class vistaUsuarios
 		Me.Button4.BackColor = System.Drawing.Color.Black
 		Me.Button4.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button4.ForeColor = System.Drawing.Color.White
-		Me.Button4.Location = New System.Drawing.Point(1067, 699)
+		Me.Button4.Location = New System.Drawing.Point(1084, 739)
 		Me.Button4.Name = "Button4"
 		Me.Button4.Size = New System.Drawing.Size(98, 43)
 		Me.Button4.TabIndex = 146
@@ -351,7 +357,7 @@ Partial Class vistaUsuarios
 		Me.Label16.AutoSize = True
 		Me.Label16.Font = New System.Drawing.Font("Harlow Solid Italic", 18.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label16.ForeColor = System.Drawing.Color.White
-		Me.Label16.Location = New System.Drawing.Point(12, 722)
+		Me.Label16.Location = New System.Drawing.Point(12, 755)
 		Me.Label16.Name = "Label16"
 		Me.Label16.Size = New System.Drawing.Size(311, 30)
 		Me.Label16.TabIndex = 166
@@ -362,7 +368,7 @@ Partial Class vistaUsuarios
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.BackColor = System.Drawing.Color.Black
-		Me.ClientSize = New System.Drawing.Size(1184, 761)
+		Me.ClientSize = New System.Drawing.Size(1194, 794)
 		Me.ControlBox = False
 		Me.Controls.Add(Me.Label16)
 		Me.Controls.Add(Me.lbSalir)
@@ -395,6 +401,7 @@ Partial Class vistaUsuarios
 		Me.Controls.Add(Me.Label1)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
 		Me.Name = "vistaUsuarios"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()

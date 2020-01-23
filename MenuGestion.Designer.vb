@@ -81,9 +81,9 @@ Partial Class MenuGestion
 		Me.lblGestion.ForeColor = System.Drawing.Color.White
 		Me.lblGestion.Location = New System.Drawing.Point(244, 262)
 		Me.lblGestion.Name = "lblGestion"
-		Me.lblGestion.Size = New System.Drawing.Size(191, 29)
+		Me.lblGestion.Size = New System.Drawing.Size(181, 29)
 		Me.lblGestion.TabIndex = 3
-		Me.lblGestion.Text = "GESTION USUARIOS"
+		Me.lblGestion.Text = "GESTION CLIENTES"
 		'
 		'btnInformeUser
 		'
@@ -182,11 +182,11 @@ Partial Class MenuGestion
 		Me.Label3.AutoSize = True
 		Me.Label3.Font = New System.Drawing.Font("Impact", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label3.ForeColor = System.Drawing.Color.White
-		Me.Label3.Location = New System.Drawing.Point(459, 434)
+		Me.Label3.Location = New System.Drawing.Point(501, 434)
 		Me.Label3.Name = "Label3"
-		Me.Label3.Size = New System.Drawing.Size(274, 29)
+		Me.Label3.Size = New System.Drawing.Size(191, 29)
 		Me.Label3.TabIndex = 133
-		Me.Label3.Text = "GESTION ADMINISTRADORES"
+		Me.Label3.Text = "GESTION USUARIOS"
 		'
 		'btnAdmin
 		'
@@ -223,6 +223,7 @@ Partial Class MenuGestion
 		Me.Controls.Add(Me.btnUsuarios)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
 		Me.Name = "MenuGestion"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 

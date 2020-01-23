@@ -122,6 +122,7 @@ Partial Class vistaLogin
 		Me.MaximizeBox = False
 		Me.MinimizeBox = False
 		Me.Name = "vistaLogin"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 

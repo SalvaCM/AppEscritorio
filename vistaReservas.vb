@@ -24,7 +24,6 @@ Public Class vistaReservas
 		txtFechaReserva.Text = DataGridView1.Rows(indice).Cells(6).Value
 		txtFechaEntrada.Text = DataGridView1.Rows(indice).Cells(7).Value
 		txtFechaSalida.Text = DataGridView1.Rows(indice).Cells(8).Value
-
 	End Sub
 
 	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click

@@ -333,6 +333,7 @@ Partial Class vistaAdministradores
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
 		Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
 		Me.Name = "vistaAdministradores"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()

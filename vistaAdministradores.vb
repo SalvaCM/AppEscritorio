@@ -116,7 +116,6 @@ Public Class vistaAdministradores
 			MessageBox.Show("Usuario guardado con exito!")
 			funciones.CargarGrid(DataGridView1, queryAdmins)
 			deshabilitarTxt()
-
 		End If
 
 	End Sub

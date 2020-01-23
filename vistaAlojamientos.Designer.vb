@@ -22,7 +22,6 @@ Partial Class vistaAlojamientos
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-		Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.btnVolver = New System.Windows.Forms.Button()
 		Me.btnEliminar = New System.Windows.Forms.Button()
 		Me.btnModificar = New System.Windows.Forms.Button()
@@ -133,14 +132,6 @@ Partial Class vistaAlojamientos
 		Me.DataGridView1.AllowUserToResizeRows = False
 		Me.DataGridView1.BackgroundColor = System.Drawing.Color.Black
 		Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-		DataGridViewCellStyle5.Font = New System.Drawing.Font("Impact", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-		DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-		DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-		DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-		Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
 		Me.DataGridView1.Location = New System.Drawing.Point(26, 71)
 		Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.DataGridView1.MultiSelect = False
@@ -533,6 +524,7 @@ Partial Class vistaAlojamientos
 		Me.MaximizeBox = False
 		Me.MinimizeBox = False
 		Me.Name = "vistaAlojamientos"
+		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
