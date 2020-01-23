@@ -253,9 +253,9 @@ Partial Class vistaAdministradores
 		Me.Label15.Location = New System.Drawing.Point(53, 52)
 		Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label15.Name = "Label15"
-		Me.Label15.Size = New System.Drawing.Size(365, 36)
+		Me.Label15.Size = New System.Drawing.Size(265, 36)
 		Me.Label15.TabIndex = 77
-		Me.Label15.Text = "GESTION DE ADMINISTRADORES"
+		Me.Label15.Text = "GESTION DE USUARIOS"
 		'
 		'lblSalir
 		'

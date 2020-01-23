@@ -350,7 +350,6 @@ Partial Class vistaReservas
 		Me.Controls.Add(Me.Label1)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
 		Me.Name = "vistaReservas"
-		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()

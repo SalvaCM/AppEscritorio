@@ -3,7 +3,7 @@
 Public Class MenuGestion
 	Dim conexion As New Conexion
 	Private Sub BtnUsuarios_Click(sender As Object, e As EventArgs) Handles btnUsuarios.Click
-		vistaUsuarios.Show()
+		vistaClientes.Show()
 		Me.Hide()
 	End Sub
 

@@ -4,17 +4,17 @@ Public Class Funciones
     Dim Conexion As New Conexion
     Public Sub CargarGrid(DataGridView1 As DataGridView, query As String)
 		Dim adapter As New MySqlDataAdapter(query, Conexion.con)
-		'Try
-		Conexion.con.Open()
+		Try
+			Conexion.con.Open()
 			Dim tabla As New DataTable()
 			adapter.Fill(tabla)
 			DataGridView1.DataSource = tabla
-		'Catch ex As Exception
-		'MessageBox.Show(ex.Message, "Error")
-		'Console.WriteLine(ex.Message)
-		'Finally
-		Conexion.con.Close()
-		'End Try
+		Catch ex As Exception
+			MessageBox.Show(ex.Message, "Error")
+			'Console.WriteLine(ex.Message)
+		Finally
+			Conexion.con.Close()
+		End Try
 		For Each column As DataGridViewColumn In DataGridView1.Columns
             column.SortMode = DataGridViewColumnSortMode.NotSortable
         Next

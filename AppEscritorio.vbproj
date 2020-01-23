@@ -109,10 +109,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Funciones.vb" />
-    <Compile Include="vistaUsuarios.Designer.vb">
-      <DependentUpon>vistaUsuarios.vb</DependentUpon>
+    <Compile Include="vistaClientes.Designer.vb">
+      <DependentUpon>vistaClientes.vb</DependentUpon>
     </Compile>
-    <Compile Include="vistaUsuarios.vb">
+    <Compile Include="vistaClientes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="vistaLogin.Designer.vb">
@@ -166,8 +166,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="vistaUsuarios.resx">
-      <DependentUpon>vistaUsuarios.vb</DependentUpon>
+    <EmbeddedResource Include="vistaClientes.resx">
+      <DependentUpon>vistaClientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vistaLogin.resx">
       <DependentUpon>vistaLogin.vb</DependentUpon>
