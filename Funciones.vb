@@ -16,8 +16,8 @@ Public Class Funciones
 			Conexion.con.Close()
 		End Try
 		For Each column As DataGridViewColumn In DataGridView1.Columns
-            column.SortMode = DataGridViewColumnSortMode.NotSortable
-        Next
+			column.SortMode = DataGridViewColumnSortMode.NotSortable
+		Next
     End Sub
     Public Sub LLamadaBD(query As String)
         Try

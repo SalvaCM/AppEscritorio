@@ -113,6 +113,7 @@ Public Class vistaAlojamientos
 				'eliminar las reservas asignadas al alojamiento
 				query = "Delete from tReservas where cCodAlojamiento = " & codigo
 				funciones.LLamadaBD(query)
+				MsgBox("Alojamiento Borrado Satisfactoriamente")
 			End If
 			DataGridView1.DataSource = Nothing
 			DataGridView1.Refresh()

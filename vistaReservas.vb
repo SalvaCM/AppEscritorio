@@ -13,7 +13,7 @@ Public Class vistaReservas
 		funciones.CargarGrid(DataGridView1, queryReservas)
 	End Sub
 
-	Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView1.SelectionChanged
+	Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs) 
 
 		Dim indice = DataGridView1.CurrentCell.RowIndex
 		txtNombreAloj.Text = DataGridView1.Rows(indice).Cells(1).Value

@@ -22,6 +22,8 @@ Partial Class vistaAlojamientos
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
+		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.btnVolver = New System.Windows.Forms.Button()
 		Me.btnEliminar = New System.Windows.Forms.Button()
 		Me.btnModificar = New System.Windows.Forms.Button()
@@ -130,13 +132,26 @@ Partial Class vistaAlojamientos
 		Me.DataGridView1.AllowUserToAddRows = False
 		Me.DataGridView1.AllowUserToDeleteRows = False
 		Me.DataGridView1.AllowUserToResizeRows = False
+		DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+		DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+		Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
 		Me.DataGridView1.BackgroundColor = System.Drawing.Color.Black
+		Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle2.BackColor = System.Drawing.Color.Black
+		DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+		DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
 		Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
 		Me.DataGridView1.Location = New System.Drawing.Point(26, 71)
 		Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
 		Me.DataGridView1.MultiSelect = False
 		Me.DataGridView1.Name = "DataGridView1"
 		Me.DataGridView1.ReadOnly = True
+		Me.DataGridView1.RowHeadersVisible = False
 		Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
 		Me.DataGridView1.Size = New System.Drawing.Size(886, 622)
 		Me.DataGridView1.TabIndex = 63

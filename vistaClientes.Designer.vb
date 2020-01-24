@@ -22,6 +22,10 @@ Partial Class vistaClientes
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
+		Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.lblSalir = New System.Windows.Forms.Label()
 		Me.btnActualizar = New System.Windows.Forms.Button()
 		Me.btnBuscar = New System.Windows.Forms.Button()
@@ -33,7 +37,6 @@ Partial Class vistaClientes
 		Me.Label15 = New System.Windows.Forms.Label()
 		Me.btnModi = New System.Windows.Forms.Button()
 		Me.btnCancelar = New System.Windows.Forms.Button()
-		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
 		Me.Button4 = New System.Windows.Forms.Button()
 		Me.btnEliminar = New System.Windows.Forms.Button()
 		Me.btnModificar = New System.Windows.Forms.Button()
@@ -51,8 +54,9 @@ Partial Class vistaClientes
 		Me.busMail = New System.Windows.Forms.TextBox()
 		Me.lbSalir = New System.Windows.Forms.Label()
 		Me.Label16 = New System.Windows.Forms.Label()
-		Me.DataGridView2 = New System.Windows.Forms.DataGridView()
 		Me.Label6 = New System.Windows.Forms.Label()
+		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+		Me.DataGridView2 = New System.Windows.Forms.DataGridView()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -170,24 +174,6 @@ Partial Class vistaClientes
 		Me.btnCancelar.Text = "CANCELAR"
 		Me.btnCancelar.UseVisualStyleBackColor = False
 		Me.btnCancelar.Visible = False
-		'
-		'DataGridView1
-		'
-		Me.DataGridView1.AllowUserToAddRows = False
-		Me.DataGridView1.AllowUserToDeleteRows = False
-		Me.DataGridView1.BackgroundColor = System.Drawing.Color.Black
-		Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.DataGridView1.Location = New System.Drawing.Point(68, 144)
-		Me.DataGridView1.MultiSelect = False
-		Me.DataGridView1.Name = "DataGridView1"
-		Me.DataGridView1.ReadOnly = True
-		Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-		Me.DataGridView1.RowHeadersVisible = False
-		Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.DataGridView1.ShowCellToolTips = False
-		Me.DataGridView1.ShowEditingIcon = False
-		Me.DataGridView1.Size = New System.Drawing.Size(702, 272)
-		Me.DataGridView1.TabIndex = 148
 		'
 		'Button4
 		'
@@ -366,35 +352,73 @@ Partial Class vistaClientes
 		Me.Label16.TabIndex = 166
 		Me.Label16.Text = "Alojamientos Euskadi Admin "
 		'
-		'DataGridView2
-		'
-		Me.DataGridView2.AllowUserToAddRows = False
-		Me.DataGridView2.AllowUserToDeleteRows = False
-		Me.DataGridView2.BackgroundColor = System.Drawing.Color.Black
-		Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.DataGridView2.Location = New System.Drawing.Point(68, 456)
-		Me.DataGridView2.MultiSelect = False
-		Me.DataGridView2.Name = "DataGridView2"
-		Me.DataGridView2.ReadOnly = True
-		Me.DataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-		Me.DataGridView2.RowHeadersVisible = False
-		Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-		Me.DataGridView2.ShowCellToolTips = False
-		Me.DataGridView2.ShowEditingIcon = False
-		Me.DataGridView2.Size = New System.Drawing.Size(702, 247)
-		Me.DataGridView2.TabIndex = 168
-		'
 		'Label6
 		'
 		Me.Label6.AutoSize = True
 		Me.Label6.Font = New System.Drawing.Font("Impact", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Label6.ForeColor = System.Drawing.Color.White
-		Me.Label6.Location = New System.Drawing.Point(76, 419)
+		Me.Label6.Location = New System.Drawing.Point(77, 431)
 		Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
 		Me.Label6.Name = "Label6"
 		Me.Label6.Size = New System.Drawing.Size(174, 23)
 		Me.Label6.TabIndex = 169
 		Me.Label6.Text = "RESERVAS DEL CLIENTE"
+		'
+		'DataGridView1
+		'
+		Me.DataGridView1.AllowUserToAddRows = False
+		Me.DataGridView1.AllowUserToDeleteRows = False
+		Me.DataGridView1.AllowUserToResizeRows = False
+		DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+		DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+		Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+		Me.DataGridView1.BackgroundColor = System.Drawing.Color.Black
+		DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle4.BackColor = System.Drawing.Color.Black
+		DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+		DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+		Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+		Me.DataGridView1.Location = New System.Drawing.Point(68, 145)
+		Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+		Me.DataGridView1.MultiSelect = False
+		Me.DataGridView1.Name = "DataGridView1"
+		Me.DataGridView1.ReadOnly = True
+		Me.DataGridView1.RowHeadersVisible = False
+		Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+		Me.DataGridView1.Size = New System.Drawing.Size(702, 238)
+		Me.DataGridView1.TabIndex = 170
+		'
+		'DataGridView2
+		'
+		Me.DataGridView2.AllowUserToAddRows = False
+		Me.DataGridView2.AllowUserToDeleteRows = False
+		Me.DataGridView2.AllowUserToResizeRows = False
+		DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+		DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
+		Me.DataGridView2.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+		Me.DataGridView2.BackgroundColor = System.Drawing.Color.Black
+		DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle6.BackColor = System.Drawing.Color.Black
+		DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+		DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+		Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+		Me.DataGridView2.Location = New System.Drawing.Point(68, 462)
+		Me.DataGridView2.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+		Me.DataGridView2.MultiSelect = False
+		Me.DataGridView2.Name = "DataGridView2"
+		Me.DataGridView2.ReadOnly = True
+		Me.DataGridView2.RowHeadersVisible = False
+		Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+		Me.DataGridView2.Size = New System.Drawing.Size(702, 238)
+		Me.DataGridView2.TabIndex = 171
 		'
 		'vistaClientes
 		'
@@ -403,8 +427,9 @@ Partial Class vistaClientes
 		Me.BackColor = System.Drawing.Color.Black
 		Me.ClientSize = New System.Drawing.Size(1194, 794)
 		Me.ControlBox = False
-		Me.Controls.Add(Me.Label6)
 		Me.Controls.Add(Me.DataGridView2)
+		Me.Controls.Add(Me.DataGridView1)
+		Me.Controls.Add(Me.Label6)
 		Me.Controls.Add(Me.Label16)
 		Me.Controls.Add(Me.lbSalir)
 		Me.Controls.Add(Me.busMail)
@@ -420,7 +445,6 @@ Partial Class vistaClientes
 		Me.Controls.Add(Me.Label15)
 		Me.Controls.Add(Me.btnModi)
 		Me.Controls.Add(Me.btnCancelar)
-		Me.Controls.Add(Me.DataGridView1)
 		Me.Controls.Add(Me.Button4)
 		Me.Controls.Add(Me.btnEliminar)
 		Me.Controls.Add(Me.btnModificar)
@@ -454,7 +478,6 @@ Partial Class vistaClientes
 	Friend WithEvents Label15 As Label
 	Friend WithEvents btnModi As Button
 	Friend WithEvents btnCancelar As Button
-	Friend WithEvents DataGridView1 As DataGridView
 	Friend WithEvents Button4 As Button
 	Friend WithEvents btnEliminar As Button
 	Friend WithEvents btnModificar As Button
@@ -472,6 +495,7 @@ Partial Class vistaClientes
 	Friend WithEvents busMail As TextBox
 	Friend WithEvents lbSalir As Label
 	Friend WithEvents Label16 As Label
-	Friend WithEvents DataGridView2 As DataGridView
 	Friend WithEvents Label6 As Label
+	Friend WithEvents DataGridView1 As DataGridView
+	Friend WithEvents DataGridView2 As DataGridView
 End Class

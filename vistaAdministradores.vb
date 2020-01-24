@@ -14,7 +14,7 @@ Public Class vistaAdministradores
 	End Sub
 
 	'CUANDO HAGAS CLICK EN UNA CELL, QUE SE PONGA EN LOS TEXTBOX LOS DATOS
-	Private Sub DataGridView1_Click(sender As Object, e As EventArgs) Handles DataGridView1.SelectionChanged
+	Private Sub DataGridView1_Click(sender As Object, e As EventArgs) 
 
 		Dim indice = DataGridView1.CurrentCell.RowIndex
 
