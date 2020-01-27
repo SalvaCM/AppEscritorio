@@ -14,7 +14,7 @@ Public Class vistaAdministradores
 	End Sub
 
 	'CUANDO HAGAS CLICK EN UNA CELL, QUE SE PONGA EN LOS TEXTBOX LOS DATOS
-	Private Sub DataGridView1_Click(sender As Object, e As EventArgs) 
+	Private Sub DataGridView1_Click(sender As Object, e As EventArgs) Handles DataGridView1.Click
 
 		Dim indice = DataGridView1.CurrentCell.RowIndex
 
@@ -159,5 +159,20 @@ Public Class vistaAdministradores
 	End Sub
 	Private Sub lblSalir_Click(sender As Object, e As EventArgs) Handles lblSalir.Click
 		Application.ExitThread()
+	End Sub
+
+	Private Sub BtnCancelar_MouseHover(sender As Object, e As EventArgs) Handles btnCancelar.MouseHover
+		btnCancelar.BackColor = Color.Red
+	End Sub
+
+	Private Sub BtnCancelar_MouseLeave(sender As Object, e As EventArgs) Handles btnCancelar.MouseLeave
+		btnCancelar.BackColor = Color.WhiteSmoke
+	End Sub
+
+	Private Sub BtnModi_MouseHover(sender As Object, e As EventArgs) Handles btnModi.MouseHover
+		btnModi.BackColor = Color.Green
+	End Sub
+	Private Sub BtnModi_MouseLeave(sender As Object, e As EventArgs) Handles btnModi.MouseLeave
+		btnModi.BackColor = Color.WhiteSmoke
 	End Sub
 End Class

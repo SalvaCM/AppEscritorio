@@ -66,7 +66,7 @@ Partial Class vistaAdministradores
 		Me.txtNombre.Enabled = False
 		Me.txtNombre.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtNombre.Location = New System.Drawing.Point(832, 228)
-		Me.txtNombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtNombre.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtNombre.Name = "txtNombre"
 		Me.txtNombre.Size = New System.Drawing.Size(251, 23)
 		Me.txtNombre.TabIndex = 2
@@ -76,7 +76,7 @@ Partial Class vistaAdministradores
 		Me.txtApellidos.Enabled = False
 		Me.txtApellidos.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtApellidos.Location = New System.Drawing.Point(832, 280)
-		Me.txtApellidos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtApellidos.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtApellidos.Name = "txtApellidos"
 		Me.txtApellidos.Size = New System.Drawing.Size(251, 23)
 		Me.txtApellidos.TabIndex = 4
@@ -98,7 +98,7 @@ Partial Class vistaAdministradores
 		Me.txtTelefono.Enabled = False
 		Me.txtTelefono.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtTelefono.Location = New System.Drawing.Point(832, 334)
-		Me.txtTelefono.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtTelefono.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtTelefono.Name = "txtTelefono"
 		Me.txtTelefono.Size = New System.Drawing.Size(251, 23)
 		Me.txtTelefono.TabIndex = 6
@@ -120,7 +120,7 @@ Partial Class vistaAdministradores
 		Me.txtDni.Enabled = False
 		Me.txtDni.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtDni.Location = New System.Drawing.Point(832, 176)
-		Me.txtDni.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtDni.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtDni.Name = "txtDni"
 		Me.txtDni.Size = New System.Drawing.Size(251, 23)
 		Me.txtDni.TabIndex = 8
@@ -154,7 +154,7 @@ Partial Class vistaAdministradores
 		Me.btnCrear.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnCrear.ForeColor = System.Drawing.Color.White
 		Me.btnCrear.Location = New System.Drawing.Point(820, 109)
-		Me.btnCrear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnCrear.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnCrear.Name = "btnCrear"
 		Me.btnCrear.Size = New System.Drawing.Size(100, 28)
 		Me.btnCrear.TabIndex = 11
@@ -166,7 +166,7 @@ Partial Class vistaAdministradores
 		Me.btnModificar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnModificar.ForeColor = System.Drawing.Color.White
 		Me.btnModificar.Location = New System.Drawing.Point(928, 109)
-		Me.btnModificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnModificar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnModificar.Name = "btnModificar"
 		Me.btnModificar.Size = New System.Drawing.Size(100, 28)
 		Me.btnModificar.TabIndex = 12
@@ -178,7 +178,7 @@ Partial Class vistaAdministradores
 		Me.btnEliminar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnEliminar.ForeColor = System.Drawing.Color.White
 		Me.btnEliminar.Location = New System.Drawing.Point(1036, 109)
-		Me.btnEliminar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnEliminar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnEliminar.Name = "btnEliminar"
 		Me.btnEliminar.Size = New System.Drawing.Size(100, 28)
 		Me.btnEliminar.TabIndex = 13
@@ -190,7 +190,7 @@ Partial Class vistaAdministradores
 		Me.Button4.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.Button4.ForeColor = System.Drawing.Color.White
 		Me.Button4.Location = New System.Drawing.Point(1053, 736)
-		Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Button4.Margin = New System.Windows.Forms.Padding(4)
 		Me.Button4.Name = "Button4"
 		Me.Button4.Size = New System.Drawing.Size(131, 45)
 		Me.Button4.TabIndex = 14
@@ -204,33 +204,36 @@ Partial Class vistaAdministradores
 		Me.comboTipoUsuario.FormattingEnabled = True
 		Me.comboTipoUsuario.Items.AddRange(New Object() {"Normal", "Administrador"})
 		Me.comboTipoUsuario.Location = New System.Drawing.Point(832, 385)
-		Me.comboTipoUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.comboTipoUsuario.Margin = New System.Windows.Forms.Padding(4)
 		Me.comboTipoUsuario.Name = "comboTipoUsuario"
 		Me.comboTipoUsuario.Size = New System.Drawing.Size(251, 25)
 		Me.comboTipoUsuario.TabIndex = 64
 		'
 		'btnCancelar
 		'
+		Me.btnCancelar.BackColor = System.Drawing.Color.WhiteSmoke
 		Me.btnCancelar.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnCancelar.Location = New System.Drawing.Point(871, 485)
-		Me.btnCancelar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnCancelar.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnCancelar.Name = "btnCancelar"
 		Me.btnCancelar.Size = New System.Drawing.Size(105, 27)
 		Me.btnCancelar.TabIndex = 66
 		Me.btnCancelar.Text = "CANCELAR"
-		Me.btnCancelar.UseVisualStyleBackColor = True
+		Me.btnCancelar.UseVisualStyleBackColor = False
 		Me.btnCancelar.Visible = False
 		'
 		'btnModi
 		'
+		Me.btnModi.BackColor = System.Drawing.Color.WhiteSmoke
+		Me.btnModi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
 		Me.btnModi.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.btnModi.Location = New System.Drawing.Point(984, 484)
-		Me.btnModi.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.btnModi.Margin = New System.Windows.Forms.Padding(4)
 		Me.btnModi.Name = "btnModi"
 		Me.btnModi.Size = New System.Drawing.Size(100, 28)
 		Me.btnModi.TabIndex = 67
 		Me.btnModi.Text = "ACEPTAR"
-		Me.btnModi.UseVisualStyleBackColor = True
+		Me.btnModi.UseVisualStyleBackColor = False
 		Me.btnModi.Visible = False
 		'
 		'Label15
@@ -273,7 +276,7 @@ Partial Class vistaAdministradores
 		Me.txtPassw.Enabled = False
 		Me.txtPassw.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtPassw.Location = New System.Drawing.Point(832, 437)
-		Me.txtPassw.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.txtPassw.Margin = New System.Windows.Forms.Padding(4)
 		Me.txtPassw.Name = "txtPassw"
 		Me.txtPassw.Size = New System.Drawing.Size(251, 23)
 		Me.txtPassw.TabIndex = 134
@@ -348,7 +351,7 @@ Partial Class vistaAdministradores
 		Me.Controls.Add(Me.Label1)
 		Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-		Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+		Me.Margin = New System.Windows.Forms.Padding(4)
 		Me.Name = "vistaAdministradores"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

@@ -22,8 +22,8 @@ Partial Class vistaReservas
 	'No lo modifique con el editor de código.
 	<System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-		Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-		Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+		Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
 		Me.btnVolver = New System.Windows.Forms.Button()
 		Me.btnEliminar = New System.Windows.Forms.Button()
 		Me.btnModificar = New System.Windows.Forms.Button()
@@ -35,9 +35,7 @@ Partial Class vistaReservas
 		Me.Label2 = New System.Windows.Forms.Label()
 		Me.txtNombreUsuario = New System.Windows.Forms.TextBox()
 		Me.Label1 = New System.Windows.Forms.Label()
-		Me.txtFechaSalida = New System.Windows.Forms.TextBox()
 		Me.Label7 = New System.Windows.Forms.Label()
-		Me.txtFechaEntrada = New System.Windows.Forms.TextBox()
 		Me.Label8 = New System.Windows.Forms.Label()
 		Me.txtFechaReserva = New System.Windows.Forms.TextBox()
 		Me.Label9 = New System.Windows.Forms.Label()
@@ -49,6 +47,8 @@ Partial Class vistaReservas
 		Me.Label15 = New System.Windows.Forms.Label()
 		Me.Label16 = New System.Windows.Forms.Label()
 		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+		Me.dtpFechaEntrada = New System.Windows.Forms.DateTimePicker()
+		Me.dtpFechaSalida = New System.Windows.Forms.DateTimePicker()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
@@ -90,7 +90,7 @@ Partial Class vistaReservas
 		Me.txtDni.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtDni.Location = New System.Drawing.Point(968, 305)
 		Me.txtDni.Name = "txtDni"
-		Me.txtDni.Size = New System.Drawing.Size(189, 23)
+		Me.txtDni.Size = New System.Drawing.Size(204, 23)
 		Me.txtDni.TabIndex = 73
 		'
 		'Label4
@@ -109,7 +109,7 @@ Partial Class vistaReservas
 		Me.txtTelefonoAlo.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtTelefonoAlo.Location = New System.Drawing.Point(968, 434)
 		Me.txtTelefonoAlo.Name = "txtTelefonoAlo"
-		Me.txtTelefonoAlo.Size = New System.Drawing.Size(189, 23)
+		Me.txtTelefonoAlo.Size = New System.Drawing.Size(204, 23)
 		Me.txtTelefonoAlo.TabIndex = 71
 		'
 		'Label3
@@ -128,7 +128,7 @@ Partial Class vistaReservas
 		Me.txtApellidos.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtApellidos.Location = New System.Drawing.Point(968, 391)
 		Me.txtApellidos.Name = "txtApellidos"
-		Me.txtApellidos.Size = New System.Drawing.Size(189, 23)
+		Me.txtApellidos.Size = New System.Drawing.Size(204, 23)
 		Me.txtApellidos.TabIndex = 69
 		'
 		'Label2
@@ -147,7 +147,7 @@ Partial Class vistaReservas
 		Me.txtNombreUsuario.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtNombreUsuario.Location = New System.Drawing.Point(968, 348)
 		Me.txtNombreUsuario.Name = "txtNombreUsuario"
-		Me.txtNombreUsuario.Size = New System.Drawing.Size(189, 23)
+		Me.txtNombreUsuario.Size = New System.Drawing.Size(204, 23)
 		Me.txtNombreUsuario.TabIndex = 67
 		'
 		'Label1
@@ -161,14 +161,6 @@ Partial Class vistaReservas
 		Me.Label1.TabIndex = 66
 		Me.Label1.Text = "NOMBRE :"
 		'
-		'txtFechaSalida
-		'
-		Me.txtFechaSalida.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtFechaSalida.Location = New System.Drawing.Point(968, 215)
-		Me.txtFechaSalida.Name = "txtFechaSalida"
-		Me.txtFechaSalida.Size = New System.Drawing.Size(189, 23)
-		Me.txtFechaSalida.TabIndex = 84
-		'
 		'Label7
 		'
 		Me.Label7.AutoSize = True
@@ -179,14 +171,6 @@ Partial Class vistaReservas
 		Me.Label7.Size = New System.Drawing.Size(97, 17)
 		Me.Label7.TabIndex = 83
 		Me.Label7.Text = "FECHA DE SALIDA :"
-		'
-		'txtFechaEntrada
-		'
-		Me.txtFechaEntrada.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.txtFechaEntrada.Location = New System.Drawing.Point(968, 172)
-		Me.txtFechaEntrada.Name = "txtFechaEntrada"
-		Me.txtFechaEntrada.Size = New System.Drawing.Size(189, 23)
-		Me.txtFechaEntrada.TabIndex = 82
 		'
 		'Label8
 		'
@@ -204,7 +188,7 @@ Partial Class vistaReservas
 		Me.txtFechaReserva.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtFechaReserva.Location = New System.Drawing.Point(968, 260)
 		Me.txtFechaReserva.Name = "txtFechaReserva"
-		Me.txtFechaReserva.Size = New System.Drawing.Size(189, 23)
+		Me.txtFechaReserva.Size = New System.Drawing.Size(204, 23)
 		Me.txtFechaReserva.TabIndex = 88
 		'
 		'Label9
@@ -223,7 +207,7 @@ Partial Class vistaReservas
 		Me.txtNombreAloj.Font = New System.Drawing.Font("Impact", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.txtNombreAloj.Location = New System.Drawing.Point(968, 129)
 		Me.txtNombreAloj.Name = "txtNombreAloj"
-		Me.txtNombreAloj.Size = New System.Drawing.Size(189, 23)
+		Me.txtNombreAloj.Size = New System.Drawing.Size(204, 23)
 		Me.txtNombreAloj.TabIndex = 93
 		'
 		'Label11
@@ -298,18 +282,18 @@ Partial Class vistaReservas
 		Me.DataGridView1.AllowUserToAddRows = False
 		Me.DataGridView1.AllowUserToDeleteRows = False
 		Me.DataGridView1.AllowUserToResizeRows = False
-		DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-		DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-		Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+		DataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+		DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
+		Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
 		Me.DataGridView1.BackgroundColor = System.Drawing.Color.Black
-		DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-		DataGridViewCellStyle2.BackColor = System.Drawing.Color.Black
-		DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-		DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-		DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-		DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-		Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+		DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+		DataGridViewCellStyle8.BackColor = System.Drawing.Color.Black
+		DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
+		DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+		DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+		DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+		Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
 		Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
 		Me.DataGridView1.Location = New System.Drawing.Point(31, 69)
 		Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
@@ -321,6 +305,22 @@ Partial Class vistaReservas
 		Me.DataGridView1.Size = New System.Drawing.Size(900, 571)
 		Me.DataGridView1.TabIndex = 171
 		'
+		'dtpFechaEntrada
+		'
+		Me.dtpFechaEntrada.Enabled = False
+		Me.dtpFechaEntrada.Location = New System.Drawing.Point(968, 175)
+		Me.dtpFechaEntrada.Name = "dtpFechaEntrada"
+		Me.dtpFechaEntrada.Size = New System.Drawing.Size(204, 20)
+		Me.dtpFechaEntrada.TabIndex = 172
+		'
+		'dtpFechaSalida
+		'
+		Me.dtpFechaSalida.Enabled = False
+		Me.dtpFechaSalida.Location = New System.Drawing.Point(968, 220)
+		Me.dtpFechaSalida.Name = "dtpFechaSalida"
+		Me.dtpFechaSalida.Size = New System.Drawing.Size(204, 20)
+		Me.dtpFechaSalida.TabIndex = 173
+		'
 		'vistaReservas
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -328,6 +328,8 @@ Partial Class vistaReservas
 		Me.BackColor = System.Drawing.Color.Black
 		Me.ClientSize = New System.Drawing.Size(1194, 794)
 		Me.ControlBox = False
+		Me.Controls.Add(Me.dtpFechaSalida)
+		Me.Controls.Add(Me.dtpFechaEntrada)
 		Me.Controls.Add(Me.DataGridView1)
 		Me.Controls.Add(Me.Label16)
 		Me.Controls.Add(Me.Label15)
@@ -338,9 +340,7 @@ Partial Class vistaReservas
 		Me.Controls.Add(Me.Label11)
 		Me.Controls.Add(Me.txtFechaReserva)
 		Me.Controls.Add(Me.Label9)
-		Me.Controls.Add(Me.txtFechaSalida)
 		Me.Controls.Add(Me.Label7)
-		Me.Controls.Add(Me.txtFechaEntrada)
 		Me.Controls.Add(Me.Label8)
 		Me.Controls.Add(Me.btnVolver)
 		Me.Controls.Add(Me.btnEliminar)
@@ -371,9 +371,7 @@ Partial Class vistaReservas
 	Friend WithEvents Label2 As Label
 	Friend WithEvents txtNombreUsuario As TextBox
 	Friend WithEvents Label1 As Label
-	Friend WithEvents txtFechaSalida As TextBox
 	Friend WithEvents Label7 As Label
-	Friend WithEvents txtFechaEntrada As TextBox
 	Friend WithEvents Label8 As Label
 	Friend WithEvents txtFechaReserva As TextBox
 	Friend WithEvents Label9 As Label
@@ -385,4 +383,6 @@ Partial Class vistaReservas
 	Friend WithEvents Label15 As Label
 	Friend WithEvents Label16 As Label
 	Friend WithEvents DataGridView1 As DataGridView
+	Friend WithEvents dtpFechaEntrada As DateTimePicker
+	Friend WithEvents dtpFechaSalida As DateTimePicker
 End Class

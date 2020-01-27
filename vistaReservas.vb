@@ -13,7 +13,7 @@ Public Class vistaReservas
 		funciones.CargarGrid(DataGridView1, queryReservas)
 	End Sub
 
-	Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs) 
+	Private Sub DataGridView1_SelectionChanged(sender As Object, e As EventArgs) Handles DataGridView1.SelectionChanged
 
 		Dim indice = DataGridView1.CurrentCell.RowIndex
 		txtNombreAloj.Text = DataGridView1.Rows(indice).Cells(1).Value
@@ -22,8 +22,8 @@ Public Class vistaReservas
 		txtApellidos.Text = DataGridView1.Rows(indice).Cells(4).Value
 		txtTelefonoAlo.Text = DataGridView1.Rows(indice).Cells(5).Value
 		txtFechaReserva.Text = DataGridView1.Rows(indice).Cells(6).Value
-		txtFechaEntrada.Text = DataGridView1.Rows(indice).Cells(7).Value
-		txtFechaSalida.Text = DataGridView1.Rows(indice).Cells(8).Value
+		dtpFechaEntrada.Value = DataGridView1.Rows(indice).Cells(7).Value
+		dtpFechaSalida.Value = DataGridView1.Rows(indice).Cells(8).Value
 	End Sub
 
 	Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
@@ -41,37 +41,37 @@ Public Class vistaReservas
             funciones.CargarGrid(DataGridView1, queryReservas)
         End If
     End Sub
-    'BOTON CANCELAR
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
-        txtFechaEntrada.Enabled = False
-        txtFechaSalida.Enabled = False
-        btnCancelar.Visible = False
-        btnGuardar.Visible = False
-    End Sub
+	'BOTON CANCELAR
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+		dtpFechaEntrada.Enabled = False
+		dtpFechaSalida.Enabled = False
+		btnCancelar.Visible = False
+		btnGuardar.Visible = False
+	End Sub
 
-    'BOTON MODIFICAR
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
-        txtFechaEntrada.Enabled = True
-        txtFechaSalida.Enabled = True
-        btnCancelar.Visible = True
-        btnGuardar.Visible = True
-    End Sub
-    'BOTON GUARDAR
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+	'BOTON MODIFICAR
+	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+		dtpFechaEntrada.Enabled = True
+		dtpFechaSalida.Enabled = True
+		btnCancelar.Visible = True
+		btnGuardar.Visible = True
+	End Sub
+	'BOTON GUARDAR
+	Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Dim result As DialogResult = MessageBox.Show("Estas seguro que quieres guardar los datos este usuario?", "Atencion", MessageBoxButtons.YesNo)
 		Dim indiceSelect As Integer = DataGridView1.CurrentCell.RowIndex
 		Dim codigo = DataGridView1.Rows(indiceSelect).Cells(0).Value
 
-        If result = DialogResult.Yes Then
-            Dim fecha1 As Date = txtFechaEntrada.Text
-            Dim fecha2 As Date = txtFechaSalida.Text
-            Dim query As String = "UPDATE tReservas SET cFechaEntrada = '" & fecha1.Year & "-" & fecha1.Month & "-" & fecha1.Day & "', cFechaSalida = '" & fecha2.Year & "-" & fecha2.Month & "-" & fecha2.Day & "' WHERE cReserva = " & codigo
-            funciones.LLamadaBD(query)
-            MessageBox.Show("Usuario guardado con exito!")
-        End If
-        txtFechaEntrada.Enabled = False
-        txtFechaSalida.Enabled = False
-        btnCancelar.Visible = False
+		If result = DialogResult.Yes Then
+			Dim fecha1 As Date = dtpFechaEntrada.Value
+			Dim fecha2 As Date = dtpFechaSalida.Value
+			Dim query As String = "UPDATE tReservas SET cFechaEntrada = '" & fecha1.Year & "-" & fecha1.Month & "-" & fecha1.Day & "', cFechaSalida = '" & fecha2.Year & "-" & fecha2.Month & "-" & fecha2.Day & "' WHERE cReserva = " & codigo
+			funciones.LLamadaBD(query)
+			MessageBox.Show("Usuario guardado con exito!")
+		End If
+		dtpFechaEntrada.Enabled = False
+		dtpFechaSalida.Enabled = False
+		btnCancelar.Visible = False
         btnGuardar.Visible = False
         funciones.CargarGrid(DataGridView1, queryReservas)
 
@@ -97,5 +97,10 @@ Public Class vistaReservas
 	Private Sub Button4_Click_1(sender As Object, e As EventArgs)
 		MenuGestion.Show()
 		Me.Close()
+	End Sub
+
+	Private Sub DtpFechaEntrada_ValueChanged(sender As Object, e As EventArgs) Handles dtpFechaEntrada.ValueChanged
+		Console.WriteLine(dtpFechaEntrada.ToString())
+		dtpFechaSalida.MinDate = dtpFechaEntrada.Value.AddDays(1)
 	End Sub
 End Class

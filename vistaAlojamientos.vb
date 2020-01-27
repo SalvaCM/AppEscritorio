@@ -22,7 +22,7 @@ Public Class vistaAlojamientos
 
 	Private Sub ModificarAlojamiento()
 		If (Convert.ToInt32(txtCodigo.Text) <> -1) Then
-			Dim query As String = "Update tAlojamientos set cCapacidad=" & Convert.ToInt32(txtCapacidad.Text) & ",cDescripcion='" & txtDescripcion.Text & "',cDireccion='" & txtDireccion.Text & "',cEmail='" & txtMail.Text & "',cLatitud=" & txtLatitud.Text & ",cLocalidad='" & txtLocalidad.Text & "',cLocalizacion='" & txtLocalizacion.Text & "',cLongitud=" & txtLongitud.Text & ",cNombre='" & txtNombre.Text & "',cTelefono=" & txtTelefono.Text & ",cTipo='" & txtTipo.Text & "',cWeb='" & txtWeb.Text & "'  where cCodAlojamiento=" & Convert.ToInt32(txtCodigo.Text) & " ;"
+			Dim query As String = "Update tAlojamientos set cCapacidad=" & Convert.ToInt32(txtCapacidad.Text) & ",cDescripcion='" & txtDescripcion.Text & "',cDireccion='" & txtDireccion.Text & "',cEmail='" & txtMail.Text & "',cLatitud=" & txtLatitud.Text & ",cLocalidad='" & txtLocalidad.Text & "',cLocalizacion='" & txtLocalizacion.Text & "',cLongitud=" & txtLongitud.Text & ",cNombre='" & txtNombre.Text & "',cTelefono=" & txtTelefono.Text & ",cTipo='" & txtTipo.Text & "',cWeb='" & txtWeb.Text & "'  where cCodAlojamiento=" & Convert.ToInt32(txtCodigo.Text) & ""
 			funciones.LLamadaBD(query)
 			DataGridView1.DataSource = Nothing
 			DataGridView1.Refresh()
@@ -55,8 +55,14 @@ Public Class vistaAlojamientos
 					'		MsgBox("El numero debe ser de 9 cifras")
 					'	End If
 					'End If
+					'If tbox.Name = "txtMail" Then
+					'	If funciones.validarMail(tbox.Text) = False Then
+					'		validado = False
+					'	End If
+					'End If
 				End If
-			End If
+
+				End If
 		Next
 		Return validado
 	End Function
