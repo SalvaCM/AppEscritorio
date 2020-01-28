@@ -67,12 +67,16 @@ Public Class vistaClientes
 	'CREAR UN USUARIO
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnCrear.Click
 
-		habilitarTxt()
-		txtDni.Text = Nothing
+        habilitarTxt()
+        'aqui que se pueda habilitar el campo del dni
+        txtDni.Enabled = True
+        txtDni.Text = Nothing
 		txtNombre.Text = Nothing
 		txtApellidos.Text = Nothing
-		txtTelefono.Text = Nothing
-		modo = "CREAR"
+        txtTelefono.Text = Nothing
+        txtEmail.Text = Nothing
+
+        modo = "CREAR"
 
 	End Sub
 	'funcionalidad del boton que aparece al darle a crear o modificar usuario
@@ -87,21 +91,25 @@ Public Class vistaClientes
 		Dim apellidos = txtApellidos.Text
 		Dim telefono = txtTelefono.Text
 		Dim mail = txtEmail.Text
+        If dni <> "" And nombre <> "" And apellidos <> "" And telefono.Length > 8 And mail <> "" Then
 
-		If result = DialogResult.Yes Then
-			If modo = "MODIFICAR" Then
-				query = "UPDATE tUsuarios SET cDni = '" & dni & "', cNombre = '" & nombre & "', cApellidos = '" & apellidos & "', cTelefono = " & telefono & ", cEmail = '" & mail & "' "
-				query = query + "WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
-			Else
-				query = "insert into tUsuarios (cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail) values ('" & dni & "','" & apellidos & "','default','" & nombre & "'," & telefono & ",'" & mail & "')"
-			End If
-			funciones.LLamadaBD(query)
-			MessageBox.Show("Usuario guardado con exito!")
-			funciones.CargarGrid(DataGridView1, queryUsuarios)
-			deshabilitarTxt()
-		End If
+            If result = DialogResult.Yes Then
+                If modo = "MODIFICAR" Then
+                    query = "UPDATE tUsuarios SET cDni = '" & dni & "', cNombre = '" & nombre & "', cApellidos = '" & apellidos & "', cTelefono = " & telefono & ", cEmail = '" & mail & "' "
+                    query = query + "WHERE cDni = '" & DataGridView1.Rows(indiceSelect).Cells(0).Value & "'"
+                Else
+                    query = "insert into tUsuarios (cDni,cApellidos,cContrasena,cNombre,cTelefono,cEmail) values ('" & dni & "','" & apellidos & "','default','" & nombre & "'," & telefono & ",'" & mail & "')"
+                End If
+                funciones.LLamadaBD(query)
 
-	End Sub
+                funciones.CargarGrid(DataGridView1, queryUsuarios)
+                MessageBox.Show("Usuario guardado con exito!")
+                deshabilitarTxt()
+            End If
+        Else
+            MessageBox.Show("Alguno de estos campos no esta bien insertados!")
+        End If
+    End Sub
 	'BOTON CANCELAR
 	Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
 		deshabilitarTxt()
@@ -127,8 +135,8 @@ Public Class vistaClientes
 
 	End Sub
 	Sub habilitarTxt()
-		txtDni.Enabled = True
-		txtNombre.Enabled = True
+
+        txtNombre.Enabled = True
 		txtApellidos.Enabled = True
 		txtTelefono.Enabled = True
 		DataGridView1.Enabled = False
@@ -181,8 +189,8 @@ Public Class vistaClientes
 					query = query + "AND "
 				End If
 
-				query = query + "cEmail = '" & busMail.Text & "' "
-			End If
+                query = query + "cEmail LIKE '%" & busMail.Text & "%' "
+            End If
 
 			funciones.CargarGrid(DataGridView1, query)
 
@@ -191,8 +199,11 @@ Public Class vistaClientes
 	End Sub
 
 	Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-		funciones.CargarGrid(DataGridView1, queryUsuarios)
-	End Sub
+        funciones.CargarGrid(DataGridView1, queryUsuarios)
+        busNombre.Text = ""
+        busMail.Text = ""
+        busApellido.Text = ""
+    End Sub
 
 	Private Sub LbSalir_Click(sender As Object, e As EventArgs) Handles lbSalir.Click
 		Application.ExitThread()

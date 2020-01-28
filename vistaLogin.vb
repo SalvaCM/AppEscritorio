@@ -30,8 +30,8 @@ Public Class vistaLogin
 		dbUser = datosUser(0)
 		dbPass = datosUser(1)
 		If (usuarioEncriptado = dbUser And passwordEncriptada = dbPass) Then
-			MsgBox("Conectado Satisfactoriamente", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Login!")
-			tipoUser = datosUser(2)
+            'MsgBox("Conectado Satisfactoriamente", MsgBoxStyle.Exclamation + MsgBoxStyle.DefaultButton2, "¡Login!")
+            tipoUser = datosUser(2)
 			Me.Hide()
 			MenuGestion.Show()
 		Else
@@ -43,20 +43,34 @@ Public Class vistaLogin
 		Application.ExitThread()
 	End Sub
 
-	Public Function MD5EncryptPass(ByVal StrPass As String)
-		Dim md5 As MD5CryptoServiceProvider
-		Dim bytValue() As Byte
-		Dim bytHash() As Byte
-		Dim pwEncriptada As String = Nothing
-		Dim i As Integer
+    Public Function MD5EncryptPass(ByVal StrPass As String)
+        Dim md5 As MD5CryptoServiceProvider
+        Dim bytValue() As Byte
+        Dim bytHash() As Byte
+        Dim pwEncriptada As String = Nothing
+        Dim i As Integer
 
-		md5 = New MD5CryptoServiceProvider
-		bytValue = System.Text.Encoding.UTF8.GetBytes(StrPass)
-		bytHash = md5.ComputeHash(bytValue)
-		md5.Clear()
-		For i = 0 To bytHash.Length - 1
-			pwEncriptada &= bytHash(i).ToString("x").PadLeft(2, "0")
-		Next
-		Return pwEncriptada
-	End Function
+        md5 = New MD5CryptoServiceProvider
+        bytValue = System.Text.Encoding.UTF8.GetBytes(StrPass)
+        bytHash = md5.ComputeHash(bytValue)
+        md5.Clear()
+        For i = 0 To bytHash.Length - 1
+            pwEncriptada &= bytHash(i).ToString("x").PadLeft(2, "0")
+        Next
+        Return pwEncriptada
+    End Function
+
+    Private Sub TxtPassword_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPassword.KeyDown
+        If e.KeyCode = Keys.Enter Then
+
+            If (txtNombre.Text = "") Then
+                MsgBox("Introduzca Usuario", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Error!")
+            ElseIf (txtPassword.Text = "") Then
+                MsgBox("Introduzca Contraseña", MsgBoxStyle.Information + MsgBoxStyle.DefaultButton2, "¡Error!")
+            Else
+                conectarUsuario()
+            End If
+
+        End If
+    End Sub
 End Class

@@ -67,8 +67,8 @@ Public Class vistaReservas
 			Dim fecha2 As Date = dtpFechaSalida.Value
 			Dim query As String = "UPDATE tReservas SET cFechaEntrada = '" & fecha1.Year & "-" & fecha1.Month & "-" & fecha1.Day & "', cFechaSalida = '" & fecha2.Year & "-" & fecha2.Month & "-" & fecha2.Day & "' WHERE cReserva = " & codigo
 			funciones.LLamadaBD(query)
-			MessageBox.Show("Usuario guardado con exito!")
-		End If
+            MessageBox.Show("Reserva guardada con exito!")
+        End If
 		dtpFechaEntrada.Enabled = False
 		dtpFechaSalida.Enabled = False
 		btnCancelar.Visible = False
@@ -93,14 +93,14 @@ Public Class vistaReservas
 		'btnVolver.Enabled = True
 
 	End Sub
-
-	Private Sub Button4_Click_1(sender As Object, e As EventArgs)
+    'boton volver
+    Private Sub Button4_Click_1(sender As Object, e As EventArgs)
 		MenuGestion.Show()
 		Me.Close()
 	End Sub
 
 	Private Sub DtpFechaEntrada_ValueChanged(sender As Object, e As EventArgs) Handles dtpFechaEntrada.ValueChanged
 		Console.WriteLine(dtpFechaEntrada.ToString())
-		dtpFechaSalida.MinDate = dtpFechaEntrada.Value.AddDays(1)
-	End Sub
+        dtpFechaSalida.MinDate = dtpFechaEntrada.Value.AddDays(0)
+    End Sub
 End Class
