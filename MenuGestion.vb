@@ -91,20 +91,33 @@ Public Class MenuGestion
 		Finally
 			conexion.con.Close()
 		End Try
-		'Dim milliseconds = CLng(DateTime.UtcNow.Subtract(New DateTime(1970, 1, 1)).TotalSeconds)
-		'Console.WriteLine("primer punto" & milliseconds)
+        'Dim milliseconds = CLng(DateTime.UtcNow.Subtract(New DateTime(1970, 1, 1)).TotalSeconds)
+        'Console.WriteLine("primer punto" & milliseconds)
 
-		'Guardar los elementos en el xlsx
-		oBook.SaveAs("InformeAlojamientos.xlsx")
-		oExcel.Quit
+        'si el directorio no existe, te lo crea
+        If (Not IO.Directory.Exists("C:\Informes")) Then
+            IO.Directory.CreateDirectory("C:\Informes")
+        End If
+        'se elimina el archivo si existe
+        Dim paths() As String = IO.Directory.GetFiles("C:\Informes\", "InformeAlojamientos.xlsx")
+        If paths.Length > 0 Then
+            For x As Integer = 0 To paths.Length - 1
+                IO.File.Delete(paths(x))
+            Next
+        End If
 
-		'Dim milliseconds2 = CLng(DateTime.UtcNow.Subtract(New DateTime(1970, 1, 1)).TotalSeconds)
-		'Console.WriteLine("2 punto" & milliseconds2)
-		'Console.WriteLine("tiempo total" & milliseconds - milliseconds2)
+
+        'Guardar los elementos en el xlsx
+        oBook.SaveAs("C:\Informes\InformeAlojamientos.xlsx")
+        oExcel.Quit
+
+        'Dim milliseconds2 = CLng(DateTime.UtcNow.Subtract(New DateTime(1970, 1, 1)).TotalSeconds)
+        'Console.WriteLine("2 punto" & milliseconds2)
+        'Console.WriteLine("tiempo total" & milliseconds - milliseconds2)
 
 
-		MsgBox("Informe Generado! El archivo se guardara en la carpeta de Documentos")
-	End Sub
+        MsgBox("Informe Generado! El archivo se guardara en la carpeta de C:\Informes")
+    End Sub
 	' INFORME USUARIOS
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnInformeUser.Click
 		Dim oExcel As Object
@@ -136,36 +149,44 @@ Public Class MenuGestion
 		oSheet.Range("A1:E1").Interior.Color = Color.BlanchedAlmond
 
 
-		Try
-			Dim query As String = "SELECT * FROM tUsuarios"
-			Dim cmd As New MySqlCommand(query, conexion.con)
-			conexion.con.Open()
-			Dim sqlReader As MySqlDataReader = cmd.ExecuteReader()
-			'vamos leyendo en la base de datos e introduciendo los elementos en el excel
-			While sqlReader.Read()
+        Try
+            Dim query As String = "SELECT * FROM tUsuarios"
+            Dim cmd As New MySqlCommand(query, conexion.con)
+            conexion.con.Open()
+            Dim sqlReader As MySqlDataReader = cmd.ExecuteReader()
+            'vamos leyendo en la base de datos e introduciendo los elementos en el excel
+            While sqlReader.Read()
 
-				oSheet.Range("A" & contador).Value = sqlReader("cDni").ToString()
-				oSheet.Range("B" & contador).Value = sqlReader("cNombre").ToString()
-				oSheet.Range("C" & contador).Value = sqlReader("cApellidos").ToString()
-				oSheet.Range("D" & contador).Value = sqlReader("cTelefono").ToString()
-				oSheet.Range("E" & contador).Value = sqlReader("cEmail").ToString()
-				contador = contador + 1
+                oSheet.Range("A" & contador).Value = sqlReader("cDni").ToString()
+                oSheet.Range("B" & contador).Value = sqlReader("cNombre").ToString()
+                oSheet.Range("C" & contador).Value = sqlReader("cApellidos").ToString()
+                oSheet.Range("D" & contador).Value = sqlReader("cTelefono").ToString()
+                oSheet.Range("E" & contador).Value = sqlReader("cEmail").ToString()
+                contador = contador + 1
 
-			End While
-		Catch ex As MySqlException
-			' add your exception here '
-		Finally
-			conexion.con.Close()
-		End Try
+            End While
+        Catch ex As MySqlException
+            ' add your exception here '
+        Finally
+            conexion.con.Close()
+        End Try
+        'si el directorio no existe
+        If (Not IO.Directory.Exists("C:\Informes")) Then
+            IO.Directory.CreateDirectory("C:\Informes")
+        End If
+        'se elimina el archivo si existe
+        Dim paths() As String = IO.Directory.GetFiles("C:\Informes\", "InformeUsuarios.xlsx")
+        If paths.Length > 0 Then
+            For x As Integer = 0 To paths.Length - 1
+                IO.File.Delete(paths(x))
+            Next
+        End If
+        'Guardar los elementos en el xlsx
+        oBook.SaveAs("C:\Informes\InformeUsuarios.xlsx")
+        oExcel.Quit
 
-
-
-		'Guardar los elementos en el xlsx
-		oBook.SaveAs("InformeUsuarios.xlsx")
-		oExcel.Quit
-
-		MsgBox("Informe Generado! El archivo se guardara en la carpeta de Documentos")
-	End Sub
+        MsgBox("Informe Generado! El archivo se guardara en la carpeta de C:/Informes")
+    End Sub
 	'INFORME RESERVAS
 	Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnInformeRes.Click
 
@@ -201,39 +222,49 @@ Public Class MenuGestion
 
 
 
-		Try
-			Dim query As String = "SELECT * FROM tReservas"
-			Dim cmd As New MySqlCommand(query, conexion.con)
-			conexion.con.Open()
-			Dim sqlReader As MySqlDataReader = cmd.ExecuteReader()
+        Try
+            Dim query As String = "SELECT * FROM tReservas"
+            Dim cmd As New MySqlCommand(query, conexion.con)
+            conexion.con.Open()
+            Dim sqlReader As MySqlDataReader = cmd.ExecuteReader()
 
-			'vamos leyendo en la base de datos e introduciendo los elementos en el excel
-			While sqlReader.Read()
+            'vamos leyendo en la base de datos e introduciendo los elementos en el excel
+            While sqlReader.Read()
 
-				oSheet.Range("A" & contador).Value = sqlReader("cReserva").ToString()
-				oSheet.Range("B" & contador).Value = sqlReader("cCodAlojamiento").ToString()
-				oSheet.Range("C" & contador).Value = sqlReader("cCodUsuario").ToString()
-				oSheet.Range("D" & contador).Value = sqlReader("cFechaEntrada").ToString()
-				oSheet.Range("E" & contador).Value = sqlReader("cFechaRealizada").ToString()
-				oSheet.Range("F" & contador).Value = sqlReader("cFechaSalida").ToString()
-				contador = contador + 1
+                oSheet.Range("A" & contador).Value = sqlReader("cReserva").ToString()
+                oSheet.Range("B" & contador).Value = sqlReader("cCodAlojamiento").ToString()
+                oSheet.Range("C" & contador).Value = sqlReader("cCodUsuario").ToString()
+                oSheet.Range("D" & contador).Value = sqlReader("cFechaEntrada").ToString()
+                oSheet.Range("E" & contador).Value = sqlReader("cFechaRealizada").ToString()
+                oSheet.Range("F" & contador).Value = sqlReader("cFechaSalida").ToString()
+                contador = contador + 1
 
-			End While
-		Catch ex As MySqlException
-			' add your exception here '
-		Finally
-			conexion.con.Close()
-		End Try
+            End While
+        Catch ex As MySqlException
+            ' add your exception here '
+        Finally
+            conexion.con.Close()
+        End Try
+        'si el directorio no existe, te lo crea
+        If (Not IO.Directory.Exists("C:\Informes")) Then
+            IO.Directory.CreateDirectory("C:\Informes")
+        End If
+        'se elimina el archivo si existe
+        Dim paths() As String = IO.Directory.GetFiles("C:\Informes\", "InformeReservas.xlsx")
+        If paths.Length > 0 Then
+            For x As Integer = 0 To paths.Length - 1
+                IO.File.Delete(paths(x))
+            Next
+        End If
 
 
+        'Guardar los elementos en el xlsx
+        oBook.SaveAs("C:\Informes\InformeReservas.xlsx")
+        oExcel.Quit
 
-		'Guardar los elementos en el xlsx
-		oBook.SaveAs("InformeReservas.xlsx")
-		oExcel.Quit
+        MsgBox("Informe Generado! El archivo se guardara en la carpeta de C:\Informes")
 
-		MsgBox("Informe Generado! El archivo se guardara en la carpeta de Documentos")
-
-	End Sub
+    End Sub
 
 	Private Sub LblSalir_Click(sender As Object, e As EventArgs) Handles lblSalir.Click
 		Application.ExitThread()
@@ -293,13 +324,25 @@ Public Class MenuGestion
 		End Try
 
 
+        'si el directorio no existe, te lo crea
+        If (Not IO.Directory.Exists("C:\Informes")) Then
+            IO.Directory.CreateDirectory("C:\Informes")
+        End If
+        'se elimina el archivo si existe
+        Dim paths() As String = IO.Directory.GetFiles("C:\Informes\", "InformeAdministradores.xlsx")
+        If paths.Length > 0 Then
+            For x As Integer = 0 To paths.Length - 1
+                IO.File.Delete(paths(x))
+            Next
+        End If
 
-		'Guardar los elementos en el xlsx
-		oBook.SaveAs("InformeAdministradores.xlsx")
-		oExcel.Quit
 
-		MsgBox("Informe Generado! El archivo se guardara en la carpeta de Documentos")
-	End Sub
+        'Guardar los elementos en el xlsx
+        oBook.SaveAs("C:\Informes\InformeAdministradores.xlsx")
+        oExcel.Quit
+
+        MsgBox("Informe Generado! El archivo se guardara en la carpeta de C:\Informes")
+    End Sub
 
 	Private Sub MenuGestion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		If vistaLogin.tipoUser = "admin" Then
