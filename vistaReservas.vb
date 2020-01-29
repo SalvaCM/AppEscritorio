@@ -54,8 +54,9 @@ Public Class vistaReservas
 		dtpFechaEntrada.Enabled = True
 		dtpFechaSalida.Enabled = True
 		btnCancelar.Visible = True
-		btnGuardar.Visible = True
-	End Sub
+        btnGuardar.Visible = True
+        dtpFechaEntrada.Select()
+    End Sub
 	'BOTON GUARDAR
 	Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Dim result As DialogResult = MessageBox.Show("Estas seguro que quieres guardar los datos este usuario?", "Atencion", MessageBoxButtons.YesNo)

@@ -140,21 +140,23 @@ Public Class vistaAdministradores
 		comboTipoUsuario.Enabled = False
 
 	End Sub
-	Sub habilitarTxt()
-		txtDni.Enabled = True
-		txtNombre.Enabled = True
-		txtApellidos.Enabled = True
-		txtTelefono.Enabled = True
-		txtPassw.Enabled = True
-		DataGridView1.Enabled = False
-		btnCrear.Enabled = False
-		btnModificar.Enabled = False
-		btnEliminar.Enabled = False
-		btnCancelar.Visible = True
-		btnModi.Visible = True
-		comboTipoUsuario.Enabled = True
-	End Sub
-	Private Sub BtnActualizar_Click(sender As Object, e As EventArgs)
+    Sub habilitarTxt()
+
+        txtDni.Enabled = True
+        txtDni.Select()
+        txtNombre.Enabled = True
+        txtApellidos.Enabled = True
+        txtTelefono.Enabled = True
+        txtPassw.Enabled = True
+        DataGridView1.Enabled = False
+        btnCrear.Enabled = False
+        btnModificar.Enabled = False
+        btnEliminar.Enabled = False
+        btnCancelar.Visible = True
+        btnModi.Visible = True
+        comboTipoUsuario.Enabled = True
+    End Sub
+    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs)
 		funciones.CargarGrid(DataGridView1, queryAdmins)
 	End Sub
 	Private Sub lblSalir_Click(sender As Object, e As EventArgs) Handles lblSalir.Click

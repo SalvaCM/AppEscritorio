@@ -58,8 +58,10 @@ Public Class vistaClientes
 			txtNombre.Text = DataGridView1.Rows(indiceSelect).Cells(2).Value
 			txtApellidos.Text = DataGridView1.Rows(indiceSelect).Cells(1).Value
 			txtTelefono.Text = DataGridView1.Rows(indiceSelect).Cells(3).Value
-			txtEmail.Text = DataGridView1.Rows(indiceSelect).Cells(4).Value
-			modo = "MODIFICAR"
+            txtEmail.Text = DataGridView1.Rows(indiceSelect).Cells(4).Value
+            txtNombre.Select()
+
+            modo = "MODIFICAR"
 		End If
 
 	End Sub
@@ -75,7 +77,7 @@ Public Class vistaClientes
 		txtApellidos.Text = Nothing
         txtTelefono.Text = Nothing
         txtEmail.Text = Nothing
-
+        txtDni.Select()
         modo = "CREAR"
 
 	End Sub
@@ -205,7 +207,8 @@ Public Class vistaClientes
         busApellido.Text = ""
     End Sub
 
-	Private Sub LbSalir_Click(sender As Object, e As EventArgs) Handles lbSalir.Click
-		Application.ExitThread()
-	End Sub
+    Private Sub LbSalir_Click(sender As Object, e As EventArgs) Handles lbSalir.Click
+        Application.ExitThread()
+    End Sub
+
 End Class
