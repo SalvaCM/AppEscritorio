@@ -35,7 +35,7 @@ Public Class vistaReservas
         Else
             Dim result As DialogResult = MessageBox.Show("Estas seguro que quieres eliminar esta reserva?", "Atencion", MessageBoxButtons.YesNo)
             If (result = DialogResult.Yes) Then
-                query = "DELETE FROM treservas WHERE cReserva = " & DataGridView1.Rows(indiceSelect).Cells(0).Value
+                query = "DELETE FROM tReservas WHERE cReserva = " & DataGridView1.Rows(indiceSelect).Cells(0).Value
                 funciones.LLamadaBD(query)
             End If
             funciones.CargarGrid(DataGridView1, queryReservas)
