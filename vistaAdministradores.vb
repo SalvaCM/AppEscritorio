@@ -53,8 +53,10 @@ Public Class vistaAdministradores
 			MsgBox("No tienes seleccionado un usuario")
 		Else
 			habilitarTxt()
+            txtDni.Enabled = False
+            txtNombre.Select()
 
-			If (cambiarPw = DialogResult.No) Then
+            If (cambiarPw = DialogResult.No) Then
 				txtPassw.Enabled = False
 				txtPassw.Text = DataGridView1.Rows(indiceSelect).Cells(5).Value
 			Else
@@ -74,8 +76,8 @@ Public Class vistaAdministradores
 
 		habilitarTxt()
 		limpiarCampos()
-
-		modo = "CREAR"
+        txtDni.Select()
+        modo = "CREAR"
 
 	End Sub
 	Private Sub limpiarCampos()
@@ -143,7 +145,6 @@ Public Class vistaAdministradores
     Sub habilitarTxt()
 
         txtDni.Enabled = True
-        txtDni.Select()
         txtNombre.Enabled = True
         txtApellidos.Enabled = True
         txtTelefono.Enabled = True
